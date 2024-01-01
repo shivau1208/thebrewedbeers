@@ -1,0 +1,78 @@
+.beerProducts{
+    display: grid;
+    grid-template-columns: repeat(5,200px);
+    gap: 20px 30px;
+    margin: 80px 8%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 2rem;
+}
+.beerProducts .beer{
+    border-radius: 1rem;
+    background: #f2f4fd;
+}
+.beerProducts .beer .beerImage{
+    display: flex;
+    justify-content: center;
+    padding: 0.6rem 0;
+    filter: drop-shadow(2px 5px 8px #000);
+}
+.beerProducts .beer .beerDetails{
+    padding: 0.4rem 0.5rem;
+    background: #eaeefc;
+    border-radius: 0 0 1rem 1rem;
+}
+.beerProducts .beer .beerDetails h3,p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.1rem;
+}
+
+@media (768px < width <= 1400px){
+    .beerProducts{
+        display: grid;
+        grid-template-columns: repeat(4,200px);
+        gap: 20px 30px;
+        margin: 90px 8%;
+    }
+}
+@media screen and (width <=768px){
+    .beerProducts{
+        display: grid;
+        grid-template-columns: repeat(1,330px);
+        grid-row: 20px;
+    }
+    .beerProducts .beer{
+        display: flex;
+        border-radius: 1rem;
+        background: #f2f4fd;
+    }
+    .beerProducts .beer .beerImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.6rem 0.5rem;
+        filter: drop-shadow(2px 5px 8px #000);
+        flex: 0 0 100px;
+    }
+    .beerProducts .beer .beerDetails{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0.4rem 0.5rem;
+        background: #eaeefc;
+        border-radius: 0 1rem 1rem 0;
+        overflow: hidden;
+        flex: 1;
+    }
+    .beerProducts .beer .beerDetails h3,p{
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.1rem;
+    }
+    
+}

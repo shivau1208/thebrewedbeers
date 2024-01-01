@@ -1,0 +1,188 @@
+.cartPage{
+    display:flex;
+    background:#F1F3F6;
+    height: 100vh;
+}
+.modal{
+    width: 50vw;
+    min-height: 500px;
+    height: 65svh;
+    margin-top: 80px ;
+    margin-left: 20%;
+    background: #fff;
+    border-radius:0.3rem;
+    box-shadow:  0 1px 6px #ccc;
+    overflow-y: auto;
+    padding:2rem;
+}
+.modal::-webkit-scrollbar{
+    display: none;
+}
+.cartBeer{
+    display: flex;
+    border-radius: 1rem;
+    background: #f2f4fd;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.cartBeer .cartBeerImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex:  0 0 100px;
+    padding: 0.6rem 0.5rem;
+    filter: drop-shadow(2px 5px 8px #000);
+}
+.cartBeer .cartBeerDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 0.4rem 0.5rem;
+    background: #eaeefc;
+    border-radius: 0 1rem 1rem 0;
+    flex: 1;
+    overflow: hidden;
+}
+.cartBeer .cartBeerDetails h3,p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.2rem;
+    max-width: 100%;
+}
+.cartTotal{
+    display:flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+}
+.priceDetails{
+    position:fixed;
+    width:400px;
+    height:250px;
+    border-radius:0.3rem;
+    background:#fff;
+    padding:1rem 0;
+    box-shadow: 0 0 5px #f9f9f9;
+    margin:80px 0
+}
+
+@media (768px < width<=1400px){
+    .cartPage{
+        display:flex;
+        height: 100%;
+        
+    }
+    .modal{
+        position: relative;
+        min-height: 500px;
+        height: 60svh;
+        margin: 80px 5%;
+        background:#fff;
+        border-radius:0.5rem;
+        box-shadow:  0 1px 6px #ccc;
+        overflow-y: auto;
+        padding: 2rem;
+    }
+    .cartBeer{
+        display: flex;
+        border-radius: 1rem;
+        background: #f2f4fd;
+        margin-bottom: 1rem;
+        position: relative;
+    }
+    .cartBeer .cartBeerImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex:0 0 100px;
+        padding: 0.6rem 0.5rem;
+        filter: drop-shadow(2px 5px 8px #000);
+    }
+    .cartBeer .cartBeerDetails{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0.4rem 0.5rem;
+        background: #eaeefc;
+        border-radius: 0 1rem 1rem 0;
+        flex: 1;
+        overflow: hidden
+        ;
+    }
+    .priceDetails{
+        position: fixed;
+        right: 0;
+        width:300px;
+        border-radius:0.5rem 0 0 0.5rem;
+        background:#fff;
+        padding:0.5rem 0;
+        margin-bottom: 0;
+        box-shadow: 0 0 5px #f9f9f9;
+    }
+}
+@media (width<=768px){
+    .cartPage{
+        display:flex;
+        flex-direction: column;
+        height: 100vh;
+        margin-bottom: 0;
+        
+    }
+    .modal{
+        width: 90vw;
+        min-height: 400px;
+        height: 60svh;
+        margin: 80px 5%;
+        background:#fff;
+        border-radius:2rem;
+        box-shadow:  0 1px 6px #ccc;
+        overflow-y: auto;
+        padding: 2rem;
+    }
+    .cartBeer{
+        display: flex;
+        border-radius: 1rem;
+        background: #f2f4fd;
+        margin-bottom: 1rem;
+        position: relative;
+    }
+    .cartBeer .cartBeerImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex:0 0 100px;
+        padding: 0.6rem 0.5rem;
+        filter: drop-shadow(2px 5px 8px #000);
+    }
+    .cartBeer .cartBeerDetails{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0.4rem 0.5rem;
+        background: #eaeefc;
+        border-radius: 0 1rem 1rem 0;
+        flex: 1;
+        overflow: hidden;
+    }
+    .cartBeer .cartBeerDetails h3,p{
+        white-space: wrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.1rem;
+        max-width: 100%;
+    }
+    .priceDetails{
+        position:fixed;
+        left: 5%;
+        bottom: 0;
+        width:90vw;
+        border-radius:2rem 2rem 0 0;
+        background:#fff;
+        padding:0.5rem 0;
+        margin-bottom: 0;
+        box-shadow: 0 0 5px #f9f9f9;
+    }
+}
