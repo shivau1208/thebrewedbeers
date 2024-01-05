@@ -134,7 +134,7 @@ export default function Contextapi({children}) {
         }
     ])
     const [data,setData] = useState([])
-    const [itemCount,setItemCount] = useState(0)
+    // const [isDarkMode,setDarkMode] = useState(true)
     const fetchData = async () => {
         const response = await axios.get('https://api.punkapi.com/v2/beers')
             .then(res => res.data)
@@ -174,18 +174,25 @@ export default function Contextapi({children}) {
             prevCartItems.map(cartItem=>cartItem.item.id===id ? {...cartItem,quantity:cartItem.quantity === 0 ? 0 : cartItem.quantity - 1} : cartItem)    
         )
     }
+    // const toggleTheme = ()=>{
+    //     setDarkMode((prevState)=>!prevState)
+    // }
+
+    // const theme = isDarkMode ? 'dark' : 'light'
+    // useEffect(()=>{
+    //     document.documentElement.setAttribute('data-theme',theme)
+    // },[isDarkMode])
 
   return (
     <BeersContext.Provider value={{
-        data:data,
-        itemCount:itemCount,
-        addToCart:addToCart,
-        removeFromCart:removeFromCart,
-        reduceFromCart:reduceFromCart,
-        increaseToCart:increaseToCart,
-        cartItems:cartItems,
-        show:show,
-        setShow:setShow,
+        data,
+        addToCart,
+        removeFromCart,
+        reduceFromCart,
+        increaseToCart,
+        cartItems,
+        show,
+        setShow,
     }}>
         {children}
     </BeersContext.Provider>

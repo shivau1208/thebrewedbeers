@@ -1,7 +1,9 @@
-import './ListBeer.css'
 import React, { useContext, useEffect } from 'react'
 import { BeersContext } from '../../context/contextapi'
-import SingleBeer from '../singleBeer'
+import './home.css'
+import SingleBeer from '../../components/singleBeer'
+import Footer from '../../components/footer/footer'
+
 
 
 export default function ListBeers() {
@@ -11,7 +13,7 @@ export default function ListBeers() {
         setShow(true)
     },[])
     return (
-        <div>
+        <div className='home'>
             <div className='beerContainer'>
                 {data.filter((beer,index)=>index in [0,1,2,3,4,5]).map((beer, index) =>
                     <SingleBeer key={index} beer={beer} />
@@ -21,6 +23,7 @@ export default function ListBeers() {
                 <div className="">
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

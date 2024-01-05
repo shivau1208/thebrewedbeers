@@ -13,6 +13,28 @@ body{
 ::before{
     box-sizing: border-box;
 }
+[data-theme='light']{
+    --bg-color: #fff;
+    --text-color: #272727;    
+    --heading-color: #272727;    
+}
+[data-theme='dark']{
+    --bg-color: #272727;
+    --text-color: #fff;    
+    --heading-color: #fff;    
+}
+::-webkit-scrollbar{
+    width: 8px;
+}
+::-webkit-scrollbar-track{
+    background: #cdc9c9;
+}
+::-webkit-scrollbar-thumb{
+    background: #888;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #747373;
+}
 .beer{
     position: relative;
 }

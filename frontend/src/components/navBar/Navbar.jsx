@@ -26,21 +26,39 @@ const CartItems = styled.span`
     padding:0.5rem;
 `;
 
-
+export const AddClass = ()=>{
+    let lis = document.querySelectorAll('li')
+    for (var i=0;i<lis.length;i++){
+        lis[i].addEventListener('click',function(){
+            var current = document.getElementsByClassName('active')
+            if(current.length>0){
+                current[0].classList.remove('active')
+            }
+            this.classList.add('active')
+        })
+    }
+}
+export const removeClass = ()=>{
+    let lis = document.querySelectorAll('li')
+    lis.forEach(li=>li.className = '')
+}
 export default function Navbar() {
-    const { cartItems,show,setShow } = useContext(BeersContext)
+    const { cartItems,show,setShow} = useContext(BeersContext)
 
     function Close() {
         let sidebar = document.querySelector('.sidebarTabs')
         sidebar.style.width = '0px'
+        removeClass()
     }
     function MenuIcon() {
         let sidebar = document.querySelector('.sidebarTabs')
         sidebar.style.width = '200px'
     }
+    
     useEffect(()=>{
-        setShow(true)
+        AddClass()
     },[])
+
     
 
     return (
@@ -51,10 +69,10 @@ export default function Navbar() {
                 </div>
                 <div className="sideList">
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="#">About</Link></li>
-                        <li><Link to="/products">Products</Link></li>
-                        <li><Link to="#">Contact Us</Link></li>
+                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/products"><li>Beers</li></Link>
+                        <Link to="#"><li>Dining</li></Link>
+                        <Link to="#"><li>About</li></Link>
                     </ul>
                 </div>
             </div>
@@ -62,7 +80,7 @@ export default function Navbar() {
                 <div className='menuIcon' onClick={MenuIcon} >
                     <img src="/menu-alt-1-svgrepo-com.svg" alt="menu" srcSet="" width='35' />
                 </div>
-                <div className='logo'>
+                <div className='logo' style={{cursor:'pointer'}} onClick={()=>{window.location.replace(window.location.origin)} }>
                     <img width="35" src="/beer-mug-2-svgrepo-com.svg" alt="logo" />
                 </div>
                 {show && <div className='searchBar'>
@@ -71,18 +89,22 @@ export default function Navbar() {
                 </div>}
                 <div className="navbarTabs">
                     <ul className='menuList'>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="#">About</Link></li>
-                        <li><Link to="/products">Products</Link></li>
-                        <li><Link to="#">Contact Us</Link></li>
+                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/products"><li>Beers</li></Link>
+                        <Link to="#"><li>Dining</li></Link>
+                        <Link to="#"><li>About</li></Link>
+                        {/* {show && <Link to="#"><li className='orderOnline'>Order Online</li></Link>} */}
                     </ul>
                 </div>
-                {show && <Cart className='cart'>
-                    <Link to="/cartitems">
+                {show && <Link to="/cartitems"> 
+                    <Cart className='cart' onClick={()=>removeClass()}>
                         <img width='35' src="/cart-large-minimalistic-svgrepo-com.svg" alt="" srcSet="" />
-                    </Link>
                     <CartItems>{cartItems.length}</CartItems>
-                </Cart>}
+                    </Cart>
+                </Link>}
+                {/* <div onClick={()=>toggleTheme()}>
+                    {theme ? <div className='theme'><img src="/sun-svgrepo-com.svg" alt="darkTheme" srcset="" width='30' /></div> : <div className='theme'><img src="/moon-svgrepo-com.svg" alt="darkTheme" srcset="" width='30' /></div>}
+                </div> */}
                 <div className='account'>
                     <img width="35" src="/user-circle-svgrepo-com.svg" alt="external-user-circle-users-dashed-line-kawalan-studio" />
                 </div>

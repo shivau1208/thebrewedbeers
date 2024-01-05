@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
 import styled from 'styled-components';
 import './cartComp.css'
 import { BeersContext } from '../../context/contextapi';
+import Emptycart from './emptyCart';
 
 const MinusCartButton = styled.div`
   position:absolute;
@@ -41,13 +43,6 @@ const CloseButton = styled.div`
     font-size:12px;
     cursor:pointer;
 `;
-const CartTotal = styled.div`
-    
-`;
-const PriceDetails = styled.div`
-    
-
-`;
 const Header4 = styled.div`
     display:flex;
     justify-content:space-between;
@@ -60,55 +55,67 @@ const Header2 = styled.div`
 `;
 
 export default function CartComp() {
-    const { cartItems, itemCount, addToCart, removeFromCart, reduceFromCart, increaseToCart,setShow } = useContext(BeersContext)
+    const { cartItems, removeFromCart, reduceFromCart, increaseToCart,setShow } = useContext(BeersContext)
     const Total = ()=>{
-        let _total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.id*curr.item.abv)),0)
-        return _total;
+        let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.id*curr.item.abv)),0)
+        return total;
     }
+    
     useEffect(()=>{
+        console.log(cartItems)
         setShow(false)
     },[])
 
     return (
         <div className='cartPage'>
-            <div className='modal'>
-                {cartItems.filter((beer, index) => cartItems.findIndex((cartItem) => cartItem.item.id === beer.item.id) === index).map((beer, index) =>
-                    <div key={index} className='cartBeer'>
-                        <div className='cartBeerImage'>
-                            <img src={beer.item.image_url} alt={beer.item.name} height='150' />
-                        </div>
-                        <div className='cartBeerDetails'>
-                            <h3>{beer.item.name}</h3>
-                            <p>{beer.item.tagline}</p>
-                            <p>mfg: {beer.item.first_brewed}</p>
-                            <p>Price: $ {(beer.item.id * beer.item.abv).toFixed(2)}</p>
-                        </div>
-                        <CloseButton onClick={() => removeFromCart(beer.item.id)}>
-                            <img src="/close-svgrepo-com.svg" alt="close" srcSet="" width='30' />
-                        </CloseButton>
-                        <CartLength aria-disabled>{beer.quantity}</CartLength>
-                        <MinusCartButton onClick={() => reduceFromCart(beer.item.id)}>
-                            <img src="/minus-svgrepo-com.svg" alt="" srcSet='' width='30' />
-                        </MinusCartButton>
-                        <PlusCartButton onClick={() => increaseToCart(beer.item.id)}>
-                            <img src="/plus-svgrepo-com.svg" alt="" width='30' />
-                        </PlusCartButton>
+            {cartItems.length ? 
+                <>
+                    <div className='modal'>
+                        {cartItems.filter((beer, index) => cartItems.findIndex((cartItem) => cartItem.item.id === beer.item.id) === index).map((beer, index) =>
+                            <div key={index} className='cartBeer'>
+                                <div className='cartBeerImage'>
+                                    <img src={beer.item.image_url} alt={beer.item.name} height='150' />
+                                </div>
+                                <div className='cartBeerDetails'>
+                                    <h3>{beer.item.name}</h3>
+                                    <p>{beer.item.tagline}</p>
+                                    <p>mfg: {beer.item.first_brewed}</p>
+                                    <p>Price: $ {(beer.item.id * beer.item.abv).toFixed(2)}</p>
+                                </div>
+                                <CloseButton onClick={() => removeFromCart(beer.item.id)}>
+                                    <img src="/close-svgrepo-com.svg" alt="close" srcSet="" width='30' />
+                                </CloseButton>
+                                <CartLength aria-disabled>{beer.quantity}</CartLength>
+                                <MinusCartButton onClick={() => reduceFromCart(beer.item.id)}>
+                                    <img src="/minus-svgrepo-com.svg" alt="" srcSet='' width='30' />
+                                </MinusCartButton>
+                                <PlusCartButton onClick={() => increaseToCart(beer.item.id)}>
+                                    <img src="/plus-svgrepo-com.svg" alt="" width='30' />
+                                </PlusCartButton>
+                            </div>
+                        )}
                     </div>
-                )}
-            </div>
-            <div className='cartTotal'>
-                <div className='priceDetails'>
-                    <p style={{fontSize:'18px',padding:'0.5rem 1rem'}}>Price Details</p>
-                    <hr />
-                    <Header4><span>{`Price (${cartItems.length} item)`}</span><span>{(cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.id*curr.item.abv)),0)).toFixed(2)}</span></Header4>
-                    <Header4><span>Discount</span><span>5%</span></Header4>
-                    <Header4><span>Delivery Charges</span><span>Free</span></Header4>
-                    <hr />
-                    <Header2><h3>Total Mount</h3><h3>$ {(Total()-(Total()*5/100)).toFixed(2)}</h3></Header2>
-                    <hr />
-                </div>
-                {/* <div>hello</div> */}
-            </div>
+                    <div className='cartTotal'>
+                        <div className='priceDetails'>
+                            <p style={{fontSize:'18px',padding:'0.5rem 1rem'}}>Price Details</p>
+                            <hr />
+                            <Header4><span>{`Price (${cartItems.length} item)`}</span><span>{(cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.id*curr.item.abv)),0)).toFixed(2)}</span></Header4>
+                            <Header4><span>Discount</span><span>5%</span></Header4>
+                            <Header4><span>Delivery Charges</span><span>FREE</span></Header4>
+                            <hr />
+                            <Header2><h3>Total Mount</h3><h3>$ {(Total()-(Total()*5/100)).toFixed(2)}</h3></Header2>
+                            <hr />
+                            <div>
+                                <Link to='/online-payment' >
+                                    <button className='placeOrderBtn'>PLACE ORDER</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </>
+                :
+                <Emptycart />
+            }
         </div>
     )
 }

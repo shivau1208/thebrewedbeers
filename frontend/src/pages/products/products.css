@@ -68,11 +68,11 @@
         overflow: hidden;
         flex: 1;
     }
-    .beerProducts .beer .beerDetails h3,p{
+    /* .beerProducts .beer .beerDetails h3,p{
         white-space: wrap;
         overflow: hidden;
         text-overflow: ellipsis;
         padding: 0.1rem;
-    }
+    } */
     
 }
