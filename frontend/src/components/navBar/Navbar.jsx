@@ -69,10 +69,10 @@ export default function Navbar() {
                 </div>
                 <div className="sideList">
                     <ul>
-                        <Link to="/"><li>Home</li></Link>
-                        <Link to="/products"><li>Beers</li></Link>
+                        <Link to="/home"><li>Home</li></Link>
+                        <Link to="/beers"><li>Beers</li></Link>
                         <Link to="#"><li>Dining</li></Link>
-                        <Link to="#"><li>About</li></Link>
+                        <Link to="/about"><li>About</li></Link>
                     </ul>
                 </div>
             </div>
@@ -89,10 +89,10 @@ export default function Navbar() {
                 </div>}
                 <div className="navbarTabs">
                     <ul className='menuList'>
-                        <Link to="/"><li>Home</li></Link>
-                        <Link to="/products"><li>Beers</li></Link>
+                        <Link to="/home"><li>Home</li></Link>
+                        <Link to="/beers"><li>Beers</li></Link>
                         <Link to="#"><li>Dining</li></Link>
-                        <Link to="#"><li>About</li></Link>
+                        <Link to="/about"><li>About</li></Link>
                         {/* {show && <Link to="#"><li className='orderOnline'>Order Online</li></Link>} */}
                     </ul>
                 </div>

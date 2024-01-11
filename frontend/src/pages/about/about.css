@@ -1,0 +1,40 @@
+.about{
+    background-color: #272727;
+    height: 100vh;
+}
+.head{
+    position: relative;
+    top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    color: #fff;
+    padding: 1rem;
+}
+.middle{
+    position: relative;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    color: #fff;
+    padding: 1rem;
+}
+.foot{
+    position: relative;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    color: #fff;
+    padding: 1rem;
+}

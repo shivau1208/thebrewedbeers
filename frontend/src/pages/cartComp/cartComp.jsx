@@ -62,7 +62,6 @@ export default function CartComp() {
     }
     
     useEffect(()=>{
-        console.log(cartItems)
         setShow(false)
     },[])
 

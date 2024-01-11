@@ -13,6 +13,7 @@
 }
 .navBar .account{
     margin: 0 0.5rem;
+    cursor: pointer;
 }
 .navBar .menuIcon{
     display: none;
@@ -65,8 +66,8 @@
     width: 7rem;
     cursor: pointer;
     border-radius: 2.5rem;
-    transition: 0.2s;
-    transform: scale(1.0)
+    transition: 0.5s;
+    /* transform: scale(1.0) */
 }
 .navBar .navbarTabs .menuList a{
     white-space: nowrap;
@@ -123,7 +124,7 @@
     border-radius: 2.5rem;
     text-align: center;
     width: 8rem;
-    transition: 0.2s;
+    transition: 0.5s;
     margin: 0.8rem auto;
 }
 .sidebarTabs .sideList ul li:hover{
