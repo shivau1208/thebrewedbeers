@@ -18,10 +18,8 @@ export default function ListBeers() {
                 {data.filter((beer,index)=>index in [0,1,2,3,4,5]).map((beer, index) =>
                     <SingleBeer key={index} beer={beer} />
                 )}
-                    <button className="btn " id='btn-prev' onClick={initSlider}>{'<'}</button>
-                    <button className="btn " id='btn-next' onClick={initSlider}>{'>'}</button>
-                <div className="">
-                </div>
+                <button className="btn " id='btn-prev' onClick={initSlider}>{'<'}</button>
+                <button className="btn " id='btn-next' onClick={initSlider}>{'>'}</button>
             </div>
             <Footer />
         </div>

@@ -89,7 +89,7 @@ export default function Navbar() {
                 </div>}
                 <div className="navbarTabs">
                     <ul className='menuList'>
-                        <Link to="/home"><li>Home</li></Link>
+                    <li><Link to="/home">Home</Link></li>
                         <Link to="/beers"><li>Beers</li></Link>
                         <Link to="#"><li>Dining</li></Link>
                         <Link to="/about"><li>About</li></Link>
@@ -99,7 +99,7 @@ export default function Navbar() {
                 {show && <Link to="/cartitems"> 
                     <Cart className='cart' onClick={()=>removeClass()}>
                         <img width='35' src="/cart-large-minimalistic-svgrepo-com.svg" alt="" srcSet="" />
-                    <CartItems>{cartItems.length}</CartItems>
+                    {cartItems.length ? <CartItems>{cartItems.length}</CartItems> : ''}
                     </Cart>
                 </Link>}
                 {/* <div onClick={()=>toggleTheme()}>

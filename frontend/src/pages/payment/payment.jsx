@@ -1,12 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { BeersContext } from '../context/contextapi';
+import { BeersContext } from '../../context/contextapi';
 import axios from 'axios';
-import {Base64} from 'js-base64'
 import {sha256} from 'js-sha256'
-import { redirect } from 'react-router-dom';
 
 export default function Payment() {
-    const [data,setData] = useState('')
     const { cartItems} = useContext(BeersContext)
     const Total = ()=>{
         let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.id*curr.item.abv)),0)
@@ -18,9 +15,9 @@ export default function Payment() {
         "merchantTransactionId": "MT7850590068188104",
         "merchantUserId": "MUID123",
         "amount": `${amount*100}`,
-        "redirectUrl": `${window.location.origin}/online-payment`,
+        "redirectUrl": `${window.location.origin}/home`,
         "redirectMode": "REDIRECT",
-        "callbackUrl": `${window.location.origin}/online-payment`,
+        "callbackUrl": `${window.location.origin}/home`,
         "mobileNumber": "9999999999",
         "paymentInstrument": {
           "type": "PAY_PAGE"
@@ -53,9 +50,7 @@ export default function Payment() {
         .catch((error)=>console.error(error));
         window.location.replace(res.data.instrumentResponse.redirectInfo.url)
     }
-    // useEffect(()=>{
-    //     phonepeApi()
-    // },[])
+    
     return (
         <div>
             <div className="paymentGate">

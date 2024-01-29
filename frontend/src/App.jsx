@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import Navbar from './components/navBar/Navbar'
 import ListBeers from './pages/home/home'
 import { Routes, Route } from 'react-router-dom'
 import Products from './pages/products/products'
 import Contextapi from './context/contextapi'
 import CartComp from './pages/cartComp/cartComp'
-import Payment from './pages/payment'
+import Payment from './pages/payment/payment'
 import About from './pages/about/about'
 
 
