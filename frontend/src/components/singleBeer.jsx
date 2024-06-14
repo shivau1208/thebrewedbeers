@@ -10,7 +10,7 @@ const Button = styled.button`
 `;
 const PlusCartButton = styled.div`
   position:absolute;
-  bottom:0.5rem;
+  bottom:0rem;
   right:0.5rem;
   cursor:pointer;
 `;

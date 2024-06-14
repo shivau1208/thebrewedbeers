@@ -48,7 +48,6 @@ export default function Payment() {
         .request(options)
             .then(response=>response.data)
         .catch((error)=>console.error(error));
-        console.log(res.data)
         window.location.replace(res.data.instrumentResponse.redirectInfo.url)
     }
     

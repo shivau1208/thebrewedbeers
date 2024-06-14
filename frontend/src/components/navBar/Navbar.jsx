@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './navBar.css'
 import styled from 'styled-components'
 import { BeersContext } from '../../context/contextapi';
@@ -27,7 +27,18 @@ const CartItems = styled.span`
 `;
 
 export const AddClass = ()=>{
-    let lis = document.querySelectorAll('li')
+    let lis = document.querySelectorAll('li');
+    let pathname = location.pathname;
+    let tabName = pathname.split("/")[1].toLowerCase();
+    let tab = document.getElementById(tabName)
+    if(tab){
+        tab.classList.add('active');
+    }
+    // else{
+    //     lis[0].classList.add('active')
+    //     let firsttabText = lis[0].getAttribute('id').toLocaleLowerCase();
+    //     localStorage.setItem('activeTab',firsttabText);
+    // }
     for (var i=0;i<lis.length;i++){
         lis[i].addEventListener('click',function(){
             var current = document.getElementsByClassName('active')
@@ -35,6 +46,8 @@ export const AddClass = ()=>{
                 current[0].classList.remove('active')
             }
             this.classList.add('active')
+            let tabText = this.getAttribute('id').toLocaleLowerCase();
+            localStorage.setItem('activeTab',tabText);
         })
     }
 }
@@ -44,38 +57,67 @@ export const removeClass = ()=>{
 }
 export default function Navbar() {
     const { cartItems,show,setShow} = useContext(BeersContext)
+    const [sidebarShow,setSideBarShow] = useState(false)
+    let clientWidth;
+    window.addEventListener('load',function(){
+        clientWidth = document.body.clientWidth;
+        if(clientWidth<='768'){
+            setSideBarShow(true);
+        }else{
+            setSideBarShow(false)
+        }
+    })
+    window.addEventListener('resize', function(event) {
+        clientWidth = document.body.clientWidth;
+        if(clientWidth<='768'){
+            setSideBarShow(true);
+        }else{
+            setSideBarShow(false)
+        }
+    }, true);
 
     function Close() {
-        let sidebar = document.querySelector('.sidebarTabs')
-        sidebar.style.width = '0px'
-        removeClass()
+        let sidebar = document.querySelector('.sidebarTabs');
+        if(sidebar){
+            sidebar.style.width = '0px'
+            removeClass()
+        }
+        
     }
     function MenuIcon() {
-        let sidebar = document.querySelector('.sidebarTabs')
-        sidebar.style.width = '200px'
+        let sidebar = document.querySelector('.sidebarTabs');
+        if(sidebar){
+            sidebar.style.width = '200px'
+            let pathname = location.pathname;
+            let tabName = pathname.split("/")[1].toLowerCase();
+            let tab = document.getElementById(tabName)
+            if(tab){
+                tab.classList.add('active');
+            }
+        }
     }
     
     useEffect(()=>{
         AddClass()
-    },[])
+    },[clientWidth])
 
     
 
     return (
         <div>
-            <div className="sidebarTabs">
+            {sidebarShow && <div className="sidebarTabs">
                 <div className='close' >
                     <img src="/close-square-svgrepo-com.svg" alt="close" srcSet="" width='30' onClick={Close} />
                 </div>
                 <div className="sideList">
                     <ul>
-                        <Link to="/home"><li>Home</li></Link>
-                        <Link to="/beers"><li>Beers</li></Link>
-                        <Link to="#"><li>Dining</li></Link>
-                        <Link to="/about"><li>About</li></Link>
+                        <Link to="/home"><li id='home'>Home</li></Link>
+                        <Link to="/beers"><li id='beers'>Beers</li></Link>
+                        <Link to="/dining"><li id='dining'>Dining</li></Link>
+                        <Link to="/about"><li id='about'>About</li></Link>
                     </ul>
                 </div>
-            </div>
+            </div>}
             <div className='navBar'>
                 <div className='menuIcon' onClick={MenuIcon} >
                     <img src="/menu-alt-1-svgrepo-com.svg" alt="menu" srcSet="" width='35' />
@@ -87,15 +129,15 @@ export default function Navbar() {
                     <img width='25' src="/search-svgrepo-com.svg" alt="" srcSet="" />
                     <input type="text" name="" id="input" />
                 </div>}
-                <div className="navbarTabs">
+                {!sidebarShow && <div className="navbarTabs">
                     <ul className='menuList'>
-                    <li><Link to="/home">Home</Link></li>
-                        <Link to="/beers"><li>Beers</li></Link>
-                        <Link to="#"><li>Dining</li></Link>
-                        <Link to="/about"><li>About</li></Link>
+                        <Link to="/home"><li id='home'>Home</li></Link>
+                        <Link to="/beers"><li id='beers'>Beers</li></Link>
+                        <Link to="/dining"><li id='dining'>Dining</li></Link>
+                        <Link to="/about"><li id='about'>About</li></Link>
                         {/* {show && <Link to="#"><li className='orderOnline'>Order Online</li></Link>} */}
                     </ul>
-                </div>
+                </div>}
                 {show && <Link to="/cartitems"> 
                     <Cart className='cart' onClick={()=>removeClass()}>
                         <img width='35' src="/cart-large-minimalistic-svgrepo-com.svg" alt="" srcSet="" />

@@ -14,13 +14,13 @@ export default function ListBeers() {
     },[])
     return (
         <div className='home'>
-            <div className='beerContainer'>
+            {data.length && <div className='beerContainer'>
                 {data.filter((beer,index)=>index in [0,1,2,3,4,5]).map((beer, index) =>
                     <SingleBeer key={index} beer={beer} />
                 )}
                 <button className="btn " id='btn-prev' onClick={initSlider}>{'<'}</button>
                 <button className="btn " id='btn-next' onClick={initSlider}>{'>'}</button>
-            </div>
+            </div>}
             <Footer />
         </div>
     )

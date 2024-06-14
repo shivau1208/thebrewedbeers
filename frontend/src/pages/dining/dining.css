@@ -1,0 +1,88 @@
+.diningContainer{
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-30%, -20%);
+  
+}
+.diningContainer h1{
+  padding: 0;
+  margin: 0;
+  color: #000;
+  text-shadow: -3px 1px 2px rgba(84, 84, 84, 0.5);
+  font-size: 60px;
+  color: #000;
+  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Great Vibes', cursive;
+  font-family: 'VT323', monospace;
+  font-family: monospace;
+}
+.diningContainer p{
+  color: green;
+  font-size: 18px;
+  margin: 0;
+  line-height: 35px;
+}
+.diningContainer span:before{
+  content:'';
+  animation: animate infinite 6s;
+}
+@keyframes animate{
+  0%{
+    content: 'W'
+  }
+  7%{
+    content: 'We '
+  }
+  14%{
+    content: 'We w'
+  }
+  21%{
+    content: 'We wi'
+  }
+  28%{
+    content: 'We wil'
+  }
+  35%{
+    content: 'We will '
+  }
+  42%{
+    content: 'We will be'
+  }
+  49%{
+    content: 'We will be i'
+  }
+  56%{
+    content: 'We will be in'
+  }
+  63%{
+    content: 'We will be in yo'
+  }
+  70%{
+    content: 'We will be in you'
+  }
+  77%{
+    content: 'We will be in your c'
+  }
+  84%{
+    content: 'We will be in your city s'
+  }
+  100%{
+    content: 'We will be in your city soon.....'
+  }
+}
+
+@media (width <= 768px){
+  .diningContainer h1 {
+    padding: 0;
+    margin: 0;
+    color: #000;
+    text-shadow: -3px 1px 2px rgba(84, 84, 84, 0.5);
+    font-size: 36px;
+    color: #000;
+    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Great Vibes', cursive;
+    font-family: 'VT323', monospace;
+    font-family: monospace;
+  }
+}
