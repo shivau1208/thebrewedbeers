@@ -21,15 +21,15 @@ export default function SingleBeer({beer}) {
   return (
     <div className='beer'>
         <div className='beerImage'>
-            <img src={beer.image_url} alt={beer.name} height='150' />
+            <img src={beer.strDrinkThumb} alt={beer.strDrink} height='150' />
         </div>
         <div className='beerDetails'>
-            <h3>{beer.name}</h3>
-            <p>{beer.tagline}</p>
-            <p>mfg: {beer.first_brewed}</p>
-            <p>Price: ${(beer.id*beer.abv).toFixed(2)}</p>
+            <h3>{beer.strDrink}</h3>
+            {/* <p>{beer.tagline}</p> */}
+            {/* <p>mfg: {beer.first_brewed}</p> */}
+            <p>Price: ${(beer.idDrink/100).toFixed(2)}</p>
         </div>
-        <PlusCartButton className='plusCartButton' onClick={()=>addToCart(beer.id)} >
+        <PlusCartButton className='plusCartButton' onClick={()=>addToCart(beer.idDrink)} >
             <img width='35' src="/plus-large-svgrepo-com.svg" alt="" />
         </PlusCartButton>
     </div>

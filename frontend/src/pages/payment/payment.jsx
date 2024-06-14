@@ -6,7 +6,7 @@ import {sha256} from 'js-sha256'
 export default function Payment() {
     const { cartItems} = useContext(BeersContext)
     const Total = ()=>{
-        let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.id*curr.item.abv)),0)
+        let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.idDrink/100)),0)
         return total;
     }
     let amount = (Total()-(Total()*5/100)).toFixed(2)
@@ -48,6 +48,7 @@ export default function Payment() {
         .request(options)
             .then(response=>response.data)
         .catch((error)=>console.error(error));
+        console.log(res.data)
         window.location.replace(res.data.instrumentResponse.redirectInfo.url)
     }
     

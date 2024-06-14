@@ -11,7 +11,7 @@ const MinusCartButton = styled.div`
   right:3.5rem;
   cursor:pointer;
   `;
-  const PlusCartButton = styled.div`
+const PlusCartButton = styled.div`
   position:absolute;
   bottom:0.2rem;
   right:0.8rem;
@@ -57,7 +57,7 @@ const Header2 = styled.div`
 export default function CartComp() {
     const { cartItems, removeFromCart, reduceFromCart, increaseToCart,setShow } = useContext(BeersContext)
     const Total = ()=>{
-        let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.id*curr.item.abv)),0)
+        let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.idDrink/100)),0)
         return total;
     }
     
@@ -70,25 +70,25 @@ export default function CartComp() {
             {cartItems.length ? 
                 <>
                     <div className='modal'>
-                        {cartItems.filter((beer, index) => cartItems.findIndex((cartItem) => cartItem.item.id === beer.item.id) === index).map((beer, index) =>
+                        {cartItems.filter((beer, index) => cartItems.findIndex((cartItem) => cartItem.item.idDrink === beer.item.idDrink) === index).map((beer, index) =>
                             <div key={index} className='cartBeer'>
                                 <div className='cartBeerImage'>
-                                    <img src={beer.item.image_url} alt={beer.item.name} height='150' />
+                                    <img src={beer.item.strDrinkThumb} alt={beer.item.strDrink} height='150' />
                                 </div>
                                 <div className='cartBeerDetails'>
-                                    <h3>{beer.item.name}</h3>
-                                    <p>{beer.item.tagline}</p>
-                                    <p>mfg: {beer.item.first_brewed}</p>
-                                    <p>Price: $ {(beer.item.id * beer.item.abv).toFixed(2)}</p>
+                                    <h3>{beer.item.strDrink}</h3>
+                                    {/* <p>{beer.item.tagline}</p>
+                                    <p>mfg: {beer.item.first_brewed}</p> */}
+                                    <p>Price: $ {(beer.item.idDrink/100).toFixed(2)}</p>
                                 </div>
-                                <CloseButton onClick={() => removeFromCart(beer.item.id)}>
+                                <CloseButton onClick={() => removeFromCart(beer.item.idDrink)}>
                                     <img src="/close-svgrepo-com.svg" alt="close" srcSet="" width='30' />
                                 </CloseButton>
                                 <CartLength aria-disabled>{beer.quantity}</CartLength>
-                                <MinusCartButton onClick={() => reduceFromCart(beer.item.id)}>
+                                <MinusCartButton onClick={() => reduceFromCart(beer.item.idDrink)}>
                                     <img src="/minus-svgrepo-com.svg" alt="" srcSet='' width='30' />
                                 </MinusCartButton>
-                                <PlusCartButton onClick={() => increaseToCart(beer.item.id)}>
+                                <PlusCartButton onClick={() => increaseToCart(beer.item.idDrink)}>
                                     <img src="/plus-svgrepo-com.svg" alt="" width='30' />
                                 </PlusCartButton>
                             </div>
@@ -98,7 +98,7 @@ export default function CartComp() {
                         <div className='priceDetails'>
                             <p style={{fontSize:'18px',padding:'0.5rem 1rem'}}>Price Details</p>
                             <hr />
-                            <Header4><span>{`Price (${cartItems.length} item)`}</span><span>{(cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.id*curr.item.abv)),0)).toFixed(2)}</span></Header4>
+                            <Header4><span>{`Price (${cartItems.length} item)`}</span><span>{(cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.idDrink/100)),0)).toFixed(2)}</span></Header4>
                             <Header4><span>Discount</span><span>5%</span></Header4>
                             <Header4><span>Delivery Charges</span><span>FREE</span></Header4>
                             <hr />
