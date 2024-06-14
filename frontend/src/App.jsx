@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './components/navBar/Navbar'
 import ListBeers from './pages/home/home'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Products from './pages/products/products'
 import Contextapi from './context/contextapi'
 import CartComp from './pages/cartComp/cartComp'
@@ -18,7 +18,7 @@ export default function App() {
       <Contextapi>
         <Navbar />
         <Routes>
-          <Route path='/' element={<ListBeers />} />
+          <Route path='/' element={<Navigate to={"/home"} />} />
           <Route path='/home' element={<ListBeers />} />
           <Route path='/beers' element={<Products />} />
           <Route path='/dining' element={<DiningFunc />} />

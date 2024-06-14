@@ -94,7 +94,7 @@
     }
     .beerContainer .beer{
         width: 200px;
-        height: 280px;
+        height: fit-content;
         flex: 0 0 200px;
     }
     .beer .beerDetails h3,p{

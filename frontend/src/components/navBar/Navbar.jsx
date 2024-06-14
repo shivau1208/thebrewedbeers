@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import './navBar.css'
 import styled from 'styled-components'
 import { BeersContext } from '../../context/contextapi';
@@ -57,19 +57,21 @@ export const removeClass = ()=>{
 }
 export default function Navbar() {
     const { cartItems,show,setShow} = useContext(BeersContext)
-    const [sidebarShow,setSideBarShow] = useState(false)
-    let clientWidth;
-    window.addEventListener('load',function(){
-        clientWidth = document.body.clientWidth;
-        if(clientWidth<='768'){
+    const [sidebarShow,setSideBarShow] = useState(false);
+    const [clientWidth,setClientWidth] = useState(null)
+    useLayoutEffect(()=>{
+        setClientWidth(document.body.clientWidth);
+        let width = document.body.clientWidth;
+        if(width <= '768'){
             setSideBarShow(true);
         }else{
             setSideBarShow(false)
         }
-    })
+    },[])
     window.addEventListener('resize', function(event) {
-        clientWidth = document.body.clientWidth;
-        if(clientWidth<='768'){
+        setClientWidth(document.body.clientWidth);
+        let width = document.body.clientWidth;
+        if(width<='768'){
             setSideBarShow(true);
         }else{
             setSideBarShow(false)
