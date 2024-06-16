@@ -97,6 +97,14 @@
     color: #fff;
     text-decoration: none;
 }
+.overlay{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 99;
+    display: none;
+}
 .sidebarTabs{
     position: fixed;
     left: 0;

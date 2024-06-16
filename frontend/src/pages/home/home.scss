@@ -1,0 +1,213 @@
+.home {
+  position: absolute;
+  top: 60px;
+  height: 90svh;
+  width: 100vw;
+}
+.beerContainer {
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(6, 200px);
+  gap: 0 2rem;
+  justify-content: center;
+  align-items: end;
+  position: relative;
+}
+.swipe-indicator {
+  display: none;
+}
+.beerContainer .beer {
+  border-radius: 1rem;
+  background-color: #f2f4fd;
+}
+.beerContainer .beer .beerImage {
+  display: flex;
+  justify-content: center;
+  padding: 0.6rem 0;
+  /* filter: drop-shadow(2px 5px 8px #000); */
+}
+.beerContainer .beer .beerImage img{
+  width: 175px;
+}
+.beerContainer .beer .beerDetails {
+  padding: 0.4rem 0.5rem;
+  background-color: #eaeefc;
+  border-radius: 0 0 1rem 1rem;
+}
+.beerContainer .beer .beerDetails h3,p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.1rem;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+}
+.beerContainer .btn {
+  display: none;
+}
+
+@media (768px < width <=1400px) {
+  .beerContainer {
+    overflow-x: scroll;
+    margin: 2rem 2%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.5s;
+  }
+  .swipe-indicator {
+    display: flex;
+    animation: swipe 1200ms 3;
+    width: 0px;
+    position: absolute;
+    height: 40px;
+    background-image: linear-gradient(90deg, #abafb1 5%, rgba(0, 131, 206, 0) 72%);
+    border-radius: 40px;
+    left: 30%;
+    &::after {
+      position: absolute;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      content: '';
+      background: rgb(61, 61, 63);
+      border-radius: 40px;
+      display: block;
+      /* Oval Copy 7: */
+      background: #242525;
+      box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+      animation: disappear 1200ms forwards;
+    }
+  }
+  @keyframes swipe {
+    0% {
+      margin-left: 160px;
+      width: 40px;
+    }
+    100% {
+      width: 160px;
+      margin-left: 0px;
+      opacity: 1;
+    }
+  }
+  @keyframes disappear {
+    100% {
+      display: none;
+    }
+  }
+  .beerContainer::-webkit-scrollbar {
+    display: none;
+  }
+  .beerContainer .beer {
+    width: 200px;
+    flex: 0 0 200px;
+  }
+  .beerContainer .btn {
+    display: block;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    z-index: 2;
+    border-radius: 50%;
+    outline: 0;
+    border: 0;
+    font-size: 24px;
+    box-shadow: 0 0 4px #aaa;
+  }
+  .beerContainer #btn-prev {
+    left: 0.5rem;
+  }
+  .beerContainer #btn-next {
+    right: 0.5rem;
+  }
+}
+@media (width <= 768px) {
+  .beerContainer {
+    overflow-x: scroll;
+    margin: 2rem 5%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: 0.5s;
+  }
+  .beerContainer{
+    &::-webkit-scrollbar {
+      display: none;      
+    }
+  }
+  .swipe-indicator {
+    display:flex;
+    animation: swipe 1200ms 3;
+    width: 0px;
+    position: absolute;
+    height: 40px;
+    background-image: linear-gradient(90deg, #abafb1 5%, rgba(0, 131, 206, 0) 72%);
+    border-radius: 40px;
+    left: 30%;
+    &::after {
+      position: absolute;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      content: '';
+      background: rgb(61, 61, 63);
+      border-radius: 40px;
+      display: block;
+      /* Oval Copy 7: */
+      background: #242525;
+      box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
+      animation: disappear 1200ms forwards;
+    }
+  }
+  @keyframes swipe {
+    0% {
+      margin-left: 160px;
+      width: 40px;
+    }
+    100% {
+      width: 160px;
+      margin-left: 0px;
+      opacity: 1;
+    }
+  }
+  @keyframes disappear {
+    100% {
+      display: none;
+    }
+  }
+  .beerContainer .beer {
+    width: 200px;
+    height: fit-content;
+    flex: 0 0 200px;
+  }
+  .beer .beerDetails h3,
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.1rem;
+    max-width: 100%;
+  }
+  .beerContainer .btn {
+    display: block;
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    z-index: 2;
+    border-radius: 50%;
+    outline: 0;
+    border: 0;
+    font-size: 24px;
+    box-shadow: 0 0 4px #aaa;
+  }
+  .beerContainer #btn-prev {
+    left: 0.5rem;
+  }
+  .beerContainer #btn-next {
+    right: 0.5rem;
+  }
+}

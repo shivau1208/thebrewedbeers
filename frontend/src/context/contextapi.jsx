@@ -6,17 +6,20 @@ import React from 'react'
 export const BeersContext = createContext()
 
 export default function Contextapi({children}) {
-    const [show,setShow] = useState(true)
+    const [searchComp,setSearchComp] = useState(true)
     const [cartItems,setCartItems] = useState([])
-    const [data,setData] = useState([])
+    const [data,setData] = useState([]);
+    const [filter,setFilter] = useState(false);
     // const [isDarkMode,setDarkMode] = useState(true)
-    const fetchData = async () => {
-        // const response = await axios.get('https://api.punkapi.com/v2/beers')
-        const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin')
-            .then(res => res.data);
-        setData(response.drinks)
-    }
     useEffect(()=>{
+        const fetchData = async () => {
+            // const response = await axios.get('https://api.punkapi.com/v2/beers')
+            const response1 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
+                .then(res => res.data);
+            const response2 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail')
+                .then(res => res.data);
+            setData(prevData=>[...prevData,...response1.drinks,...response2.drinks])
+        }
         fetchData()
     },[])
     const addToCart = async(id)=>{
@@ -59,7 +62,23 @@ export default function Contextapi({children}) {
     // useEffect(()=>{
     //     document.documentElement.setAttribute('data-theme',theme)
     // },[isDarkMode])
-
+    const Debounce = (func,delay)=>{
+        let debounceTimer;
+        return function(){
+            const context = this;
+            const args = arguments;
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(()=>func.apply(context,args),delay)
+        }
+    }
+    async function hanldeBeerSearch(){
+        let searchInput = document.querySelector('#searchInput');
+        let value = searchInput ? searchInput.value : 'a';
+        let response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${value}`).then(res=>res.json());
+        setData(response?.drinks)
+    }
+    
+    
   return (
     <BeersContext.Provider value={{
         data,
@@ -68,8 +87,13 @@ export default function Contextapi({children}) {
         reduceFromCart,
         increaseToCart,
         cartItems,
-        show,
-        setShow,
+        searchComp,
+        setSearchComp,
+        setData,
+        Debounce,
+        hanldeBeerSearch,
+        filter,setFilter
+        
     }}>
         {children}
     </BeersContext.Provider>

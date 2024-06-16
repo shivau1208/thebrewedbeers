@@ -3,10 +3,10 @@ import './about.css'
 import { BeersContext } from '../../context/contextapi'
 
 export default function About() {
-  const {setShow} = useContext(BeersContext)
+  const {setSearchComp} = useContext(BeersContext)
 
   useEffect(()=>{
-    setShow(false)
+    setSearchComp(false)
 },[])
   return (
     <>

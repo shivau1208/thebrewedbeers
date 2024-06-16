@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import Navbar from './components/navBar/Navbar'
-import ListBeers from './pages/home/home'
+import ListBeers from './pages/home/home';
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Products from './pages/products/products'
 import Contextapi from './context/contextapi'
@@ -8,8 +8,10 @@ import CartComp from './pages/cartComp/cartComp'
 import Payment from './pages/payment/payment'
 import About from './pages/about/about'
 import DiningFunc from './pages/dining/dining'
+import Spinner from './components/spinner/spinner';
+import Page404 from './components/Error/Page404';
 
-
+const ProductsComp = lazy(()=>import('./pages/products/products'))
 export default function App() {
   
   
@@ -18,9 +20,10 @@ export default function App() {
       <Contextapi>
         <Navbar />
         <Routes>
+          <Route path='/*' element={<Page404 />} />
           <Route path='/' element={<Navigate to={"/home"} />} />
           <Route path='/home' element={<ListBeers />} />
-          <Route path='/beers' element={<Products />} />
+          <Route path='/beers' element={<Suspense  fallback={<Spinner />}><ProductsComp /></Suspense>} />
           <Route path='/dining' element={<DiningFunc />} />
           <Route path='/cartitems' element={<CartComp />} />
           <Route path='/about' element={<About />} />

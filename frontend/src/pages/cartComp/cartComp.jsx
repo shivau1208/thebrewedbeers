@@ -46,23 +46,23 @@ const CloseButton = styled.div`
 const Header4 = styled.div`
     display:flex;
     justify-content:space-between;
-    padding:0.5rem 1rem;
+    padding:0.4rem 1rem;
 `;
-const Header2 = styled.div`
-    display:flex;
-    justify-content:space-between;
-    padding:0.5rem 1rem;
+const Header2 = styled.p`
+    display: flex;
+    padding: 0.3rem;
+    font-size: 24px;
 `;
 
 export default function CartComp() {
-    const { cartItems, removeFromCart, reduceFromCart, increaseToCart,setShow } = useContext(BeersContext)
+    const { cartItems, removeFromCart, reduceFromCart, increaseToCart,setSearchComp } = useContext(BeersContext)
     const Total = ()=>{
         let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.idDrink/100)),0)
         return total;
     }
     
     useEffect(()=>{
-        setShow(false)
+        setSearchComp(false)
     },[])
 
     return (
@@ -96,15 +96,14 @@ export default function CartComp() {
                     </div>
                     <div className='cartTotal'>
                         <div className='priceDetails'>
-                            <p style={{fontSize:'18px',padding:'0.5rem 1rem'}}>Price Details</p>
+                            <p>Price Details</p>
                             <hr />
                             <Header4><span>{`Price (${cartItems.length} item)`}</span><span>{(cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.idDrink/100)),0)).toFixed(2)}</span></Header4>
                             <Header4><span>Discount</span><span>5%</span></Header4>
                             <Header4><span>Delivery Charges</span><span>FREE</span></Header4>
                             <hr />
-                            <Header2><h3>Total Mount</h3><h3>$ {(Total()-(Total()*5/100)).toFixed(2)}</h3></Header2>
-                            <hr />
-                            <div>
+                            <div className='totalFooter'>
+                                <Header2>${(Total()-(Total()*5/100)).toFixed(2)}</Header2>
                                 <Link to='/online-payment' >
                                     <button className='placeOrderBtn'>PLACE ORDER</button>
                                 </Link>

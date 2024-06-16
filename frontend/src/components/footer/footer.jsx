@@ -3,7 +3,7 @@ import './footer.css'
 
 export default function Footer() {
   return (
-    <div>
+    <>
         <div className="footerContainer">
             <div className="socialLinks">
                 <div>
@@ -27,6 +27,6 @@ export default function Footer() {
                 </ul>
             </div>
         </div>
-    </div>
+    </>
   )
 }

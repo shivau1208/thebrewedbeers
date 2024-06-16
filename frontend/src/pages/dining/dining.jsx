@@ -3,11 +3,11 @@ import './dining.css';
 
 export default function Dining() {
   return (
-    <div class='diningContainer'>
+    <div className='diningContainer'>
       <h1>
         <span></span>
       </h1>
-      <div class='load'></div>
+      <div className='load'></div>
     </div>
   );
 }
