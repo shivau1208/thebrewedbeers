@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
-import { BeersContext } from '../../context/contextapi'
+import { BeersContext } from '../../context/beerContextApi'
+import { useCartContextApi } from '../../context/cartContextApi'
 
 export default function Emptycart() {
-    const {cartItems} = useContext(BeersContext)
+    const {cartItems} = useCartContextApi();
   return (
     <>
         <div className='emptyCart'>

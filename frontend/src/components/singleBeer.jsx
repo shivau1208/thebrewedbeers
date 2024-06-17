@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import '../pages/products/products.css';
 import styled from 'styled-components'
-import { BeersContext } from '../context/contextapi';
+import { BeersContext } from '../context/beerContextApi';
+import { useCartContextApi } from '../context/cartContextApi';
 
 
 const Button = styled.button`
@@ -17,7 +18,7 @@ const PlusCartButton = styled.div`
 `;
 
 export default function SingleBeer({beer}) {
-  const {addToCart} = useContext(BeersContext)
+  const {addToCart} = useCartContextApi();
   
   return (
     <div className='beer'>

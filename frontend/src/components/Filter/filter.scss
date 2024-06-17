@@ -2,11 +2,30 @@
   position: absolute;
   top: -6px;
   right: 410px;
-  width: 200px;
+  width: 300px;
   height: 400px;
   background-color: #fff;
-  border-radius: 0.5rem;
-  border: 1px solid;
+  // border-radius: 0.5rem;
+  // border: 1px solid;
+  box-shadow: 0 0 4px #a4dbdd;
+}
+.filterCategories{
+  display: flex;
+  height: 100%;
+}
+.categoryOptions{
+  background-color: #E1F3EB;
+}
+.filterCategories li{
+  list-style: none;
+  padding: 0.3rem 0.6rem;
+  cursor: default;
+}
+.filterCategories li:not(:first-child){
+  border-bottom: 0.1rem solid #a4dbdd;
+}
+.optionNames{
+  flex: 1;
 }
 .applyBtn{
   position: absolute;

@@ -194,7 +194,7 @@
         align-items: center;
         flex:0 0 100px;
         padding: 0.6rem 0.5rem;
-        filter: drop-shadow(2px 5px 8px #000);
+        /* filter: drop-shadow(2px 5px 8px #000); */
     }
     .cartBeer .cartBeerDetails{
         display: flex;
@@ -248,7 +248,7 @@
         border: none;
         outline: none;
         padding: 0.7rem;
-        margin: 0;
+        margin: 0 0.7rem;
         background-color: #FB641B;
         color: #fff;
         font-size: 0.9rem;
@@ -273,7 +273,7 @@
         align-items: center;
         flex:0 0 100px;
         padding: 0.6rem 0.5rem;
-        filter: drop-shadow(2px 5px 8px #000);
+        /* filter: drop-shadow(2px 5px 8px #000); */
     }
     .cartBeer .cartBeerDetails{
         display: flex;

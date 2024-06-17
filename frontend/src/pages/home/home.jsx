@@ -1,6 +1,6 @@
 import React, { Suspense, useContext, useEffect } from 'react';
 import './home.scss';
-import { BeersContext } from '../../context/contextapi';
+import { BeersContext, useBeerContextApi } from '../../context/beerContextApi';
 import SingleBeer from '../../components/singleBeer';
 import Footer from '../../components/footer/footer';
 import DotLoader from '../../components/spinner/DotLoader';
@@ -9,7 +9,7 @@ import Nodatafound from '../../components/Error/Nodatafound';
 // Lazy load the SingleBeer component
 const SingleBeerComp = React.lazy(() => import('../../components/singleBeer'));
 export default function ListBeers() {
-  const { data, setSearchComp } = useContext(BeersContext);
+  const { data, setSearchComp } = useBeerContextApi();
   const { initSlider } = newFunction();
   useEffect(() => {
     setSearchComp(true);

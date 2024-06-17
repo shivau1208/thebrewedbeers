@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import './about.css'
-import { BeersContext } from '../../context/contextapi'
+import { BeersContext, useBeerContextApi } from '../../context/beerContextApi'
 
 export default function About() {
-  const {setSearchComp} = useContext(BeersContext)
+  const {setSearchComp} = useBeerContextApi()
 
   useEffect(()=>{
     setSearchComp(false)

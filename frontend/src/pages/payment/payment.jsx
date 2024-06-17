@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { BeersContext } from '../../context/contextapi';
+import { BeersContext } from '../../context/beerContextApi';
 import axios from 'axios';
 import {sha256} from 'js-sha256'
+import { useCartContextApi } from '../../context/cartContextApi';
 
 export default function Payment() {
-    const { cartItems} = useContext(BeersContext)
+    const { cartItems} = useCartContextApi();
     const Total = ()=>{
         let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.idDrink/100)),0)
         return total;

@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import './navBar.css'
 import styled from 'styled-components'
-import { BeersContext } from '../../context/contextapi';
+import { BeersContext, useBeerContextApi } from '../../context/beerContextApi';
 import {Link} from 'react-router-dom'
+import { useCartContextApi } from '../../context/cartContextApi';
 
 const Cart = styled.div`
     position:relative;
@@ -56,7 +57,8 @@ export const removeClass = ()=>{
     lis.forEach(li=>li.className = '')
 }
 export default function Navbar() {
-    const { cartItems,searchComp,setSearchComp,setData,Debounce,hanldeBeerSearch} = useContext(BeersContext)
+    const { searchComp,Debounce,hanldeBeerSearch} = useBeerContextApi()
+    const {cartItems} = useCartContextApi();
     const [sidebarShow,setSideBarShow] = useState(false);
     const [clientWidth,setClientWidth] = useState(null)
     useLayoutEffect(()=>{

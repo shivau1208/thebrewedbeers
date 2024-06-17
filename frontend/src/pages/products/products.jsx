@@ -1,12 +1,12 @@
 import './products.css'
 import React, { useContext, useEffect, useState } from 'react'
-import { BeersContext } from '../../context/contextapi';
+import { BeersContext, useBeerContextApi } from '../../context/beerContextApi';
 import SingleBeer from '../../components/singleBeer';
 import Nodatafound from '../../components/Error/Nodatafound';
 import Filter from '../../components/Filter/Filter';
 
 export default function Products() {
-    const {data,setSearchComp,filter,setFilter} = useContext(BeersContext);
+    const {data,setSearchComp,filter,setFilter} = useBeerContextApi();
     
     useEffect(()=>{
         setSearchComp(true)

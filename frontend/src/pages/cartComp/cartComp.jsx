@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components';
 import './cartComp.css'
-import { BeersContext } from '../../context/contextapi';
+import { BeersContext, useBeerContextApi } from '../../context/beerContextApi';
 import Emptycart from './emptyCart';
+import { useCartContextApi } from '../../context/cartContextApi';
 
 const MinusCartButton = styled.div`
   position:absolute;
@@ -55,7 +56,8 @@ const Header2 = styled.p`
 `;
 
 export default function CartComp() {
-    const { cartItems, removeFromCart, reduceFromCart, increaseToCart,setSearchComp } = useContext(BeersContext)
+    const { setSearchComp } = useBeerContextApi();
+    const {cartItems, removeFromCart, reduceFromCart, increaseToCart} = useCartContextApi()
     const Total = ()=>{
         let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.idDrink/100)),0)
         return total;
