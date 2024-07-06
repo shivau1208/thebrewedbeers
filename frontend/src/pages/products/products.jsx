@@ -14,9 +14,9 @@ export default function Products() {
 
     return (
         <>
-            <div className='filterBtn'>
+            {/* <div className='filterBtn'>
                 <button className='btn' onClick={()=>setFilter(!filter)} >Filter</button>
-            </div>
+            </div> */}
             <div className='products-Filter'>
                 {data !==null ? <div className='beerProducts'>
                     {data.map((beer, index) =>

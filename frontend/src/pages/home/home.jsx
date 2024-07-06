@@ -10,7 +10,6 @@ import Nodatafound from '../../components/Error/Nodatafound';
 const SingleBeerComp = React.lazy(() => import('../../components/singleBeer'));
 export default function ListBeers() {
   const { data, setSearchComp } = useBeerContextApi();
-  const { initSlider } = newFunction();
   useEffect(() => {
     setSearchComp(true);
   }, []);
