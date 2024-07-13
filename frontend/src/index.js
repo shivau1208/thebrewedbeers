@@ -15,19 +15,11 @@ export async function delayForDemo(promise) {
 const AppComponent = lazy(()=>import('./App.jsx'))
 root.render(
     <BrowserRouter>
-<<<<<<< HEAD
-        <React.StrictMode>
-=======
         {/* <React.StrictMode> */}
->>>>>>> 885121f (Added filter feature to Beers route)
             <App />
             {/* <Suspense fallback={<Spinner />} >
                 <AppComponent />
             </Suspense> */}
-<<<<<<< HEAD
-        </React.StrictMode>
-=======
         {/* </React.StrictMode> */}
->>>>>>> 885121f (Added filter feature to Beers route)
     </BrowserRouter>
 )
