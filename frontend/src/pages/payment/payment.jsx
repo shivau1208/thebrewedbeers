@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 import React, { useContext, useEffect, useState } from 'react'
 import { BeersContext } from '../../context/beerContextApi';
 import axios from 'axios';
 import {sha256} from 'js-sha256'
 import { useCartContextApi } from '../../context/cartContextApi';
+=======
+import React from 'react'
+import axios from 'axios';
+import './payment.scss'
+import {sha256} from 'js-sha256'
+import { useCartContextApi } from '../../context/cartContextApi';
+import Navbar from '../../components/navBar/Navbar';
+>>>>>>> 885121f (Added filter feature to Beers route)
 
 export default function Payment() {
     const { cartItems} = useCartContextApi();
@@ -53,7 +62,12 @@ export default function Payment() {
     }
     
     return (
+<<<<<<< HEAD
         <div>
+=======
+        <>
+            <Navbar />
+>>>>>>> 885121f (Added filter feature to Beers route)
             <div className="paymentGate">
                 <div className='address'>
                     <textarea name="" id="" cols="30" rows="5" placeholder='Please fill delivery address'></textarea>
@@ -67,6 +81,10 @@ export default function Payment() {
                     <span>PAY HERE</span>
                 </div>
             </div>
+<<<<<<< HEAD
         </div>
+=======
+        </>
+>>>>>>> 885121f (Added filter feature to Beers route)
     )
 }

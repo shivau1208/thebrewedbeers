@@ -1,4 +1,5 @@
 .home {
+<<<<<<< HEAD
   position: absolute;
   top: 60px;
   height: 90svh;
@@ -6,6 +7,15 @@
 }
 .beerContainer {
   margin: 2rem auto;
+=======
+  // position: absolute;
+  // top: 60px;
+  // height: 90svh;
+  // width: 100vw;
+}
+.beerContainer {
+  margin: 1rem auto;
+>>>>>>> 885121f (Added filter feature to Beers route)
   display: grid;
   grid-template-columns: repeat(6, 200px);
   gap: 0 2rem;
@@ -34,7 +44,11 @@
   background-color: #eaeefc;
   border-radius: 0 0 1rem 1rem;
 }
+<<<<<<< HEAD
 .beerContainer .beer .beerDetails h3,p {
+=======
+.beerContainer .beer .beerDetails h3 {
+>>>>>>> 885121f (Added filter feature to Beers route)
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -44,6 +58,19 @@
   font-weight: 500;
   text-align: center;
 }
+<<<<<<< HEAD
+=======
+.beerContainer .beer .beerDetails p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.1rem;
+  max-width: 100%;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+}
+>>>>>>> 885121f (Added filter feature to Beers route)
 .beerContainer .btn {
   display: none;
 }
@@ -51,7 +78,11 @@
 @media (768px < width <=1400px) {
   .beerContainer {
     overflow-x: scroll;
+<<<<<<< HEAD
     margin: 2rem 2%;
+=======
+    margin: 1rem 2%;
+>>>>>>> 885121f (Added filter feature to Beers route)
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -127,7 +158,11 @@
 @media (width <= 768px) {
   .beerContainer {
     overflow-x: scroll;
+<<<<<<< HEAD
     margin: 2rem 5%;
+=======
+    margin: 1rem 2%;
+>>>>>>> 885121f (Added filter feature to Beers route)
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -183,8 +218,12 @@
     height: fit-content;
     flex: 0 0 200px;
   }
+<<<<<<< HEAD
   .beer .beerDetails h3,
   p {
+=======
+  .beer .beerDetails h3,.beer .beerDetails p {
+>>>>>>> 885121f (Added filter feature to Beers route)
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

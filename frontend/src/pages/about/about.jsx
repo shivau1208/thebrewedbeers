@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import './about.css'
 import { BeersContext, useBeerContextApi } from '../../context/beerContextApi'
+<<<<<<< HEAD
 
 export default function About() {
   const {setSearchComp} = useBeerContextApi()
@@ -10,6 +11,20 @@ export default function About() {
 },[])
   return (
     <>
+=======
+import Navbar from '../../components/navBar/Navbar'
+
+export default function About() {
+  const {setSearchComp,setCartComp} = useBeerContextApi()
+
+  useEffect(()=>{
+    setSearchComp(false)
+    setCartComp(false)
+},[])
+  return (
+    <>
+      <Navbar />
+>>>>>>> 885121f (Added filter feature to Beers route)
       <div className='about'>
           <div className=' head'>
               <h4>OUR ROOTS:</h4>

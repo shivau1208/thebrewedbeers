@@ -11,16 +11,26 @@ import DiningFunc from './pages/dining/dining'
 import Spinner from './components/spinner/spinner';
 import Page404 from './components/Error/Page404';
 import CartContextFunc from './context/cartContextApi';
+<<<<<<< HEAD
+=======
+import Filter from './components/Filter/Filter';
+>>>>>>> 885121f (Added filter feature to Beers route)
 
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 export default function App() {
   
   
   return (
+<<<<<<< HEAD
     <div>
       <BeerContextFunc>
         <CartContextFunc>
           <Navbar />
+=======
+    <>
+      <BeerContextFunc>
+        <CartContextFunc>
+>>>>>>> 885121f (Added filter feature to Beers route)
           <Routes>
             <Route path='/*' element={<Page404 />} />
             <Route path='/' element={<Navigate to={"/home"} />} />
@@ -30,9 +40,17 @@ export default function App() {
             <Route path='/about' element={<About />} />
             <Route path='/online-payment' element={<Payment />} />
             <Route path='/cartitems' element={<CartComp />} />
+<<<<<<< HEAD
           </Routes>
         </CartContextFunc>
       </BeerContextFunc>
     </div>
+=======
+            <Route path='/filter' element={<Filter />} />
+          </Routes>
+        </CartContextFunc>
+      </BeerContextFunc>
+    </>
+>>>>>>> 885121f (Added filter feature to Beers route)
   )
 }

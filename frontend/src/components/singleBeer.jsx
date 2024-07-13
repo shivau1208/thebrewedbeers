@@ -26,10 +26,17 @@ export default function SingleBeer({beer}) {
             <img src={beer.strDrinkThumb} className="" alt={beer.strDrink}  />
         </div>
         <div className='beerDetails'>
+<<<<<<< HEAD
             <h3>{beer.strDrink}</h3>
             {/* <p>{beer.tagline}</p> */}
             {/* <p>mfg: {beer.first_brewed}</p> */}
             <p>${(beer.idDrink/100).toFixed(2)}</p>
+=======
+            <h3>{beer?.strDrink}</h3>
+            <p>{beer?.strAlcoholic}</p>
+            {/* <p>mfg: {beer.first_brewed}</p> */}
+            <p>${beer?.price}</p>
+>>>>>>> 885121f (Added filter feature to Beers route)
         </div>
         <PlusCartButton className='plusCartButton' onClick={()=>addToCart(beer.idDrink)} >
             <img width='35' src="/plus-large-svgrepo-com.svg" alt="" />

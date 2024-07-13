@@ -1,0 +1,46 @@
+.SortFilterBtns{
+  display: none;
+}
+
+@media screen and ( width <= 576px){
+  .SortFilterBtns{
+      /* margin-top: 10px; */
+      display: flex;
+      padding: 0.8rem;
+      position: sticky;
+      top: 0px;
+      z-index: 9;
+      background-color: #fff;
+      box-shadow: 0 0 4px #000;
+  }
+  .sortBtn{
+      border-right: 1px solid #000;
+  }
+  .filterBtn, .sortBtn{
+      flex: 1 0;
+      align-self: stretch;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .filterBtn a, .sortBtn a{
+      text-decoration: none;
+      color: #000;
+      align-self: stretch;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .SortFilterBtns img{
+      margin-right: 0.25rem;
+  }
+  .SortFilterBtns button{
+      background-color: transparent;
+      padding: 0 auto;
+      border: none;
+      outline: none;
+      cursor: pointer;
+  }
+}
