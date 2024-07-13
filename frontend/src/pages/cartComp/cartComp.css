@@ -4,6 +4,7 @@
     height: 100vh;
 }
 .modal{
+<<<<<<< HEAD
     width: 50vw;
     min-height: 500px;
     height: 65svh;
@@ -14,6 +15,18 @@
     box-shadow:  0 1px 6px #ccc;
     overflow-y: auto;
     padding:2rem;
+=======
+    width: 60vw;
+    min-height: 500px;
+    height: 65svh;
+    margin-top: 30px;
+    margin-left: 6%;
+    background: #fff;
+    border-radius: 0.3rem;
+    box-shadow: 0 1px 6px #ccc;
+    overflow-y: auto;
+    padding: 1rem;
+>>>>>>> 885121f (Added filter feature to Beers route)
 }
 .modal::-webkit-scrollbar{
     display: none;
@@ -31,6 +44,11 @@
     align-items: center;
     flex:  0 0 100px;
     padding: 0.6rem 0.5rem;
+<<<<<<< HEAD
+=======
+    height: 150px;
+
+>>>>>>> 885121f (Added filter feature to Beers route)
     /* filter: drop-shadow(2px 5px 8px #000); */
 }
 .cartBeer .cartBeerDetails{
@@ -44,7 +62,11 @@
     flex: 1;
     overflow: hidden;
 }
+<<<<<<< HEAD
 .cartBeer .cartBeerDetails h3,p{
+=======
+.cartBeer .cartBeerDetails h3, .cartBeer .cartBeerDetails p{
+>>>>>>> 885121f (Added filter feature to Beers route)
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -60,15 +82,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
 }
 .priceDetails{
     position:fixed;
+=======
+    padding: 0.5rem;
+}
+.priceDetails{
+    /* position:fixed; */
+>>>>>>> 885121f (Added filter feature to Beers route)
     width:400px;
     border-radius:0.3rem;
     background:#fff;
     padding:1rem 0;
     box-shadow:  0 1px 6px #ccc;
+<<<<<<< HEAD
     margin:80px 0
+=======
+    margin:30px 0
+>>>>>>> 885121f (Added filter feature to Beers route)
 }
 .priceDetails p{
     font-size: 20px;
@@ -86,6 +119,7 @@
     cursor: pointer;
     border-radius: 0.2rem;
 }
+<<<<<<< HEAD
 .paymentGate{
     position: relative;
     top: 80px;
@@ -137,6 +171,9 @@
 .paymentGate .paymentBtn img{
     margin: 0 0.5rem;
 }
+=======
+
+>>>>>>> 885121f (Added filter feature to Beers route)
 .emptyCart{
     display: flex;
     flex-direction: column;
@@ -170,6 +207,7 @@
         position: relative;
         min-height: 500px;
         height: 60svh;
+<<<<<<< HEAD
         margin: 80px;
         background:#fff;
         border-radius:0.5rem;
@@ -181,6 +219,16 @@
         margin: 0 0.5rem;
         position: relative;
     }
+=======
+        margin: 30px;
+        background: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 6px #ccc;
+        overflow-y: auto;
+        padding: 1rem;
+    }
+    
+>>>>>>> 885121f (Added filter feature to Beers route)
     .cartBeer{
         display: flex;
         border-radius: 1rem;
@@ -194,6 +242,10 @@
         align-items: center;
         flex:0 0 100px;
         padding: 0.6rem 0.5rem;
+<<<<<<< HEAD
+=======
+        height: 150px;
+>>>>>>> 885121f (Added filter feature to Beers route)
         /* filter: drop-shadow(2px 5px 8px #000); */
     }
     .cartBeer .cartBeerDetails{
@@ -208,6 +260,7 @@
         overflow: hidden
         ;
     }
+<<<<<<< HEAD
     .priceDetails{
         position: fixed;
         right: 150px;
@@ -216,6 +269,20 @@
         background:#fff;
         padding:0.5rem 0;
         margin-bottom: 0;
+=======
+    .cartTotal{
+        margin: 0 0.5rem;
+        position: relative;
+    }
+    .priceDetails{
+        /* position: fixed; */
+        right: 130px;
+        width:350px;
+        border-radius:0.5rem 0 0 0.5rem;
+        background:#fff;
+        padding:0.5rem 0;
+        margin: 30px 0;
+>>>>>>> 885121f (Added filter feature to Beers route)
         box-shadow: 0 0 5px #f9f9f9;
     }
 }
@@ -223,26 +290,47 @@
     .cartPage{
         display:flex;
         flex-direction: column;
+<<<<<<< HEAD
         height: 100vh;
         margin-bottom: 0;
         padding: 10px;
         
+=======
+        height: auto;
+        margin-bottom: 0;
+>>>>>>> 885121f (Added filter feature to Beers route)
     }
     .modal{
         width: 96%;
         min-height: 400px;
+<<<<<<< HEAD
         height: 50%;
+=======
+        height: fit-content;
+>>>>>>> 885121f (Added filter feature to Beers route)
         margin: 0 2%;
         background: #fff;
         border-radius: 2rem;
         box-shadow: 0 1px 6px #ccc;
         overflow-y: auto;
         padding: 0.7rem;
+<<<<<<< HEAD
         margin-top: 80px;
     }
     .cartTotal{
         margin: 0;
         position: relative;
+=======
+        margin-top: 10px;
+    }
+    .cartTotal{
+        position: sticky;
+        bottom: 0;
+        margin: 0;
+        margin-top: 1rem;
+        box-shadow: 0 0 10px #000;;
+
+>>>>>>> 885121f (Added filter feature to Beers route)
     }
     .placeOrderBtn{
         border: none;
@@ -253,12 +341,20 @@
         color: #fff;
         font-size: 0.9rem;
         cursor: pointer;
+<<<<<<< HEAD
         border-radius: 0.2rem;
+=======
+        border-radius: 0.4rem;
+>>>>>>> 885121f (Added filter feature to Beers route)
     }
     .totalFooter{
         display: flex;
         justify-content: space-between;
         align-items: center;
+<<<<<<< HEAD
+=======
+        padding: 0.5rem;
+>>>>>>> 885121f (Added filter feature to Beers route)
     }
     .cartBeer{
         display: flex;
@@ -273,6 +369,11 @@
         align-items: center;
         flex:0 0 100px;
         padding: 0.6rem 0.5rem;
+<<<<<<< HEAD
+=======
+        height: 150px;
+
+>>>>>>> 885121f (Added filter feature to Beers route)
         /* filter: drop-shadow(2px 5px 8px #000); */
     }
     .cartBeer .cartBeerDetails{
@@ -287,6 +388,7 @@
         overflow: hidden;
     }
     .priceDetails{
+<<<<<<< HEAD
         position: fixed;
         bottom: 0;
         width: 96%;
@@ -295,5 +397,13 @@
         padding: 0;
         margin-bottom: 0;
         box-shadow: 0 0 5px #f9f9f9;
+=======
+        border-radius: 0;
+        width: 100%;
+        background: #ffffff;
+        padding: 0;
+        margin: 0;
+        
+>>>>>>> 885121f (Added filter feature to Beers route)
     }
 }

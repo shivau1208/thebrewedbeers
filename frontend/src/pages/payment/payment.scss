@@ -1,0 +1,51 @@
+.paymentGate{
+  position: relative;
+  top: 10px;
+  margin: 0 auto;
+  width: min(90%,500px);
+  box-shadow:  0 1px 6px #ccc;
+  background-color: #fff;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.paymentGate .address{
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+}
+.paymentGate .address textarea{
+  border: none;
+  outline: none;
+  width: 100%;
+  background-color: #f4f4f4;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 16px;
+  resize: none;
+}
+.paymentGate .amount{
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+}
+.paymentGate .paymentBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6739B7;
+  color: #fff !important;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  padding: 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+.paymentGate .paymentBtn img{
+  margin: 0 0.5rem;
+}
