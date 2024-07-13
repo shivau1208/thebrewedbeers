@@ -2,7 +2,7 @@
 
 <p>Created Beer shopping site with React, ContextApi, CSS and Media queries. 
 I have used ContextApi to handle Cart's state. 
-And I have used Phonepe Payment Gateway for the payment.
+And I have used Phonepe Payment Gateway for the payment
 </p>
 
 #### Check the project here

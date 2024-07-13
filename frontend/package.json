@@ -20,7 +20,8 @@
     "react-router-dom": "^6.21.1",
     "react-scripts": "^5.0.1",
     "sass": "^1.77.5",
-    "styled-components": "^6.1.6"
+    "styled-components": "^6.1.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.0"
   },
   "browserslist": {
     "production": [
