@@ -7,10 +7,7 @@ body{
     height: 100%;
     font-size: inherit;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-<<<<<<< HEAD
-=======
     overflow-x: hidden;
->>>>>>> 885121f (Added filter feature to Beers route)
 }
 *,
 ::after,
@@ -48,12 +45,9 @@ a{
     position: relative;
 }
 
-<<<<<<< HEAD
-=======
 @media ( width <768px){
     ::-webkit-scrollbar{
         display: none;
     }
 }
 
->>>>>>> 885121f (Added filter feature to Beers route)
