@@ -1,12 +1,14 @@
 .productsFilter{
     position: relative;
-    margin-top: 10px;
+    display: flex;
+    margin: 10px 8%;
+
 }
 .beerProducts{
     display: grid;
     grid-template-columns: repeat(5,200px);
     gap: 20px 30px;
-    margin: 0 8%;
+    /* margin: 0 8%; */
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -30,14 +32,14 @@
     background: #eaeefc;
     border-radius: 0 0 1rem 1rem;
 }
+
 .beerProducts .beer .beerDetails h3{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0.1rem;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
 }
 .beerProducts .beer .beerDetails p{
     white-space: nowrap;
@@ -46,7 +48,9 @@
     padding: 0.1rem;
     font-size: 15px;
     font-weight: 400;
-    text-align: center;
+}
+.beerProducts .beer .beerDetails .ratingsandprice{
+    color: #1D84B5;
 }
 
 
@@ -97,13 +101,13 @@
 @media screen and ( width <= 576px){
     .productsFilter{
         position: relative;
-        margin-top: 1rem;
+        margin: 10px 2%;
     }
     .beerProducts{
         display: grid;
         grid-template-columns: repeat(1,400px);
         row-gap: 20px;
-        margin: 0 2%;
+        width: 100%;
     }
     .beerProducts .beer{
         display: flex;

@@ -52,7 +52,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:15:45",
     "price": "127.99",
-    "rating": "5"
+    "rating": 4
   },
   {
     "idDrink": "12055",
@@ -107,7 +107,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 23:16:49",
     "price": "120.99",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "17833",
@@ -162,7 +162,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2016-09-02 11:16:58",
     "price": "178.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "17168",
@@ -217,7 +217,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-04-24 22:36:00",
     "price": "171.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "11324",
@@ -272,7 +272,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "113.99",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "12656",
@@ -327,7 +327,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-01 10:03:54",
     "price": "126.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "178350",
@@ -382,7 +382,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "3"
+    "rating": 3
   },
   {
     "idDrink": "178352",
@@ -437,7 +437,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "178336",
@@ -492,7 +492,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "16987",
@@ -547,7 +547,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-08-24 09:35:30",
     "price": "169.99",
-    "rating": "1"
+    "rating": 5
   },
   {
     "idDrink": "17211",
@@ -602,7 +602,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 18:55:05",
     "price": "172.99",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "17241",
@@ -657,7 +657,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-11-01 17:35:26",
     "price": "172.99",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "13072",
@@ -712,7 +712,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-08 15:27:05",
     "price": "130.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "11022",
@@ -767,7 +767,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-01-02 20:15:04",
     "price": "110.99",
-    "rating": "3"
+    "rating": 3
   },
   {
     "idDrink": "12714",
@@ -822,7 +822,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:12:51",
     "price": "127.99",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "11634",
@@ -877,7 +877,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 16:41:03",
     "price": "116.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "17079",
@@ -932,7 +932,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-10 05:39:19",
     "price": "170.99",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "15184",
@@ -987,7 +987,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 17:59:21",
     "price": "151.99",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "17227",
@@ -1042,7 +1042,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 22:15:25",
     "price": "172.99",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "11961",
@@ -1097,7 +1097,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-06 16:38:31",
     "price": "119.99",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "12442",
@@ -1152,7 +1152,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-06 16:51:14",
     "price": "124.99",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "12758",
@@ -1207,7 +1207,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:01:18",
     "price": "127.99",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "11239",
@@ -1262,7 +1262,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-06 16:47:04",
     "price": "112.99",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "12794",
@@ -1317,7 +1317,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-08-31 19:21:12",
     "price": "127.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "17094",
@@ -1372,7 +1372,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-04-24 22:29:51",
     "price": "170.99",
-    "rating": "3"
+    "rating": 3
   },
   {
     "idDrink": "178363",
@@ -1427,7 +1427,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "12796",
@@ -1482,7 +1482,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-08-31 19:19:30",
     "price": "127.99",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "13971",
@@ -1537,7 +1537,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-08-18 15:09:59",
     "price": "139.99",
-    "rating": "1"
+    "rating": 5
   },
   {
     "idDrink": "17267",
@@ -1592,7 +1592,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2018-01-12 21:42:19",
     "price": "172.99",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "12562",
@@ -1647,7 +1647,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-07-18 22:09:04",
     "price": "125.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "11423",
@@ -1702,7 +1702,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2017-09-02 17:15:28",
     "price": "114.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "12130",
@@ -1757,7 +1757,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-01-02 20:18:27",
     "price": "121.99",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "12196",
@@ -1812,7 +1812,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2015-08-18 15:07:32",
     "price": "121.99",
-    "rating": "3"
+    "rating": 4
   },
   {
     "idDrink": "15226",
@@ -1867,7 +1867,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 21:57:23",
     "price": "152.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "11528",
@@ -1922,7 +1922,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 16:33:03",
     "price": "115.99",
-    "rating": "5"
+    "rating": 4
   },
   {
     "idDrink": "15511",
@@ -1977,7 +1977,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-01 09:57:07",
     "price": "155.99",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "17836",
@@ -2032,7 +2032,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2016-09-02 11:26:16",
     "price": "178.99",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "13066",
@@ -2087,7 +2087,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-08 15:22:38",
     "price": "130.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "16250",
@@ -2142,7 +2142,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 17:40:57",
     "price": "162.99",
-    "rating": "1"
+    "rating": 5
   },
   {
     "idDrink": "17192",
@@ -2197,7 +2197,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 12:25:18",
     "price": "171.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "13200",
@@ -2252,7 +2252,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-08-24 10:02:02",
     "price": "132.99",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "178363",
@@ -2307,7 +2307,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "16986",
@@ -2362,7 +2362,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-08-24 09:34:35",
     "price": "169.99",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "178366",
@@ -2417,7 +2417,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "12087",
@@ -2472,7 +2472,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 17:40:10",
     "price": "120.99",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "12772",
@@ -2527,7 +2527,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-02-03 15:43:43",
     "price": "127.99",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "17177",
@@ -2582,7 +2582,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2016-08-28 18:40:58",
     "price": "171.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "14594",
@@ -2637,7 +2637,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-01-28 16:25:52",
     "price": "145.99",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "17167",
@@ -2692,7 +2692,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-03 05:25:46",
     "price": "171.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "11963",
@@ -2747,7 +2747,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-06 16:39:36",
     "price": "119.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "11084",
@@ -2802,7 +2802,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-02 16:08:48",
     "price": "110.99",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "12790",
@@ -2857,7 +2857,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-08-31 19:13:17",
     "price": "127.99",
-    "rating": "3"
+    "rating": 3
   },
   {
     "idDrink": "17214",
@@ -2912,7 +2912,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 18:31:28",
     "price": "172.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "12744",
@@ -2967,7 +2967,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:05:51",
     "price": "127.99",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "13162",
@@ -3022,7 +3022,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-08-31 19:22:57",
     "price": "131.99",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "15403",
@@ -3077,7 +3077,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-02-03 15:58:49",
     "price": "154.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "12186",
@@ -3132,7 +3132,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-11-10 23:31:18",
     "price": "121.99",
-    "rating": "1"
+    "rating": 5
   },
   {
     "idDrink": "17222",
@@ -3187,7 +3187,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 21:42:09",
     "price": "172.99",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "12762",
@@ -3242,7 +3242,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 14:55:50",
     "price": "127.99",
-    "rating": "1"
+    "rating": 5
   },
   {
     "idDrink": "15200",
@@ -3297,7 +3297,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-02-03 15:47:54",
     "price": "152.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "11119",
@@ -3352,7 +3352,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2015-09-02 17:04:13",
     "price": "111.99",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "15006",
@@ -3407,7 +3407,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-06 16:44:53",
     "price": "150.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "11011",
@@ -3462,7 +3462,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2017-01-02 20:06:50",
     "price": "110.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "16031",
@@ -3517,7 +3517,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 17:43:15",
     "price": "160.99",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "12864",
@@ -3572,7 +3572,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-02-03 15:26:58",
     "price": "128.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "15427",
@@ -3627,7 +3627,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-01 21:29:09",
     "price": "154.99",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "178343",
@@ -3682,7 +3682,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "17251",
@@ -3737,7 +3737,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-12-19 17:51:08",
     "price": "172.99",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "16990",
@@ -3792,7 +3792,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-08-24 09:37:01",
     "price": "169.99",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "12750",
@@ -3847,7 +3847,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:04:14",
     "price": "127.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "15106",
@@ -3902,7 +3902,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-07-18 22:13:35",
     "price": "151.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "11938",
@@ -3957,7 +3957,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 17:23:49",
     "price": "119.99",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "13058",
@@ -4012,7 +4012,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-08 15:18:30",
     "price": "130.99",
-    "rating": "1"
+    "rating": 5
   },
   {
     "idDrink": "17181",
@@ -4067,7 +4067,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-01-22 11:08:20",
     "price": "171.99",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "15226",
@@ -4122,7 +4122,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 21:57:23",
     "price": "152.99",
-    "rating": "3"
+    "rating": 4
   },
   {
     "idDrink": "17245",
@@ -4177,7 +4177,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-12-04 16:55:43",
     "price": "172.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "12728",
@@ -4232,7 +4232,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-03 05:27:46",
     "price": "127.99",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "14482",
@@ -4287,7 +4287,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-01 09:41:43",
     "price": "144.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "17208",
@@ -4342,7 +4342,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 17:57:42",
     "price": "172.99",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "11205",
@@ -4397,7 +4397,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2016-08-28 18:47:04",
     "price": "112.99",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "178343",
@@ -4452,7 +4452,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "11339",
@@ -4507,7 +4507,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-02 16:44:57",
     "price": "113.99",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "17167",
@@ -4562,7 +4562,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-03 05:25:46",
     "price": "171.99",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "15288",
@@ -4617,7 +4617,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-07-18 22:32:42",
     "price": "152.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "13675",
@@ -4672,7 +4672,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-04-28 19:05:05",
     "price": "136.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "15182",
@@ -4727,7 +4727,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-04-24 22:18:22",
     "price": "151.99",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "11524",
@@ -4782,7 +4782,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 16:29:08",
     "price": "115.99",
-    "rating": "3"
+    "rating": 4
   },
   {
     "idDrink": "11224",
@@ -4837,7 +4837,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 16:38:19",
     "price": "112.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "15026",
@@ -4892,7 +4892,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 16:38:39",
     "price": "150.99",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "178349",
@@ -4947,7 +4947,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.99",
-    "rating": "3"
+    "rating": 3
   },
   {
     "idDrink": "12748",
@@ -5002,7 +5002,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:05:31",
     "price": "127.99",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "12420",
@@ -5057,7 +5057,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 12:42:31",
     "price": "124.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "11005",
@@ -5112,7 +5112,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2017-09-02 12:51:35",
     "price": "110.99",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "14560",
@@ -5167,7 +5167,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-08-31 19:53:20",
     "price": "145.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "17247",
@@ -5222,7 +5222,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-12-19 16:57:04",
     "price": "172.99",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "14782",
@@ -5277,7 +5277,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-08-31 19:27:17",
     "price": "147.99",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "12474",
@@ -5332,7 +5332,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-02 16:43:03",
     "price": "124.99",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "11524",
@@ -5387,7 +5387,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 16:29:08",
     "price": "115.99",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "14578",
@@ -5442,7 +5442,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-04-24 22:44:27",
     "price": "145.99",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "11006",
@@ -5497,7 +5497,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2015-08-18 15:06:37",
     "price": "110.99",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "14956",
@@ -5552,7 +5552,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 16:35:04",
     "price": "149.49",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "17181",
@@ -5607,7 +5607,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-01-22 11:08:20",
     "price": "171.49",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "12718",
@@ -5662,7 +5662,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:11:09",
     "price": "127.49",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "11019",
@@ -5717,7 +5717,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-01-02 20:10:29",
     "price": "110.49",
-    "rating": "3"
+    "rating": 4
   },
   {
     "idDrink": "11985",
@@ -5772,7 +5772,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-11-12 15:03:37",
     "price": "119.49",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "11026",
@@ -5827,7 +5827,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2017-01-02 20:19:31",
     "price": "110.49",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "15639",
@@ -5882,7 +5882,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 18:02:39",
     "price": "156.49",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "17220",
@@ -5937,7 +5937,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 12:29:23",
     "price": "172.49",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "16967",
@@ -5992,7 +5992,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-03 05:24:03",
     "price": "169.49",
-    "rating": "3"
+    "rating": 4
   },
   {
     "idDrink": "11164",
@@ -6047,7 +6047,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 16:34:21",
     "price": "111.49",
-    "rating": "3"
+    "rating": 4
   },
   {
     "idDrink": "17020",
@@ -6102,7 +6102,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-04-24 21:55:20",
     "price": "170.49",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "12688",
@@ -6157,7 +6157,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:20:36",
     "price": "126.49",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "17221",
@@ -6212,7 +6212,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 12:36:04",
     "price": "172.49",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "17840",
@@ -6267,7 +6267,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2017-09-07 21:44:05",
     "price": "178.49",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "12762",
@@ -6322,7 +6322,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 14:55:50",
     "price": "127.49",
-    "rating": "1"
+    "rating": 5
   },
   {
     "idDrink": "11011",
@@ -6377,7 +6377,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2017-01-02 20:06:50",
     "price": "110.49",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "17833",
@@ -6432,7 +6432,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2016-09-02 11:16:58",
     "price": "178.49",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "13020",
@@ -6487,7 +6487,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-03 04:01:20",
     "price": "130.49",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "14229",
@@ -6542,7 +6542,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-08-31 19:28:26",
     "price": "142.49",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "11128",
@@ -6597,7 +6597,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 16:26:02",
     "price": "111.49",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "11870",
@@ -6652,7 +6652,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2015-09-02 05:25:23",
     "price": "118.49",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "14538",
@@ -6707,7 +6707,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-04-28 18:59:38",
     "price": "145.49",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "15092",
@@ -6762,7 +6762,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-06 16:33:00",
     "price": "150.49",
-    "rating": "4"
+    "rating": 5
   },
   {
     "idDrink": "14752",
@@ -6817,7 +6817,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-11-04 09:28:17",
     "price": "147.49",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "16250",
@@ -6872,7 +6872,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 17:40:57",
     "price": "162.49",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "178338",
@@ -6927,7 +6927,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.49",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "17216",
@@ -6982,7 +6982,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 18:37:54",
     "price": "172.49",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "17211",
@@ -7027,7 +7027,7 @@
     "strMeasure8": null,
     "strMeasure9": null,
     "strMeasure10": null,
-    "strMeasure11": null, 
+    "strMeasure11": null,
     "strMeasure12": null,
     "strMeasure13": null,
     "strMeasure14": null,
@@ -7037,7 +7037,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 18:55:05",
     "price": "172.49",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "12726",
@@ -7092,7 +7092,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:07:58",
     "price": "127.49",
-    "rating": "4"
+    "rating": 3
   },
   {
     "idDrink": "12654",
@@ -7147,7 +7147,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-09-01 09:58:27",
     "price": "126.49",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "15841",
@@ -7202,7 +7202,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-11-04 09:24:43",
     "price": "158.49",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "14366",
@@ -7257,7 +7257,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 18:28:17",
     "price": "143.49",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "178365",
@@ -7312,7 +7312,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.49",
-    "rating": "2"
+    "rating": 5
   },
   {
     "idDrink": "15825",
@@ -7367,7 +7367,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2015-09-03 03:27:37",
     "price": "158.49",
-    "rating": "1"
+    "rating": 5
   },
   {
     "idDrink": "17830",
@@ -7422,7 +7422,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2018-06-27 15:15:09",
     "price": "178.49",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "15853",
@@ -7477,7 +7477,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 18:07:51",
     "price": "158.49",
-    "rating": "3"
+    "rating": 3
   },
   {
     "idDrink": "178307",
@@ -7532,7 +7532,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": null,
     "price": "1783.49",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "178320",
@@ -7587,7 +7587,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": null,
     "price": "1783.49",
-    "rating": "5"
+    "rating": 4
   },
   {
     "idDrink": "17020",
@@ -7642,7 +7642,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-04-24 21:55:20",
     "price": "170.49",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "12097",
@@ -7697,7 +7697,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 16:58:06",
     "price": "120.49",
-    "rating": "2"
+    "rating": 4
   },
   {
     "idDrink": "12720",
@@ -7752,7 +7752,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-02-20 15:10:15",
     "price": "127.49",
-    "rating": "5"
+    "rating": 4
   },
   {
     "idDrink": "15941",
@@ -7807,7 +7807,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2016-11-04 09:52:06",
     "price": "159.49",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "17256",
@@ -7862,7 +7862,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-12-19 18:34:15",
     "price": "172.49",
-    "rating": "3"
+    "rating": 3
   },
   {
     "idDrink": "17065",
@@ -7917,7 +7917,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-02-03 15:01:06",
     "price": "170.49",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "17826",
@@ -7972,7 +7972,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2018-09-01 10:34:38",
     "price": "178.49",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "17202",
@@ -8027,7 +8027,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 17:34:52",
     "price": "172.49",
-    "rating": "5"
+    "rating": 3
   },
   {
     "idDrink": "15226",
@@ -8082,7 +8082,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 21:57:23",
     "price": "152.49",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "16289",
@@ -8137,7 +8137,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-08-31 19:37:02",
     "price": "162.49",
-    "rating": "4"
+    "rating": 4
   },
   {
     "idDrink": "17255",
@@ -8192,7 +8192,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-12-19 18:14:32",
     "price": "172.49",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "17223",
@@ -8247,7 +8247,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 21:50:03",
     "price": "172.49",
-    "rating": "1"
+    "rating": 4
   },
   {
     "idDrink": "12188",
@@ -8302,7 +8302,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2016-11-10 23:29:01",
     "price": "121.49",
-    "rating": "1"
+    "rating": 3
   },
   {
     "idDrink": "17224",
@@ -8357,7 +8357,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-07 21:55:34",
     "price": "172.49",
-    "rating": "5"
+    "rating": 5
   },
   {
     "idDrink": "17212",
@@ -8412,7 +8412,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-02 18:22:31",
     "price": "172.49",
-    "rating": "3"
+    "rating": 3
   },
   {
     "idDrink": "17834",
@@ -8467,7 +8467,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2016-09-02 11:19:28",
     "price": "178.49",
-    "rating": "5"
+    "rating": 4
   },
   {
     "idDrink": "17840",
@@ -8522,7 +8522,7 @@
     "strCreativeCommonsConfirmed": "Yes",
     "dateModified": "2017-09-07 21:44:05",
     "price": "178.49",
-    "rating": "2"
+    "rating": 3
   },
   {
     "idDrink": "17824",
@@ -8577,7 +8577,7 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2018-02-04 12:46:52",
     "price": "178.49",
-    "rating": "3"
+    "rating": 5
   },
   {
     "idDrink": "12071",
@@ -8632,6 +8632,6 @@
     "strCreativeCommonsConfirmed": "No",
     "dateModified": "2017-09-08 17:37:54",
     "price": "120.49",
-    "rating": "5"
+    "rating": 5
   }
 ]

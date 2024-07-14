@@ -1,4 +1,17 @@
 .activefilter{
   background-color: #f4f4f4;
 }
+.desktopFilter{
+  width: 250px;
+  max-height: 100vh;
+  margin: 0 20px;
+  background-color: #F2F4FD;
+  border-radius: 1rem;
+  height: auto;
+}
 
+@media (width <= 576px){
+  .desktopFilter{
+    display: none;
+  }
+}

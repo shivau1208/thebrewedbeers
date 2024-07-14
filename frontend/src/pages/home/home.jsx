@@ -24,6 +24,7 @@ export default function ListBeers() {
             {data
               .slice()
               .sort(() => Math.random() - 0.5)
+              .filter(item=>item?.rating >= 3)
               .slice(0, 6)
               .map((beer, index) => (
                 <Suspense key={index} fallback={<DotLoader />}>

@@ -20,11 +20,9 @@ export default function Footer() {
                 </div>
             </div>
             <div className="contactTabs">
-                <ul>
-                    <li>CONTACT</li>
-                    <li>HOURS & LOCATION</li>
-                    <li>FEEDBACK</li>
-                </ul>
+                <p>CONTACT</p>
+                <p>HOURS & LOCATION</p>
+                <p>FEEDBACK</p>
             </div>
         </div>
     </>

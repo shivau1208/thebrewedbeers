@@ -21,15 +21,19 @@
     width: 2rem;
     height: 2rem;
 }
-.footerContainer .contactTabs ul{
+.footerContainer .contactTabs{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
 }
-.footerContainer .contactTabs li{
-    list-style: none;
-    margin: 0.5rem 0.8rem;
+.footerContainer .contactTabs p{
+    margin: 0.2rem 0.3rem;
     border: 2px solid #fff;
     padding: 0.5rem;
     white-space: nowrap;
     cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
 
 }
