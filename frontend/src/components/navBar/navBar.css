@@ -7,15 +7,9 @@
     box-shadow: 0 2px 4px #272727;
     padding: 0.5rem;
     width: 100vw;
-<<<<<<< HEAD
-    height: fit-content;
-    position: fixed;
-    top: 0;
-=======
     height: auto;
     /* position: sticky;
     top: 0; */
->>>>>>> 885121f (Added filter feature to Beers route)
     z-index: 3;
 }
 .navBar .account{
