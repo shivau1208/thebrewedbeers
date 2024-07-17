@@ -4,6 +4,7 @@ import {useBeerContextApi } from '../../context/beerContextApi';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { alcoholContent, categoriesContent, glasesContent, ingredientsContent, priceRange, ratingContent } from '../../constants/filterConstants';
+import { useFilterContextApi } from '../../context/filterContextApi';
 
 const Filter_route = styled.div`
   height:100%;
@@ -67,8 +68,7 @@ const Options = styled.div`
   font-size: 16px;
   font-weight: 400;
 `
-const OptionsList = styled.li`
-  list-style:none;
+const OptionsList = styled.span`
   padding:0 0.5rem;
   margin-left:0.3rem;
 `
@@ -85,7 +85,7 @@ const ApplyBtnParent = styled.div`
   background-color: #fff;
 `
 const ClearFiletrsBtn = styled.button`
-  padding: 0.5rem;
+  padding: 0.3rem;
   border-radius: 5px;
   border: 1px solid #000;
   outline: none;
@@ -103,10 +103,10 @@ const ClearFiletrsBtn = styled.button`
   color:#fff;
 `
 
-
 export default function Filter() {
   const navigate = useNavigate();
-  const {filters,setFilters,products,setProducts} = useBeerContextApi();
+  const {data,products,setProducts} = useBeerContextApi();
+  const {filters,setFilters,} = useFilterContextApi();
   const [options,setOPtions] = useState([...priceRange])
   const [category,setCategory] = useState('price_range')
   const [checked,setChecked] = useState(false)
@@ -155,13 +155,13 @@ export default function Filter() {
     }catch(err){
       console.log(err);
     }
-    const filteredProducts = products.filter((product,index)=>{
-      let price = product?.price;
+    const filteredProducts = data.filter((product,index)=>{
+      let price = product?.price  - (product?.rating*10);
       let rating = product?.rating;
       return (
         (filters.alcohol_content.length===0 || filters.alcohol_content.includes(product?.strAlcoholic)) &&
         (filters.category_content.length===0 || filters.category_content.includes(product?.strCategory)) &&
-        (filters.glases_content.length===0 || filters.glases_content.includes(product?.strCategory)) &&
+        (filters.glasses_content.length===0 || filters.glasses_content.includes(product?.strCategory)) &&
         (filters.ingredients_content.length===0 || filters.ingredients_content.includes(product?.strIngredient1)) &&
         ((priceMin===null || price >= priceMin) && (priceMax===null  || price <= priceMax)) && 
         (ratingMin===null || rating >= ratingMin)
@@ -188,7 +188,7 @@ export default function Filter() {
                 <FilterCategoryList key={'Price'} onClick={()=>{setOPtions([...priceRange]);setCategory('price_range')}} className='filterlist activefilter'><span>Price</span> {filters.price_range.length ? <FilterCategoryLength>{filters.price_range.length}</FilterCategoryLength> : null}</FilterCategoryList>
                 <FilterCategoryList key={'Alcohol'} onClick={()=>{setOPtions([...alcoholContent]);setCategory('alcohol_content')}} className='filterlist'><span>Alcohol</span> {filters.alcohol_content.length ? <FilterCategoryLength>{filters.alcohol_content.length}</FilterCategoryLength> : null}</FilterCategoryList>
                 <FilterCategoryList key={'Categories'} onClick={()=>{setOPtions([...categoriesContent]);setCategory('category_content')}} className='filterlist'><span>Categories</span>{filters.category_content.length ? <FilterCategoryLength>{filters.category_content.length}</FilterCategoryLength> : null}</FilterCategoryList>
-                <FilterCategoryList key={'Glasses'} onClick={()=>{setOPtions([...glasesContent]);setCategory('glases_content')}} className='filterlist'><span>Glasses</span>{filters.glases_content.length ? <FilterCategoryLength>{filters.glases_content.length}</FilterCategoryLength> : null}</FilterCategoryList>
+                <FilterCategoryList key={'Glasses'} onClick={()=>{setOPtions([...glasesContent]);setCategory('glasses_content')}} className='filterlist'><span>Glasses</span>{filters.glasses_content.length ? <FilterCategoryLength>{filters.glasses_content.length}</FilterCategoryLength> : null}</FilterCategoryList>
                 <FilterCategoryList key={'Ingridients'} onClick={()=>{setOPtions([...ingredientsContent]);setCategory('ingredients_content')}} className='filterlist'><span>Ingridients</span>{filters.ingredients_content.length ? <FilterCategoryLength>{filters.ingredients_content.length}</FilterCategoryLength> : null}</FilterCategoryList>
                 <FilterCategoryList key={'Rating'} onClick={()=>{setOPtions([...ratingContent]);setCategory('rating_content')}} className='filterlist'><span>Rating</span>{filters.rating_content.length ? <FilterCategoryLength>{filters.rating_content.length}</FilterCategoryLength> : null}</FilterCategoryList>
               </ul>

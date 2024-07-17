@@ -68,6 +68,7 @@ const CartBackBtn = styled.button`
   margin-right: 1rem;
   background-color: transparent;
   height: 100%;
+  cursor:pointer;
   
 `
 const CartHeaderSpan = styled.span`
@@ -78,7 +79,7 @@ export default function CartComp() {
     const {cartItems, removeFromCart, reduceFromCart, increaseToCart} = useCartContextApi()
     const navigate = useNavigate();
     const Total = ()=>{
-        let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.idDrink/100)),0)
+        let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.price)),0)
         return total;
     }
     
@@ -110,7 +111,7 @@ export default function CartComp() {
                         <h3>{beer.item.strDrink}</h3>
                         <p>{beer?.item?.strAlcoholic}</p>
                         {/* <p>mfg: {beer.item.first_brewed}</p> */}
-                        <p>Price: $ {(beer.item.idDrink / 100).toFixed(2)}</p>
+                        <p>Price: $ {(beer.item.price)}</p>
                       </div>
                       <CloseButton onClick={() => removeFromCart(beer.item.idDrink)}>
                         <img src="/close-svgrepo-com.svg" alt="close" srcSet="" width="30" />
@@ -131,10 +132,10 @@ export default function CartComp() {
                   <hr />
                   <Header4>
                     <span>{`Price (${cartItems.length} item)`}</span>
-                    <span>{cartItems.reduce((acc, curr) => acc + curr.quantity * (curr.item.idDrink / 100), 0).toFixed(2)}</span>
+                    <span>{cartItems.reduce((acc, curr) => acc + curr.quantity * (curr.item.price), 0)}</span>
                   </Header4>
                   <Header4>
-                    <span>Discount</span>
+                    <span>Special Discount</span>
                     <span>5%</span>
                   </Header4>
                   <Header4>

@@ -28,7 +28,7 @@ const CartItems = styled.span`
 `;
 
 export const AddClass = () => {
-  let lis = document.querySelectorAll("li");
+  let lis = document.querySelectorAll(".navbarlist");
   let pathname = location.pathname;
   let tabName = pathname.split("/")[1].toLowerCase();
   let tab = document.getElementById(tabName);
@@ -53,7 +53,7 @@ export const AddClass = () => {
   }
 };
 export const removeClass = () => {
-  let lis = document.querySelectorAll("li");
+  let lis = document.querySelectorAll(".navbarlist");
   lis.forEach((li) => (li.className = ""));
 };
 export default function Navbar() {
@@ -122,16 +122,16 @@ export default function Navbar() {
             <div className="sideList">
               <ul>
                 <Link to="/home">
-                  <li id="home">Home</li>
+                  <li className="navbarlist" id="home">Home</li>
                 </Link>
                 <Link to="/beers">
-                  <li id="beers">Beers</li>
+                  <li className="navbarlist" id="beers">Beers</li>
                 </Link>
                 <Link to="/dining">
-                  <li id="dining">Dining</li>
+                  <li className="navbarlist" id="dining">Dining</li>
                 </Link>
                 <Link to="/about">
-                  <li id="about">About</li>
+                  <li className="navbarlist" id="about">About</li>
                 </Link>
               </ul>
             </div>
