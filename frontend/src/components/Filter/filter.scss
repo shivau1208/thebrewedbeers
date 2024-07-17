@@ -1,4 +1,96 @@
 .activefilter{
   background-color: #f4f4f4;
 }
+hr{
+  height: 0.01rem;
+  border: none;
+  background: #d1d1d1;
+}
+.desktopFilter{
+  width: 280px;
+  min-height: 50vh;
+  margin: 0 20px;
+  background-color: #F2F4FD;
+  border-radius: 0.1rem;
+  height: 100%;
+  box-shadow: 0 0 4px #aaa;
+}
+.desktopFilterHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px;
+}
+.desktopFilterHeader h3{
+  font-size: 18px;
+  font-weight: 500;
+  padding: 4px;
+}
+.desktopFilterHeader p{
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px;
+  color: #1D84B5;
+  cursor: pointer;
+}
+.customerRatings p{
+  font-size: 15px;
+  font-weight: 400;
+  padding: 0.5rem;
+}
+.customerRatings ul{
+  padding: 0 0.5rem;
+}
+.customerRatings li{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 35px;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+}
+.customerRatings li img{
+  margin-right: 0.5rem;
+}
 
+.filteredValues{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+
+}
+
+.filteredValuesList{
+  background-color: #ddd;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 4px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.filteredValuesList .filteredValuesListCross{
+  padding: 2px;
+  margin-right: 2px;
+}
+.filteredValuesList .filteredValuesListValue{
+  padding: 2px;
+}
+.filteredValuesList:hover .filteredValuesListValue{
+  text-decoration: line-through;
+}
+.showMoreFilter{
+  font-size: 15px;
+  font-weight: 400;
+  color: #1D84B5;
+  padding: 4px;
+  margin: 5px;
+}
+
+@media (width <= 576px){
+  .desktopFilter{
+    display: none;
+  }
+}

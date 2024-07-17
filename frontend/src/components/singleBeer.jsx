@@ -12,8 +12,8 @@ const Button = styled.button`
 `;
 const PlusCartButton = styled.div`
   position:absolute;
-  bottom:0rem;
-  right:0.5rem;
+  bottom:10px;
+  right:10px;
   cursor:pointer;
 `;
 
@@ -27,12 +27,12 @@ export default function SingleBeer({beer}) {
         </div>
         <div className='beerDetails'>
             <h3>{beer?.strDrink}</h3>
+            <p className='ratingsandprice'>{`${beer?.rating*10}% off`} <strike>{beer?.price}</strike> <strong>{`$ ${(beer?.price-beer?.rating*10).toFixed(2)}`}</strong></p>
             <p>{beer?.strAlcoholic}</p>
-            {/* <p>mfg: {beer.first_brewed}</p> */}
-            <p>${beer?.price}</p>
+            <p className='ratingsandprice'>{`★`.repeat(beer?.rating)} <small>{`(${beer?.idDrink})`}</small></p>
         </div>
         <PlusCartButton className='plusCartButton' onClick={()=>addToCart(beer.idDrink)} >
-            <img width='35' src="/plus-large-svgrepo-com.svg" alt="" />
+            <img src="/plus-large.svg" alt="plus-button" />
         </PlusCartButton>
     </div>
   )

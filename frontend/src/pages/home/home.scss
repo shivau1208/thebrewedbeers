@@ -42,7 +42,6 @@
   max-width: 100%;
   font-size: 16px;
   font-weight: 500;
-  text-align: center;
 }
 .beerContainer .beer .beerDetails p {
   white-space: nowrap;
@@ -52,7 +51,9 @@
   max-width: 100%;
   font-size: 15px;
   font-weight: 400;
-  text-align: center;
+}
+.beerContainer .beer .beerDetails .ratingsandprice{
+  color: #1D84B5;
 }
 .beerContainer .btn {
   display: none;

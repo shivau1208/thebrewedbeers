@@ -10,14 +10,7 @@ export default function BeerContextFunc({children}) {
     const [cartComp,setCartComp] = useState(true)
     const [data,setData] = useState([]);
     const [products,setProducts] = useState([]);
-    const [filters,setFilters] = useState({
-        price_range:[],
-        alcohol_content:[],
-        category_content:[],
-        glases_content:[],
-        ingredients_content:[],
-        rating_content:[]
-      })
+    
     // const [isDarkMode,setDarkMode] = useState(true)
     useEffect(()=>{
         const fetchData = async () => {
@@ -65,7 +58,7 @@ export default function BeerContextFunc({children}) {
         data,setData,
         searchComp,setSearchComp,
         cartComp,setCartComp,
-        filters,setFilters,
+        
         products,setProducts,
         Debounce,
         hanldeBeerSearch,
