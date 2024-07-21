@@ -9,11 +9,21 @@ hr{
 .desktopFilter{
   width: 280px;
   min-height: 50vh;
-  margin: 0 20px;
+  margin-right: 20px;
   background-color: #F2F4FD;
   border-radius: 0.1rem;
   height: 100%;
   box-shadow: 0 0 4px #aaa;
+}
+.desktopFilter .showMoreFilter{
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+  padding: 0.3rem;
+}
+.desktopFilter .showMoreFilter:hover{
+  background-color: #1d85b517;
+  border-radius: 0.2rem;
 }
 .desktopFilterHeader{
   display: flex;
@@ -89,7 +99,7 @@ hr{
   margin: 5px;
 }
 
-@media (width <= 576px){
+@media (width <= 768px){
   .desktopFilter{
     display: none;
   }

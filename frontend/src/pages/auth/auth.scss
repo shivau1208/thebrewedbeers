@@ -1,0 +1,84 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+  position: relative;
+}
+.container .signupForm,.container .signinForm{
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 0 11px #ac9fe7;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.container .signinForm h4,.container .signupForm h4{
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.container .signinForm .form-inputs,.container .signupForm .form-inputs{
+  border: 0.05rem solid #ddd;
+  outline: none;
+  border-radius: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+.container .signinForm .form-inputs input,.container .signupForm .form-inputs input{
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+}
+.container .signupForm .form-inputs.email{
+  display: flex;
+  align-items: center;
+}
+.container .signupForm .form-inputs .form-email{
+  border-right: 0.05rem solid #ddd;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.container .signupForm .form-inputs .email-text{
+  padding: 0.25rem;
+}
+.container .signinForm .form-checkbox,.container .signupForm .form-checkbox{
+  margin: 0.5rem 0;
+}
+.container .signinForm .form-checkbox input,.container .signupForm .form-checkbox input{
+  margin-right: 0.25rem;
+  cursor: pointer;
+}
+.container .signinForm button,.container .signupForm button{
+  border: none;
+  background-color: #0D6EFD;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  margin: 0.5rem 0;
+  width: 100%;
+  cursor: pointer;
+}
+.container .signupForm button:disabled{
+  background-color: #61A1FE;
+  cursor: auto;
+}
+.container .signinForm .form-not-user,.container .signupForm .form-not-user{
+  margin: 0.5rem 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.container .signinForm .form-not-user a,.container .signupForm .form-not-user a{
+  text-decoration: none;
+  color: #0D6EFD;
+}
+.signin-suggetion{
+  padding: 1.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+

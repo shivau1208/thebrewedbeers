@@ -1,10 +1,10 @@
 import React, { Suspense, useEffect } from "react";
-import "./home.scss";
 import { useBeerContextApi } from "../../context/beerContextApi";
 import Footer from "../../components/footer/footer";
 import DotLoader from "../../components/spinner/DotLoader";
 import Nodatafound from "../../components/Error/Nodatafound";
 import Navbar from "../../components/navBar/Navbar";
+import "./home.scss";
 
 // Lazy load the SingleBeer component
 const SingleBeerComp = React.lazy(() => import("../../components/singleBeer"));
@@ -24,7 +24,7 @@ export default function ListBeers() {
             {data
               .slice()
               .sort(() => Math.random() - 0.5)
-              .filter(item=>item?.rating >= 3)
+              .filter(item=>item?.rating >= 4)
               .slice(0, 6)
               .map((beer, index) => (
                 <Suspense key={index} fallback={<DotLoader />}>
@@ -36,8 +36,8 @@ export default function ListBeers() {
         ) : (
           <Nodatafound />
         )}
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }

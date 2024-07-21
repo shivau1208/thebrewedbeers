@@ -1,0 +1,27 @@
+.alert{
+  position: absolute;
+  right: 10rem;
+  top: 0;
+  padding: 0.5rem;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+}
+.alert .btn-close{
+  margin-left: 0.25rem;
+}
+.alert-success{
+  border: 1px solid #D1E7DD;
+  background-color: #D1E7DD;
+}
+.alert-danger{
+  border: 1px solid #F8D7DA;
+  background-color: #F8D7DA;
+}
+.alert-warning{
+  border: 1px solid #FFF3CD;
+  background-color: #FFF3CD;
+}
+.alert-info{
+  border: 1px solid #CFF4FC;
+  background-color: #CFF4FC;
+}

@@ -4,7 +4,7 @@
 }
 html,
 body{
-    height: 100%;
+    height: 100dvh;
     font-size: inherit;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;

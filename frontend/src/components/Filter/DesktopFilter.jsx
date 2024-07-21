@@ -6,7 +6,8 @@ import { useFilterContextApi } from '../../context/filterContextApi';
 export default function DesktopFilter() {
   const {data,products,setProducts} = useBeerContextApi();
   const {filters,setFilters,} = useFilterContextApi();
-  const [filterValueLength,setFilteredValueLength] = useState(4)
+  const [filterValueLength,setFilteredValueLength] = useState(4);
+  const [text,setText] = useState(false)
   const FilterOptionOnChangehandler = (category, value) => {
     setFilters((prevfilters) => {
       const newValues = prevfilters[category]?.includes(value)
@@ -81,7 +82,7 @@ export default function DesktopFilter() {
           )
         }
       </div>
-      {AllFilterValues.length > 4 ? <span className='showMoreFilter' onClick={()=>setFilteredValueLength(AllFilterValues.length)}>SHOW MORE</span> : null }
+      {AllFilterValues.length > 4 ? <div className='showMoreFilter' onClick={()=>{setText(!text);text ? setFilteredValueLength(4):setFilteredValueLength(AllFilterValues.length)}}>{text ? 'SHOW LESS' : 'SHOW MORE'}</div> : null }
       <hr />
       <div className='customerRatings'>
         <p>PRICE</p>

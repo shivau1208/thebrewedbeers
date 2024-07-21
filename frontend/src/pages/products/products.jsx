@@ -1,4 +1,3 @@
-import './products.css'
 import React, { useContext, useEffect, useState } from 'react'
 import { BeersContext, useBeerContextApi } from '../../context/beerContextApi';
 import SingleBeer from '../../components/singleBeer';
@@ -9,6 +8,7 @@ import Navbar from '../../components/navBar/Navbar';
 import SortFilter from '../../components/sortfilter/SortFilter';
 import DesktopFilter from '../../components/Filter/DesktopFilter';
 import styled from 'styled-components';
+import './products.css'
 
 const ProductsFilter = styled.div`
     position: relative;
@@ -28,14 +28,14 @@ export default function Products() {
         <>
             <Navbar />
             <SortFilter />
-            {products !== null && products.length ?  <div className='productsFilter'>
+            <div className='productsFilter'>
                 <DesktopFilter />
-                <div className='beerProducts'>
+                {products !== null && products.length ?  <div className='beerProducts'>
                     {products.slice().sort(() => Math.random() - 0.5).map((beer, index) =>
                         <SingleBeer key={index} beer={beer} />
                     )}
-                </div> 
-            </div> : <Nodatafound /> }
+                </div>  : <Nodatafound /> }
+            </div>
         </>
     )
 }
