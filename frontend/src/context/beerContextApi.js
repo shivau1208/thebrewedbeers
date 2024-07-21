@@ -47,9 +47,14 @@ export default function BeerContextFunc({children}) {
     }
     async function hanldeBeerSearch(){
         let searchInput = document.querySelector('#searchInput');
-        let value = searchInput ? searchInput.value : 'a';
-        let response = await fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${value}`).then(res=>res.json());
-        setData(response?.drinks)
+        let value = searchInput.value.toLowerCase();
+        let response = data.filter(item=>{
+            let strDrink = item.strDrink.toLowerCase();
+            let ingredient = item.strIngredient1.toLowerCase();
+            return (strDrink.indexOf(value) > -1 || ingredient.indexOf(value) > -1)
+            
+        });
+        setProducts([...response])
     }
     
     
@@ -58,7 +63,6 @@ export default function BeerContextFunc({children}) {
         data,setData,
         searchComp,setSearchComp,
         cartComp,setCartComp,
-        
         products,setProducts,
         Debounce,
         hanldeBeerSearch,
