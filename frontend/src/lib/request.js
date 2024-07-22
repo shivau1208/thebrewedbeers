@@ -4,6 +4,7 @@ export async function postData(url='', data=''){
     headers:{
       'content-type':'application/json'
     },
+    credentials:'include',
     body:JSON.stringify(data)
   });
   return response;
