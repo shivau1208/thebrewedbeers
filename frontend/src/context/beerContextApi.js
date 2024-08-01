@@ -10,6 +10,7 @@ export default function BeerContextFunc({children}) {
     const [cartComp,setCartComp] = useState(true)
     const [data,setData] = useState([]);
     const [products,setProducts] = useState([]);
+    const [showProfile,setShowProfile] = useState(false)
     
     // const [isDarkMode,setDarkMode] = useState(true)
     useEffect(()=>{
@@ -66,6 +67,7 @@ export default function BeerContextFunc({children}) {
         products,setProducts,
         Debounce,
         hanldeBeerSearch,
+        showProfile,setShowProfile
     }}>
         {children}
     </BeersContext.Provider>

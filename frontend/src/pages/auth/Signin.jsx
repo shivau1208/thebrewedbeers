@@ -4,30 +4,28 @@ import { postData } from "../../lib/request";
 import Alert, { AlertFunc } from "../../components/Alert/Alert";
 import "./auth.scss";
 import { server } from "../../App";
+import { useDispatch } from "react-redux";
+import { VerifyAuth } from "../../redux/actions";
 
 export default function Signin() {
-  const router = useNavigate();
+  const navigate = useNavigate();
   const [data, setData] = useState({ email: null, password: null });
+  const dispatch = useDispatch()
   const submit = async (event) => {
     event.preventDefault();
-    let loader = document.querySelector(".loader");
     if (data.email && data.password) {
-      if (loader) {
-        loader.style.display = "flex";
-      }
       const res = await postData(`${server}/login`, data);
       let { message } = await res.json();
       if (res.status == 200) {
         AlertFunc(message, "success", 2000);
+        dispatch(VerifyAuth('authenticate'))
         setTimeout(()=>{
-          router(`/home`);
+
+          navigate('/home');
         },2000)
       } else {
         AlertFunc(message, "danger", 2000);
-        router(`/auth/signin`);
-      }
-      if (loader) {
-        loader.style.display = "none";
+        navigate(`/auth/signin`);
       }
     } else {
       AlertFunc("Please fill credentials", "info", 2000);
@@ -58,7 +56,6 @@ export default function Signin() {
             </div>
           </div>
         </div>
-        <Alert />
       </div>
       <div className="signin-suggetion">
         <p><b>Username:</b> user@cl.me</p>

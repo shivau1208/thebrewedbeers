@@ -53,11 +53,11 @@ export const removeClass = () => {
   lis.forEach((li) => (li.className = ""));
 };
 export default function Navbar() {
-  const { cartComp, searchComp, Debounce, hanldeBeerSearch } = useBeerContextApi();
+  const { cartComp, searchComp, Debounce, hanldeBeerSearch,showProfile,setShowProfile } = useBeerContextApi();
   const { cartItems } = useCartContextApi();
   const [sidebarShow, setSideBarShow] = useState(false);
   const [clientWidth, setClientWidth] = useState(null);
-  const [showProfile,setShowProfile] = useState(false)
+  
   useLayoutEffect(() => {
     setClientWidth(document.body.clientWidth);
     let width = document.body.clientWidth;

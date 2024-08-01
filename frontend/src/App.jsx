@@ -1,6 +1,6 @@
-import React, { Children, Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import ListBeers from './pages/home/home';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, json } from 'react-router-dom';
 import BeerContextFunc from './context/beerContextApi';
 import CartComp from './pages/cartComp/cartComp';
 import Payment from './pages/payment/payment';
@@ -14,26 +14,48 @@ import {SpeedInsights} from '@vercel/speed-insights/react'
 import FilterContextFunc from './context/filterContextApi';
 import Signin from './pages/auth/Signin';
 import Signup from './pages/auth/Signup';
+import Cookies from 'js-cookie';
+import { useDispatch, useSelector } from 'react-redux';
+import { VerifyAuth } from './redux/actions';
+import Alert from './components/Alert/Alert';
+
 
 export const server = 'https://login-service-xwdp.onrender.com'
+// export const server = 'http://localhost:5000'
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 
-// const Protected = async({children})=>{
-//   const [authenticated,setAuthenticated] = useState(false);
-  // const res = await fetch(`${server}/protected`,{
-  //   headers:
-  // })
-//   return(
-//     <>
-//     {authenticated && children}
-//     </>
-//   )
-// }
-
-
+const cid = Cookies.get('cid');
 export default function App() {
-  
-  
+  const {authenticated} = useSelector(state=>state.auth)
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+  console.log(cid);
+  useEffect(() => {
+    if(!authenticated){
+      fetch(`${server}/protected`,{
+        headers:{
+          'content-type':'application/json',
+          'Authorization':cid,
+        },
+        credentials:'include',
+      })
+      .then(res=>{
+        if(res.status==200){
+          dispatch(VerifyAuth('authenticate'));
+        }
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+    }
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading.....</div>;
+  }
   return (
     <>
       <BeerContextFunc>
@@ -42,13 +64,13 @@ export default function App() {
             <Routes>
               <Route path='/*' element={<Page404 />} />
               <Route path='/' element={<Navigate to={"/auth/signin"} />} />
-              <Route path='/home' element={<ListBeers />} />
-              <Route path='/beers' element={<Suspense  fallback={<Spinner />}><ProductsComp /></Suspense>} />
-              <Route path='/dining' element={<DiningFunc />} />
-              <Route path='/about' element={<About />} />
-              <Route path='/online-payment' element={<Payment />} />
-              <Route path='/cartitems' element={<CartComp />} />
-              <Route path='/filter' element={<Filter />} />
+              <Route path='/home' element={authenticated ? <ListBeers /> : <Navigate to={"/auth/signin"} />} />
+              <Route path='/beers' element={authenticated ? <Suspense fallback={<Spinner />}><ProductsComp /></Suspense> : <Signin />} />
+              <Route path='/dining' element={authenticated ? <DiningFunc /> : <Signin />} />
+              <Route path='/about' element={authenticated ? <About /> : <Signin />} />
+              <Route path='/online-payment' element={authenticated ? <Payment /> : <Signin />} />
+              <Route path='/cartitems' element={authenticated ? <CartComp /> : <Signin />} />
+              <Route path='/filter' element={authenticated ? <Filter /> : <Signin />} />
               <Route path='/auth/signin' element={<Signin />} />
               <Route path='/auth/signup' element={<Signup />} />
             </Routes>
@@ -56,6 +78,7 @@ export default function App() {
         </CartContextFunc>
       </BeerContextFunc>
       <SpeedInsights />
+      <Alert />
     </>
   )
 }
