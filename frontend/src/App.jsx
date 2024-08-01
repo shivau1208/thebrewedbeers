@@ -24,13 +24,13 @@ export const server = 'https://login-service-xwdp.onrender.com'
 // export const server = 'http://localhost:5000'
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 
-const cid = Cookies.get('cid');
 export default function App() {
   const {authenticated} = useSelector(state=>state.auth)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   console.log(cid);
   useEffect(() => {
+    const cid = Cookies.get('cid');
     if(!authenticated){
       fetch(`${server}/protected`,{
         headers:{
