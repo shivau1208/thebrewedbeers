@@ -28,9 +28,9 @@ export default function App() {
   const {authenticated} = useSelector(state=>state.auth)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  console.log(cid);
   useEffect(() => {
     const cid = Cookies.get('cid');
+    console.log(cid);
     if(!authenticated){
       fetch(`${server}/protected`,{
         headers:{
