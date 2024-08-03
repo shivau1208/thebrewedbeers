@@ -12,11 +12,20 @@ export default function UserProfile() {
   const router = useNavigate();
   async function handleSignout(){
     setShowProfile(false);
-    Cookies.remove('cid')
-    AlertFunc('Logged out successfully',"success",2000)
-    setTimeout(()=>{
-      router(`/auth/signin`);
-    },2000)
+    fetch(`${server}/logout`,{
+      method:'POST',
+      
+    })
+    .then(res=>{
+      if(res.status==200){
+        AlertFunc('Logged out successfully',"success",2000)
+        setTimeout(()=>{
+          router(`/auth/signin`);
+        },2000)
+      }else{
+          router(`/auth/signin`);
+      }
+    });
     // let loader = document.querySelector('.loader')
     // if(loader){
     //   loader.style.display = 'flex';
