@@ -29,13 +29,10 @@ export default function App() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const cid = Cookies.get('cid');
-    console.log(cid);
     if(!authenticated){
       fetch(`${server}/protected`,{
         headers:{
           'content-type':'application/json',
-          'Authorization':cid,
         },
         credentials:'include',
       })
