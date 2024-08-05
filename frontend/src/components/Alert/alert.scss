@@ -1,7 +1,7 @@
 .alert{
   position: absolute;
-  right: 10rem;
-  top: 5rem;
+  right: 0.1rem;
+  top: 0.1rem;
   padding: 0.5rem;
   white-space: nowrap;
   border-radius: 0.25rem;
@@ -9,6 +9,7 @@
 }
 .alert .btn-close{
   margin-left: 0.25rem;
+  cursor: pointer;
 }
 .alert-success{
   border: 1px solid #D1E7DD;
@@ -25,4 +26,16 @@
 .alert-info{
   border: 1px solid #CFF4FC;
   background-color: #CFF4FC;
+}
+
+@media (width <= 576px){
+  .alert{
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    padding: 0.5rem;
+    white-space: nowrap;
+    border-radius: 0.25rem;
+    z-index: 999;
+  }
 }

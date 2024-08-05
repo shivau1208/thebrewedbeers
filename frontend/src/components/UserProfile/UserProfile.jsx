@@ -1,20 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { postData } from "../../lib/request";
 import { AlertFunc } from "../Alert/Alert";
 import './userprofile.scss';
-import Cookies from 'js-cookie';
 import { useBeerContextApi } from "../../context/beerContextApi";
+import { server } from "../../App";
 
 export default function UserProfile() {
-  const { cartComp, searchComp, Debounce, hanldeBeerSearch,showProfile,setShowProfile } = useBeerContextApi();
+  const { setShowProfile } = useBeerContextApi();
 
   const router = useNavigate();
   async function handleSignout(){
     setShowProfile(false);
     fetch(`${server}/logout`,{
       method:'POST',
-      
+      credentials:'include'
     })
     .then(res=>{
       if(res.status==200){
@@ -22,8 +21,6 @@ export default function UserProfile() {
         setTimeout(()=>{
           router(`/auth/signin`);
         },2000)
-      }else{
-          router(`/auth/signin`);
       }
     });
     // let loader = document.querySelector('.loader')
