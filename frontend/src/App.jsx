@@ -20,15 +20,14 @@ import { VerifyAuth } from './redux/actions';
 import Alert from './components/Alert/Alert';
 
 
-// export const server = 'https://login-service-xwdp.onrender.com'
-export const server = 'http://localhost:5000'
+export const server = 'https://login-service-xwdp.onrender.com'
+// export const server = 'http://localhost:5000'
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 
 export default function App() {
   const {authenticated} = useSelector(state=>state.auth)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  // const cid = Cookies.get('cid');
   useEffect(() => {
     if(!authenticated){
       fetch(`${server}/protected`,{
