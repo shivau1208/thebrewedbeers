@@ -20,22 +20,20 @@ import { VerifyAuth } from './redux/actions';
 import Alert from './components/Alert/Alert';
 
 
-export const server = 'https://login-service-xwdp.onrender.com'
-// export const server = 'http://localhost:5000'
+// export const server = 'https://login-service-xwdp.onrender.com'
+export const server = 'http://localhost:5000'
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 
-const cid = Cookies.get('cid');
 export default function App() {
   const {authenticated} = useSelector(state=>state.auth)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
-  console.log(cid);
+  // const cid = Cookies.get('cid');
   useEffect(() => {
     if(!authenticated){
       fetch(`${server}/protected`,{
         headers:{
           'content-type':'application/json',
-          'Authorization':cid,
         },
         credentials:'include',
       })
@@ -56,27 +54,33 @@ export default function App() {
   if (loading) {
     return <div>Loading.....</div>;
   }
+  const AuthenticatedRoutes = ()=>(
+    <BeerContextFunc>
+      <CartContextFunc>
+        <FilterContextFunc>
+          <Routes>
+            <Route path='/home' element={<ListBeers />} />
+            <Route path='/beers' element={<Suspense fallback={<Spinner />}><ProductsComp /></Suspense>} />
+            <Route path='/dining' element={<DiningFunc />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/online-payment' element={<Payment />} />
+            <Route path='/cartitems' element={<CartComp />} />
+            <Route path='/filter' element={<Filter />} />
+            <Route path='*' element={<Page404 />} />
+          </Routes>
+        </FilterContextFunc>
+      </CartContextFunc>
+    </BeerContextFunc>
+  )
   return (
     <>
-      <BeerContextFunc>
-        <CartContextFunc>
-          <FilterContextFunc>
-            <Routes>
-              <Route path='/*' element={<Page404 />} />
-              <Route path='/' element={<Navigate to={"/auth/signin"} />} />
-              <Route path='/home' element={authenticated ? <ListBeers /> : <Navigate to={"/auth/signin"} />} />
-              <Route path='/beers' element={authenticated ? <Suspense fallback={<Spinner />}><ProductsComp /></Suspense> : <Signin />} />
-              <Route path='/dining' element={authenticated ? <DiningFunc /> : <Signin />} />
-              <Route path='/about' element={authenticated ? <About /> : <Signin />} />
-              <Route path='/online-payment' element={authenticated ? <Payment /> : <Signin />} />
-              <Route path='/cartitems' element={authenticated ? <CartComp /> : <Signin />} />
-              <Route path='/filter' element={authenticated ? <Filter /> : <Signin />} />
-              <Route path='/auth/signin' element={<Signin />} />
-              <Route path='/auth/signup' element={<Signup />} />
-            </Routes>
-          </FilterContextFunc>
-        </CartContextFunc>
-      </BeerContextFunc>
+      <Routes>
+        {/* <Route path='/' element={<Navigate to="/auth/signin" />} /> */}
+        <Route path='/auth/signin' element={<Signin />} />
+        <Route path='/auth/signup' element={<Signup />} />
+        <Route path='/*' element={authenticated ? <AuthenticatedRoutes /> : <Navigate to="/auth/signin" />} />
+        <Route path='*' element={<Page404 />} />
+      </Routes>
       <SpeedInsights />
       <Alert />
     </>

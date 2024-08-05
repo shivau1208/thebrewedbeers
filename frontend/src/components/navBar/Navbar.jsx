@@ -53,11 +53,12 @@ export const removeClass = () => {
   lis.forEach((li) => (li.className = ""));
 };
 export default function Navbar() {
-  const { cartComp, searchComp, Debounce, hanldeBeerSearch,showProfile,setShowProfile } = useBeerContextApi();
+  const { cartComp, searchComp, Debounce, hanldeBeerSearch } = useBeerContextApi();
+  const [showProfile, setShowProfile] = useState(false);
   const { cartItems } = useCartContextApi();
   const [sidebarShow, setSideBarShow] = useState(false);
   const [clientWidth, setClientWidth] = useState(null);
-  
+
   useLayoutEffect(() => {
     setClientWidth(document.body.clientWidth);
     let width = document.body.clientWidth;
@@ -149,14 +150,10 @@ export default function Navbar() {
           <div className="menuIcon" onClick={MenuIcon}>
             <img src="/menu-alt-1-svgrepo-com.svg" alt="menu" srcSet="" width="35" />
           </div>
-          <div
-            className="logo"
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              window.location.replace(window.location.origin);
-            }}
-          >
-            <img width="35" src="/beer-mug.svg" alt="logo" />
+          <div className="logo" style={{ cursor: "pointer" }}>
+            <Link to={'/home'}>
+              <img width="35" src="/beer-mug.svg" alt="logo" />
+            </Link>
           </div>
           {searchComp && (
             <div className="searchBar">
@@ -202,7 +199,7 @@ export default function Navbar() {
                 {theme ? <div className='theme'><img src="/sun-svgrepo-com.svg" alt="darkTheme" srcSet="" width='30' /></div> : <div className='theme'><img src="/moon-svgrepo-com.svg" alt="darkTheme" srcSet="" width='30' /></div>}
           </div> */}
           <div className="account">
-            <div className="profilePic" onClick={()=>setShowProfile(!showProfile)}>
+            <div className="profilePic" onClick={() => setShowProfile(!showProfile)}>
               <img width="35" src="/user-circle-svgrepo-com.svg" alt="external-user-circle-users-dashed-line-kawalan-studio" />
             </div>
             {showProfile && <UserProfile />}
