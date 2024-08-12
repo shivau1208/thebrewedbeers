@@ -119,26 +119,26 @@ export default function Navbar() {
             </div>
             <div className="sideList">
               <ul>
-                <Link to="/home">
-                  <li className="navbarlist" id="home">
+                <li className="navbarlist" id="home">
+                  <Link to="/home" aria-label="home">
                     Home
-                  </li>
-                </Link>
-                <Link to="/beers">
-                  <li className="navbarlist" id="beers">
+                  </Link>
+                </li>
+                <li className="navbarlist" id="beers">
+                  <Link to="/beers" aria-label="beers">
                     Beers
-                  </li>
-                </Link>
-                <Link to="/dining">
-                  <li className="navbarlist" id="dining">
+                  </Link>
+                </li>
+                <li className="navbarlist" id="dining">
+                  <Link to="/dining" aria-label="dining">
                     Dining
-                  </li>
-                </Link>
-                <Link to="/about">
-                  <li className="navbarlist" id="about">
+                  </Link>
+                </li>
+                <li className="navbarlist" id="about">
+                  <Link to="/about" aria-label="about">
                     About
-                  </li>
-                </Link>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -151,7 +151,7 @@ export default function Navbar() {
             <img src="/menu-alt-1-svgrepo-com.svg" alt="menu" srcSet="" width="35" />
           </div>
           <div className="logo" style={{ cursor: "pointer" }}>
-            <Link to={'/home'}>
+            <Link to={"/home"} aria-label="home">
               <img width="35" src="/beer-mug.svg" alt="logo" />
             </Link>
           </div>
@@ -160,8 +160,10 @@ export default function Navbar() {
               <img width="25" src="/search-svgrepo-com.svg" alt="" srcSet="" />
               <input
                 type="text"
-                name=""
+                name="searchInput"
                 id="searchInput"
+                autoComplete="off"
+                aria-label="searchInput"
                 onKeyUp={Debounce(function () {
                   hanldeBeerSearch();
                 }, 300)}
@@ -171,24 +173,32 @@ export default function Navbar() {
           {!sidebarShow && (
             <div className="navbarTabs">
               <ul className="menuList">
-                <Link to="/home">
-                  <li id="home">Home</li>
-                </Link>
-                <Link to="/beers">
-                  <li id="beers">Beers</li>
-                </Link>
-                <Link to="/dining">
-                  <li id="dining">Dining</li>
-                </Link>
-                <Link to="/about">
-                  <li id="about">About</li>
-                </Link>
+                <li id="home">
+                  <Link to="/home" aria-label="home">
+                    Home
+                  </Link>
+                </li>
+                <li id="beers">
+                  <Link to="/beers" aria-label="beers">
+                    Beers
+                  </Link>
+                </li>
+                <li id="dining">
+                  <Link to="/dining" aria-label="dining">
+                    Dining
+                  </Link>
+                </li>
+                <li id="about">
+                  <Link to="/about" aria-label="about">
+                    About
+                  </Link>
+                </li>
                 {/* {searchComp && <Link to="#"><li className='orderOnline'>Order Online</li></Link>} */}
               </ul>
             </div>
           )}
           {cartComp && (
-            <Link to="/cartitems">
+            <Link to="/cartitems" aria-label="cartItems">
               <Cart className="cart" onClick={() => removeClass()}>
                 <img width="35" src="/cart-large-minimalistic-svgrepo-com.svg" alt="" srcSet="" />
                 {cartItems.length ? <CartItems>{cartItems.length}</CartItems> : ""}

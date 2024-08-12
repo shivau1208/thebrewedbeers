@@ -9,9 +9,8 @@ import "./home.scss";
 // Lazy load the SingleBeer component
 const SingleBeerComp = React.lazy(() => import("../../components/singleBeer"));
 export default function ListBeers() {
-  const { data, setSearchComp ,setCartComp} = useBeerContextApi();
+  const { data,setCartComp} = useBeerContextApi();
   useEffect(() => {
-    setSearchComp(false);
     setCartComp(true);
   }, []);
   return (

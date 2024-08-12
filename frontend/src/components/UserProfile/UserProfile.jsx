@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AlertFunc } from "../Alert/Alert";
 import './userprofile.scss';
 import { useBeerContextApi } from "../../context/beerContextApi";
-import { server } from "../../App";
+import { logoutService } from "../../services/loginService";
 
 export default function UserProfile() {
   const { setShowProfile } = useBeerContextApi();
@@ -11,10 +11,7 @@ export default function UserProfile() {
   const router = useNavigate();
   async function handleSignout(){
     setShowProfile(false);
-    fetch(`${server}/logout`,{
-      method:'POST',
-      credentials:'include'
-    })
+    logoutService()
     .then(res=>{
       if(res.status==200){
         AlertFunc('Logged out successfully',"success",2000)

@@ -3,6 +3,7 @@ import '../pages/products/products.css';
 import styled from 'styled-components'
 import { BeersContext } from '../context/beerContextApi';
 import { useCartContextApi } from '../context/cartContextApi';
+import { Link } from 'react-router-dom';
 
 
 const Button = styled.button`
@@ -23,10 +24,10 @@ export default function SingleBeer({beer}) {
   return (
     <div className='beer'>
         <div className='beerImage'>
-            <img src={beer.strDrinkThumb} className="" alt={beer.strDrink}  />
+            <Link to={`/beer/${beer?.idDrink}`}><img src={beer.strDrinkThumb} className="" alt={beer.strDrink}  /></Link>
         </div>
         <div className='beerDetails'>
-            <h3>{beer?.strDrink}</h3>
+            <Link to={`/beer/${beer?.idDrink}`}><h3>{beer?.strDrink}</h3></Link>
             <p className='ratingsandprice'>{`${beer?.rating*10}% off`} <strike>{beer?.price}</strike> <strong>{`$ ${(beer?.price-beer?.rating*10).toFixed(2)}`}</strong></p>
             <p>{beer?.strAlcoholic}</p>
             <p className='ratingsandprice'>{`★`.repeat(beer?.rating)} <small>{`(${beer?.idDrink})`}</small></p>

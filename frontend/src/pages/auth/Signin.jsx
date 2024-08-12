@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { postData } from "../../lib/request";
-import Alert, { AlertFunc } from "../../components/Alert/Alert";
+import { AlertFunc } from "../../components/Alert/Alert";
 import "./auth.scss";
-import { server } from "../../App";
 import { useDispatch } from "react-redux";
 import { VerifyAuth } from "../../redux/actions";
+import { loginAuthService } from "../../services/loginService";
 
 export default function Signin() {
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ export default function Signin() {
   const submit = async (event) => {
     event.preventDefault();
     if (data.email && data.password) {
-      const res = await postData(`${server}/login`, data);
+      const res = await loginAuthService(data);
       let { message } = await res.json();
       if (res.status == 200) {
         AlertFunc(message, "success", 2000);
@@ -38,10 +37,10 @@ export default function Signin() {
           <h4 className="">Sign In</h4>
           <div>
             <div className="form-inputs">
-              <input type="email" className="" onChange={(e) => setData({ ...data, email: e.target.value })} id="floatingInput" placeholder="name@cl.me" />
+              <input type="email" className="" autoComplete="off" onChange={(e) => setData({ ...data, email: e.target.value })} id="floatingInput" placeholder="name@cl.me" />
             </div>
             <div className="form-inputs">
-              <input type="password" className="" onChange={(e) => setData({ ...data, password: e.target.value })} id="floatingPassword" placeholder="Password" />
+              <input type="password" className="" autoComplete="off" onChange={(e) => setData({ ...data, password: e.target.value })} id="floatingPassword" placeholder="Password" />
             </div>
             <div className="form-checkbox">
               <input className="" type="checkbox" value="" id="rememberPasswordCheck" />
