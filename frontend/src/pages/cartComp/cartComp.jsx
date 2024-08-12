@@ -9,41 +9,38 @@ import Navbar from '../../components/navBar/Navbar';
 
 const MinusCartButton = styled.div`
   position:absolute;
-  bottom:0.2rem;
-  right:3.5rem;
+  bottom:0rem;
+  right:1.5rem;
   cursor:pointer;
   `;
 const PlusCartButton = styled.div`
   position:absolute;
-  bottom:0.2rem;
-  right:0.8rem;
+  bottom:0rem;
+  right:0rem;
   cursor:pointer;
 `;
 const CartLength = styled.span`
-    position:absolute;
-    top:0.4rem;
-    right:3.5rem;
-    width: 1.7rem;
-    height:1.7rem;
-    border-radius:50%;
-    background:#353535;
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:14px;
+  position: absolute;
+  top: 0.3rem;
+  right: 1.7rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #353535;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
 `;
 const CloseButton = styled.div`
-    position:absolute;
-    top:0.5rem;
-    right:0.8rem;
-    width: 1.5rem;
-    height:1.5rem;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:12px;
-    cursor:pointer;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.2rem;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  cursor: pointer;
 `;
 const Header4 = styled.div`
     display:flex;

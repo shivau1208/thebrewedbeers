@@ -1,0 +1,77 @@
+.beer_Container{
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 450px 900px;
+  column-gap: 17px;
+  background-color: #fff;
+  padding: 16px;
+  height: fit-content;
+}
+.beer_Container .beerView{
+  height: 490px;
+  padding: 1rem;
+  border: 0.05rem solid #f1f1f1;
+}
+.beer_Container .beerView img{
+  width: 100%;
+  height: 100%;
+  // border-radius: 0.5rem;
+}
+.buyOrAdd{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  padding: 0.5rem 0.1rem;
+}
+.buyOrAdd .addToCart{
+  padding: 1rem;
+  border: none;
+  background-color: #272727;
+  color: #fff;
+  cursor: pointer;
+}
+.buyOrAdd .buyNow{
+  padding: 1rem;
+  border: none;
+  background-color: #1d84b5;
+  color: #fff;
+  cursor: pointer;
+}
+.beer_Container .beer_Details p{
+  margin-bottom: 0.25rem;
+}
+.beer_Container .beer_Details .beerName{
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.beer_Container .beer_Details .ratings{
+  display: flex;
+}
+.beer_Container .beer_Details .ratings div{
+  background-color: #1d84b5;
+  padding: 2px;
+  font-size: 13px;
+  color: #eef5f9;
+  border-radius: 4px;
+  margin-right: 4px;
+  width: 35px;
+  text-align: center;
+}
+.beer_Container .beer_Details .ratings small{
+  color: #878787;
+  font-weight: 500;
+}
+.beer_Container .beer_Details .price {
+  color: #1d84b5;
+}
+.beer_Container .beer_Details .price strong{
+  font-size: 1.5rem;
+}
+.beer_Container .beer_Details .offers{
+  font-size: 0.75rem;
+}
+.beerSpec{
+  width: 800px;
+  margin: 2rem 0;
+}

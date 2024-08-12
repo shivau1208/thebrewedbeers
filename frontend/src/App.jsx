@@ -14,13 +14,14 @@ import {SpeedInsights} from '@vercel/speed-insights/react'
 import FilterContextFunc from './context/filterContextApi';
 import Signin from './pages/auth/Signin';
 import Signup from './pages/auth/Signup';
-import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { VerifyAuth } from './redux/actions';
 import Alert from './components/Alert/Alert';
+import Beer from './pages/beer/beer';
+import { VerifyAuthService } from './services/loginService';
+import CheckoutInit from './pages/payment/checkoutinit';
 
 
-export const server = 'https://login-service-xwdp.onrender.com'
 // export const server = 'http://localhost:5000'
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 
@@ -30,12 +31,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if(!authenticated){
-      fetch(`${server}/protected`,{
-        headers:{
-          'content-type':'application/json',
-        },
-        credentials:'include',
-      })
+      VerifyAuthService()
       .then(res=>{
         if(res.status==200){
           dispatch(VerifyAuth('authenticate'));
@@ -63,8 +59,11 @@ export default function App() {
             <Route path='/dining' element={<DiningFunc />} />
             <Route path='/about' element={<About />} />
             <Route path='/online-payment' element={<Payment />} />
+            <Route path='/checkout/init' element={<CheckoutInit />} />
             <Route path='/cartitems' element={<CartComp />} />
             <Route path='/filter' element={<Filter />} />
+            <Route path='/beer/:id' element={<Beer />} />
+            <Route path='/' element={<Navigate to={"/home"} />} />
             <Route path='*' element={<Page404 />} />
           </Routes>
         </FilterContextFunc>
@@ -74,11 +73,9 @@ export default function App() {
   return (
     <>
       <Routes>
-        {/* <Route path='/' element={<Navigate to="/auth/signin" />} /> */}
         <Route path='/auth/signin' element={<Signin />} />
         <Route path='/auth/signup' element={<Signup />} />
         <Route path='/*' element={authenticated ? <AuthenticatedRoutes /> : <Navigate to="/auth/signin" />} />
-        <Route path='*' element={<Page404 />} />
       </Routes>
       <SpeedInsights />
       <Alert />

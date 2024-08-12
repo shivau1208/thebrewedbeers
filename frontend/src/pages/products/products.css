@@ -33,7 +33,10 @@
     background: #eaeefc;
     border-radius: 0 0 0.3rem 0.3rem;
 }
-
+.beerProducts .beer .beerDetails a{
+    text-decoration: none;
+    color: #000;
+}
 .beerProducts .beer .beerDetails h3{
     white-space: nowrap;
     overflow: hidden;
@@ -51,7 +54,7 @@
     font-weight: 400;
 }
 .beerProducts .beer .beerDetails .ratingsandprice{
-    color: #1D84B5;
+    color: #2f6c91;
 }
 
 
@@ -119,15 +122,15 @@
         border-radius: 0 0 0.3rem 0.3rem;
     }
 }
-@media screen and (425px <=  width <= 576px){
+@media screen and (425px <  width <= 576px){
     .productsFilter{
         position: relative;
-        margin: 10px auto;
+        margin: 10px 5px;
         max-width: 440px;
     }
     .beerProducts{
         display: grid;
-        grid-template-columns: repeat(2,215px);
+        grid-template-columns: repeat(2,205px);
         gap: 10px;
     }
     .beerProducts .beer{
@@ -153,14 +156,14 @@
         overflow: hidden;
     }
 }
-@media screen and (width < 425px){
+@media screen and (width <= 425px){
     .productsFilter{
         position: relative;
         margin: 10px 2%;
     }
     .beerProducts{
         display: grid;
-        grid-template-columns: repeat(2,175px);
+        grid-template-columns: repeat(2,200px);
         gap: 10px;
     }
     .beerProducts .beer{

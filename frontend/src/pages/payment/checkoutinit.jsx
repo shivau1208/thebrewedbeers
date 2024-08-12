@@ -5,7 +5,7 @@ import {sha256} from 'js-sha256'
 import { useCartContextApi } from '../../context/cartContextApi';
 import Navbar from '../../components/navBar/Navbar';
 
-export default function Payment() {
+export default function CheckoutInit() {
     const { cartItems} = useCartContextApi();
     const Total = ()=>{
         let total = cartItems.reduce((acc,curr)=>acc+(curr.quantity*(curr.item.price)),0)

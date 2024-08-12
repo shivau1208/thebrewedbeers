@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { postData } from '../../lib/request'
-import Alert, { AlertFunc } from '../../components/Alert/Alert'
+import { AlertFunc } from '../../components/Alert/Alert'
 import './auth.scss';
 import { Link, useNavigate } from 'react-router-dom';
-import { server } from '../../App';
+import { signupAuthService } from '../../services/loginService';
 
 
 
@@ -22,7 +21,7 @@ export default function Signup() {
         if(loader){
           loader.style.display = 'flex';
         }
-        postData(`${server}/signup`,data)
+        signupAuthService(data)
         .then(res=>res.json())
         .then(dat=>{
           if(dat.status === 'success') {
@@ -51,24 +50,24 @@ export default function Signup() {
           <h4 className="">Sign Up</h4>
           <div>
             <div className="form-inputs">
-              <input type="text" onKeyUp={(e)=>setData({...data,fname:e.target.value})} className="" placeholder="First Name" />
+              <input type="text" autoComplete="off" onKeyUp={(e)=>setData({...data,fname:e.target.value})} className="" placeholder="First Name" />
             </div>
             <div className="form-inputs">
-              <input type="text" onKeyUp={(e)=>setData({...data,lname:e.target.value})} className="" placeholder="Last Name" />
+              <input type="text" autoComplete="off" onKeyUp={(e)=>setData({...data,lname:e.target.value})} className="" placeholder="Last Name" />
             </div>
             <div className="form-inputs email">
-                <input type="text" onKeyUp={(e)=>setData({...data,email:(e.target.value+"@cl.me")})} className="form-email " placeholder="Email"  />
+                <input type="text" autoComplete="off" onKeyUp={(e)=>setData({...data,email:(e.target.value+"@cl.me")})} className="form-email " placeholder="Email"  />
                 <span className="email-text">@cl.me</span>
             </div>
 
             {/* <!-- Password input --> */}
             <div className="form-inputs">
-              <input type="password" onKeyUp={(e)=>setData({...data,password:e.target.value})} className="" placeholder="Password" />
+              <input type="password" autoComplete="off" onKeyUp={(e)=>setData({...data,password:e.target.value})} className="" placeholder="Password" />
             </div>
 
             {/* <!-- Repeat Password input --> */}
             <div className="form-inputs">
-              <input type="password" className="" id='cnfmpwd' placeholder="Confirm Password" />
+              <input type="password" autoComplete="off" className="" id='cnfmpwd' placeholder="Confirm Password" />
             </div>
 
             {/* <!-- Checkbox --> */}
