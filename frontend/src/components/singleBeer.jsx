@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../pages/products/products.css';
 import styled from 'styled-components'
 import { BeersContext } from '../context/beerContextApi';
@@ -20,11 +20,40 @@ const PlusCartButton = styled.div`
 
 export default function SingleBeer({beer}) {
   const {addToCart} = useCartContextApi();
-  
+  const [src,setSrc] = useState(null)
+  async function convertImageToWebP(url) {
+    // Fetch the image as a blob
+    const response = await fetch(url);
+    const blob = await response.blob();
+
+    // Create an image element
+    const image = new Image();
+    image.src = URL.createObjectURL(blob);
+    
+    image.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = image.width;
+      canvas.height = image.height;
+      const ctx = canvas.getContext('2d');
+      
+      // Draw the image on the canvas
+      ctx.drawImage(image, 0, 0);
+
+      // Convert the canvas content to WebP
+      canvas.toBlob(function(webpBlob) {
+        const webpUrl = URL.createObjectURL(webpBlob);
+        setSrc(webpUrl);
+
+      }, 'image/webp');
+    };
+  }
+  useEffect(()=>{
+    convertImageToWebP(beer?.strDrinkThumb);
+  },[beer])
   return (
     <div className='beer'>
         <div className='beerImage'>
-            <Link to={`/beer/${beer?.idDrink}`}><img src={beer.strDrinkThumb} className="" alt={beer.strDrink}  /></Link>
+            <Link to={`/beer/${beer?.idDrink}`}><img src={src ? src : beer.strDrinkThumb} className="" alt={beer.strDrink}  /></Link>
         </div>
         <div className='beerDetails'>
             <Link to={`/beer/${beer?.idDrink}`}><h3>{beer?.strDrink}</h3></Link>

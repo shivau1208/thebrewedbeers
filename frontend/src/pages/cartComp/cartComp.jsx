@@ -23,8 +23,8 @@ const CartLength = styled.span`
   position: absolute;
   top: 0.3rem;
   right: 1.7rem;
-  width: 1rem;
-  height: 1rem;
+  width: 1.25rem;
+  height: 1.25rem;
   border-radius: 50%;
   background: #353535;
   color: #fff;
@@ -102,12 +102,11 @@ export default function CartComp() {
                   .map((beer, index) => (
                     <div key={index} className="cartBeer">
                       <div className="cartBeerImage">
-                        <img src={beer.item.strDrinkThumb} className="responsive" alt={beer.item.strDrink} height="100%" />
+                        <Link to={`/beer/${beer.item?.idDrink}`}><img src={beer.item.strDrinkThumb} className="responsive" alt={beer.item.strDrink} /></Link>
                       </div>
                       <div className="cartBeerDetails">
-                        <h3>{beer.item.strDrink}</h3>
+                        <Link to={`/beer/${beer.item?.idDrink}`}><h3>{beer.item.strDrink}</h3></Link>
                         <p>{beer?.item?.strAlcoholic}</p>
-                        {/* <p>mfg: {beer.item.first_brewed}</p> */}
                         <p>Price: $ {(beer.item.price)}</p>
                       </div>
                       <CloseButton onClick={() => removeFromCart(beer.item.idDrink)}>
@@ -129,7 +128,7 @@ export default function CartComp() {
                   <hr />
                   <Header4>
                     <span>{`Price (${cartItems.length} item)`}</span>
-                    <span>{cartItems.reduce((acc, curr) => acc + curr.quantity * (curr.item.price), 0)}</span>
+                    <span>{cartItems.reduce((acc, curr) => acc + curr.quantity * (curr.item.price), 0).toFixed(2)}</span>
                   </Header4>
                   <Header4>
                     <span>Special Discount</span>

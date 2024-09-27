@@ -21,11 +21,10 @@ const CartItems = styled.span`
   border-radius: 50%;
   color: #000;
   background: #fff;
-  font-size: 0.7rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
 `;
 
 export const AddClass = () => {

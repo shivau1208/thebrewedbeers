@@ -13,7 +13,7 @@
     border-radius: 0.3rem;
     box-shadow: 0 1px 6px #ccc;
     overflow-y: auto;
-    padding: 1rem;
+    padding: 3rem;
 }
 .modal::-webkit-scrollbar{
     display: none;
@@ -25,16 +25,17 @@
     margin-bottom: 1rem;
     position: relative;
 }
-.cartBeer .cartBeerImage{
+.cartBeer .cartBeerImage a{
     display: flex;
     justify-content: center;
     align-items: center;
     flex:  0 0 100px;
-    height: 150px;
 
     /* filter: drop-shadow(2px 5px 8px #000); */
 }
-.cartBeer .cartBeerImage img{
+.cartBeer .cartBeerImage a img{
+    width: 150px;
+    height: 150px;
     border-top-left-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
 }
@@ -48,7 +49,11 @@
     border-radius: 0 0.3rem 0.3rem 0;
     flex: 1 1;
 }
-.cartBeer .cartBeerDetails h3, .cartBeer .cartBeerDetails p{
+.cartBeer .cartBeerDetails a{
+    text-decoration: none;
+    color: #000;
+}
+.cartBeer .cartBeerDetails a h3, .cartBeer .cartBeerDetails p{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -190,7 +195,7 @@
         border-radius: 1rem;
         box-shadow: 0 1px 6px #ccc;
         overflow-y: auto;
-        padding: 0.7rem;
+        padding: 1rem;
         margin-top: 10px;
     }
     .cartTotal{

@@ -46,6 +46,15 @@ export default function App() {
     }
   }, [dispatch]);
 
+  if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('/sw.js')
+    .then(registration=>{
+      console.log('Service work registered with scope:',registration.scope)
+    })
+    .catch(err=>{
+      console.log('Service worker registration failed', err)
+    })
+  }
   if (loading) {
     return <div>Loading.....</div>;
   }

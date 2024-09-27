@@ -13,18 +13,22 @@ export default function Signin() {
   const submit = async (event) => {
     event.preventDefault();
     if (data.email && data.password) {
-      const res = await loginAuthService(data);
-      let { message } = await res.json();
-      if (res.status == 200) {
-        AlertFunc(message, "success", 2000);
-        dispatch(VerifyAuth('authenticate'))
-        setTimeout(()=>{
-
-          navigate('/home');
-        },2000)
-      } else {
-        AlertFunc(message, "danger", 2000);
-        navigate(`/auth/signin`);
+      try{
+        const res = await loginAuthService(data);
+        let { message } = await res.json();
+        if (res.status == 200) {
+          AlertFunc(message, "success", 2000);
+          dispatch(VerifyAuth('authenticate'))
+          setTimeout(()=>{
+            navigate('/home');
+          },2000)
+        } else {
+          AlertFunc(message, "danger", 2000);
+          navigate(`/auth/signin`);
+        }
+      }catch(err){
+        console.log(err);
+        AlertFunc('Failed to login', "danger", 2000);
       }
     } else {
       AlertFunc("Please fill credentials", "info", 2000);
