@@ -1,5 +1,5 @@
 .navBarWidth{
-    height: 70px;
+    height: 60px;
     position: sticky;
     top: 0;
     z-index: 99;
@@ -15,6 +15,7 @@
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
+    font-size: 1.25rem;
 }
 .navBar .account{
     margin: 0 0.5rem;
@@ -217,5 +218,12 @@
     .sidebarTabs{
         display: flex;
         width: 0;
+    }
+}
+
+@media (425px <= width < 576px){
+    .navBar{
+        padding: 0.2rem;
+        width: 100%;
     }
 }

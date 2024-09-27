@@ -9,10 +9,10 @@
     padding: 0 0.5rem;
     position: sticky;
     bottom: 0;
+    height: 50px;
 }
 .footerContainer .socialLinks{
     display: flex;
-    cursor: pointer;
 
 }
 .footerContainer .socialLinks img{
@@ -27,12 +27,24 @@
     align-items: center;
 }
 .footerContainer .contactTabs p{
-    margin: 0.2rem 0.3rem;
+    margin: 0.2rem;
     border: 2px solid #fff;
-    padding: 0.3rem 0.5rem;
+    padding: 0.3rem;
     white-space: nowrap;
     cursor: pointer;
     font-size: 16px;
     font-weight: 400;
 
+}
+
+@media (425px <= width < 576px){
+    .footerContainer{
+        height: 100%;
+    }
+    .footerContainer .socialLinks img{
+        margin: 0.3rem;
+        padding: 0.2rem;
+        width: 1.75rem;
+        height: 1.75rem;
+    }
 }
