@@ -1,0 +1,190 @@
+.filteredProductsFilter{
+    position: relative;
+    display: flex;
+    margin: 10px auto;
+    max-width: 1290px;
+
+}
+.filteredBeerProducts{
+    display: grid;
+    grid-template-columns: repeat(5,250px);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-bottom: 2rem;
+}
+.filteredBeerProducts .beer{
+    border-radius: 0.3rem;
+    background: #f2f4fd;
+}
+.filteredBeerProducts .beer .beerImage{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.filteredBeerProducts .beer .beerImage img{
+    width: 250px;
+    height: 250px;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+.filteredBeerProducts .beer .beerDetails{
+    padding: 0.4rem 0.5rem;
+    background: #eaeefc;
+    border-radius: 0 0 0.3rem 0.3rem;
+}
+.filteredBeerProducts .beer .beerDetails a{
+    text-decoration: none;
+    color: #000;
+}
+.filteredBeerProducts .beer .beerDetails h3{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.1rem;
+    font-size: 16px;
+    font-weight: 500;
+}
+.filteredBeerProducts .beer .beerDetails p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.1rem;
+    font-size: 15px;
+    font-weight: 400;
+}
+.filteredBeerProducts .beer .beerDetails .ratingsandprice{
+    color: #2f6c91;
+}
+
+
+
+@media (768px < width <= 1440px){
+    .filteredProductsFilter{
+        position: relative;
+        display: flex;
+        margin: 10px 1%;
+    }
+    .filteredBeerProducts{
+        display: grid;
+        grid-template-columns: repeat(5,200px);
+        gap: 20px;
+    }
+    .filteredBeerProducts .beer{
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.3rem;
+        background: #f2f4fd;
+    }
+    .filteredBeerProducts .beer .beerImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.6rem 0.5rem;
+        flex: 0 0 100px;
+    }
+    .filteredBeerProducts .beer .beerImage img{
+        width: 100%;
+        border-top-left-radius: 0.3rem;
+        border-top-right-radius: 0.3rem;
+    }
+}
+@media screen and ( 576px <= width < 768px){
+    .filteredProductsFilter{
+        position: relative;
+        display: flex;
+        margin: 10px 4%;
+    
+    }
+    .filteredBeerProducts{
+        display: grid;
+        grid-template-columns: repeat(3,223px);
+        gap: 15px;
+    }
+    .filteredBeerProducts .beer{
+        border-radius: 0.3rem;
+        background: #f2f4fd;
+    }
+    .filteredBeerProducts .beer .beerImage{
+        display: flex;
+        /* justify-content: center;
+        align-items: center; */
+        padding: 0;
+    }
+    .filteredBeerProducts .beer .beerImage img{
+        width: 100%;
+        border-top-left-radius: 0.3rem;
+        border-top-right-radius: 0.3rem;
+    }
+    .filteredBeerProducts .beer .beerDetails{
+        padding: 0.4rem 0.5rem;
+        background: #eaeefc;
+        border-radius: 0 0 0.3rem 0.3rem;
+    }
+}
+@media screen and (425px <=  width < 576px){
+    .filteredProductsFilter{
+        position: relative;
+        margin: 10px 5px;
+        max-width: 440px;
+    }
+    .filteredBeerProducts{
+        display: grid;
+        grid-template-columns: repeat(2,205px);
+        gap: 10px;
+    }
+    .filteredBeerProducts .beer{
+        border-radius: 0.3rem;
+        background: #f2f4fd;
+    }
+    .filteredBeerProducts .beer .beerImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        /* width: 100px; */
+    }
+    .filteredBeerProducts .beer .beerImage img{
+        width: 200px;
+        height: 200px;
+        border-top-left-radius: 0.3rem;
+        border-top-right-radius: 0.3rem;
+    }
+    .filteredBeerProducts .beer .beerDetails{
+        padding: 0.4rem 0.5rem;
+        background: #eaeefc;
+        border-radius: 0 0 0.3rem 0.3rem;
+        overflow: hidden;
+    }
+}
+@media screen and (width < 425px){
+    .filteredProductsFilter{
+        position: relative;
+        margin: 10px 2%;
+    }
+    .filteredBeerProducts{
+        display: grid;
+        grid-template-columns: repeat(2,200px);
+        gap: 10px;
+    }
+    .filteredBeerProducts .beer{
+        border-radius: 0.3rem;
+        background: #f2f4fd;
+    }
+    .filteredBeerProducts .beer .beerImage{
+        display: flex;
+        padding: 0;
+    }
+    /* .filteredBeerProducts .beer .beerImage img{
+        width: 100%;
+        border-top-left-radius: 0.3rem;
+        border-top-right-radius: 0.3rem;
+    } */
+    .filteredBeerProducts .beer .beerDetails{
+        padding: 0.4rem 0.5rem;
+        background: #eaeefc;
+        border-radius: 0 0 0.3rem 0.3rem;
+        overflow: hidden;
+    }
+}
