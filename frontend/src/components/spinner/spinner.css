@@ -58,34 +58,19 @@
 }
 
 .flexbox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  display: none;
+  flex-wrap: nowrap;
+  position: absolute;
+  z-index: 1;
+  inset: 0;
 }
 
 .flexbox > div {
-  width: 200px;
-  height: 200px;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 75%;
-  flex: 0 0 75%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
+  margin: 0 auto;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  overflow: hidden;
 }
 .dot-loader {
   height: 8px;

@@ -10,7 +10,6 @@ import "./products.css";
 export default function Products() {
   const { products, setSearchComp, setCartComp } = useBeerContextApi();
   const [visibleProducts, setVisibleProducts] = useState(20);
-  const [scrolled, setScrolled] = useState(0);
 
   function Throttle(func, delay) {
     let lastFunc;
@@ -38,7 +37,6 @@ export default function Products() {
     const scrollableHeight = document.documentElement.scrollHeight;
     const scrollTop = window.scrollY;
     const viewportHeight = window.innerHeight;
-    setScrolled(scrollableHeight - scrollTop - viewportHeight);
 
     if (scrollableHeight - scrollTop - viewportHeight < 100) {
       setVisibleProducts((prevProducts) => (prevProducts += 20));
@@ -69,7 +67,6 @@ export default function Products() {
           <Nodatafound />
         )}
       </div>
-      {/* <button onClick={() => handleVisibleProducts()}>Click Here</button> */}
     </>
   );
 }

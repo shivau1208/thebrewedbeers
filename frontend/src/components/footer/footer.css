@@ -20,6 +20,7 @@
     padding: 0.2rem;
     width: 2rem;
     height: 2rem;
+    cursor: pointer;
 }
 .footerContainer .contactTabs{
     display: flex;
@@ -46,5 +47,6 @@
         padding: 0.2rem;
         width: 1.75rem;
         height: 1.75rem;
+        cursor: pointer;
     }
 }

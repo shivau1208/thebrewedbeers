@@ -20,6 +20,8 @@ import Alert from './components/Alert/Alert';
 import Beer from './pages/beer/beer';
 import { VerifyAuthService } from './services/loginService';
 import CheckoutInit from './pages/payment/checkoutinit';
+import DotLoader from './components/spinner/DotLoader';
+import ViewAll from './pages/viewall/ViewAll';
 
 
 // export const server = 'http://localhost:5000'
@@ -72,6 +74,8 @@ export default function App() {
             <Route path='/cartitems' element={<CartComp />} />
             <Route path='/filter' element={<Filter />} />
             <Route path='/beer/:id' element={<Beer />} />
+            <Route path='/beers/category/:category' element={<ViewAll />} />
+            <Route path='/beers/ingredient/:ingredient' element={<ViewAll />} />
             <Route path='/' element={<Navigate to={"/home"} />} />
             <Route path='*' element={<Page404 />} />
           </Routes>
@@ -88,6 +92,7 @@ export default function App() {
       </Routes>
       <SpeedInsights />
       <Alert />
+      <DotLoader />
     </>
   )
 }
