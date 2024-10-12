@@ -12,21 +12,28 @@ export default function Signin() {
   const dispatch = useDispatch()
   const submit = async (event) => {
     event.preventDefault();
+    let loader = document.querySelector(".flexbox");
     if (data.email && data.password) {
       try{
+        if(loader){
+          loader.style.display = 'flex';
+        }
         const res = await loginAuthService(data);
         let { message } = await res.json();
         if (res.status == 200) {
+          loader.style.display = 'none';
           AlertFunc(message, "success", 2000);
           dispatch(VerifyAuth('authenticate'))
           setTimeout(()=>{
             navigate('/home');
           },2000)
         } else {
+          loader.style.display = 'none';
           AlertFunc(message, "danger", 2000);
           navigate(`/auth/signin`);
         }
       }catch(err){
+        loader.style.display = 'none';
         console.log(err);
         AlertFunc('Failed to login', "danger", 2000);
       }

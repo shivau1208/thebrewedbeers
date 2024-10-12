@@ -27,6 +27,7 @@ a{
     --heading-color: #fff;    
 }
 ::-webkit-scrollbar{
+    display: none;
     width: 8px;
     border-radius: 3px;
 }

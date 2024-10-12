@@ -7,13 +7,11 @@ export default function SortFilter() {
     <div className="SortFilterBtns">
       <div className="sortBtn">
         <img src="/sort-btn.svg" alt="sort-btn.svg" srcSet="" />
-        <button type="button">Sort</button>
+        <Link> Sort </Link>
       </div>
       <div className="filterBtn">
         <img src="/filter-btn.svg" alt="filter-btn.svg" srcSet="" />
-        <Link to={"/filter"}>
-          <button>Filter</button>
-        </Link>
+        <Link to={"/filter"}> Filter </Link>
       </div>
     </div>
   );

@@ -1,48 +1,44 @@
-.SortFilterBtns{
+.SortFilterBtns {
   display: none;
 }
 
-@media screen and ( width <= 768px){
-  .SortFilterBtns{
-      /* margin-top: 10px; */
-      display: flex;
-      padding: 0.8rem;
-      position: sticky;
-      top: 0px;
-      z-index: 9;
-      background-color: #fff;
-      box-shadow: 0 0 4px #000;
+@media screen and (width <= 768px) {
+  .SortFilterBtns {
+    /* margin-top: 10px; */
+    display: flex;
+    padding: 0.8rem;
+    position: sticky;
+    top: 0px;
+    z-index: 9;
+    background-color: #fff;
+    box-shadow: 0 0 4px #000;
   }
-  .sortBtn{
-      border-right: 1px solid #000;
+  .sortBtn {
+    border-right: 1px solid #000;
   }
-  .filterBtn, .sortBtn{
-      flex: 1 0;
-      align-self: stretch;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      font-weight: 500;
+  .filterBtn,
+  .sortBtn {
+    flex: 1 0;
+    align-self: stretch;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .filterBtn a, .sortBtn a{
-      text-decoration: none;
-      color: #000;
-      align-self: stretch;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  .filterBtn a,
+  .sortBtn a {
+    text-decoration: none;
+    color: #000;
+    align-self: stretch;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: 500;
+    margin-left: 0.5rem;
   }
-  .SortFilterBtns img{
-      margin-right: 0.5rem;
-  }
-  .SortFilterBtns button{
-      background-color: transparent;
-      padding: 0 auto;
-      border: none;
-      outline: none;
-      cursor: pointer;
+  .SortFilterBtns img {
+    margin-right: 0.5rem;
   }
 }

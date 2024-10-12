@@ -44,12 +44,12 @@ export const categoriesContent = [
   {
     id:'45943957-39be-4229-8a05-d7ffe36b6ff6',
     name:'Ordinary Drink',
-    value:'Ordinary Drink'
+    value:'OrdinaryDrink'
   },
   {
     id:'45943957-39be-4229-8a05-d7ffe36v6ff6',
     name:'Party Drink',
-    value:'Punch / Party Drink'
+    value:'Punch_PartyDrink'
   },
   {
     id:'db36f074-1baf-48e8-88ec-e93117724e6f',
@@ -64,17 +64,17 @@ export const categoriesContent = [
   {
     id:'db36f074-1baf-48e8-88ec-e23917674e6f',
     name:'Soft Drink',
-    value:'Soft Drink'
+    value:'SoftDrink'
   },
   {
     id:'db36f074-1baf-48e8-88ec-e93117743tf4',
     name:'Homemade Liqueur',
-    value:'Homemade Liqueur'
+    value:'HomemadeLiqueur'
   },
   {
     id:'db36f074-1baf-48e8-88ec-e93237743tf4',
     name:'Coffee / Tea',
-    value:'Coffee / Tea'
+    value:'Coffee_Tea'
   },
   {
     id:'db36f074-1baf-48e8-88ec-e93117724e8e',
@@ -89,7 +89,7 @@ export const categoriesContent = [
   {
     id:'db36f074-1baf-48e8-88ec-e93117724e7y',
     name:"Other / Unknown",
-    value:"Other / Unknown"
+    value:"Other_Unknown"
   },
 ]
 export const glasesContent = [
@@ -143,37 +143,37 @@ export const ingredientsContent = [
   {
     id:'62989a76-4d85-47ea-9da9-b7e2c9082edd',
     name:'Vodka',
-    value:'Vodka'
+    value:'vodka'
   },
   {
     id:'62989a76-4d85-47ea-9da9-b7e2c9072edd',
     name:'Ginger',
-    value:'Ginger'
+    value:'gimger'
   },
   {
     id:'62989a76-4d85-47ea-9da9-b7e1c9082edd',
     name:'Applejack',
-    value:'Applejack'
+    value:'applejack'
   },
   {
     id:'8a0cfe5c-d8fd-4ab9-8a50-ac0f8490905f',
     name:'Gin',
-    value:'Gin'
+    value:'gin'
   },
   {
     id:'3c3ae412-4005-4d23-bcd1-49108576b0e0',
     name:'Rum',
-    value:'Rum'
+    value:"rum"
   },
   {
     id:'7183527e-2311-4bfb-ae18-52b1ad9085e6',
     name:'Tequila',
-    value:'Tequila'
+    value:'tequila'
   },
   {
     id:'7183527e-2311-4bfb-ae18-51b1ad9085e6',
     name:'Triple sec',
-    value:'Triple sec'
+    value:'triplesec'
   },
   {
     id:'7183527e-2311-4bfb-ae18-51c1ad9085e6',

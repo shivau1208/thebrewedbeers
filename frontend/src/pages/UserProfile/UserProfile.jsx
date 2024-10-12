@@ -1,40 +1,30 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { AlertFunc } from "../Alert/Alert";
 import './userprofile.scss';
 import { useBeerContextApi } from "../../context/beerContextApi";
 import { logoutService } from "../../services/loginService";
+import { AlertFunc } from "../../components/Alert/Alert";
 
 export default function UserProfile() {
   const { setShowProfile } = useBeerContextApi();
 
   const router = useNavigate();
   async function handleSignout(){
+    let loader = document.querySelector('.flexbox')
+    if(loader){
+      loader.style.display = 'flex';
+    }
     setShowProfile(false);
     logoutService()
     .then(res=>{
       if(res.status==200){
+        loader.style.display = 'none';
         AlertFunc('Logged out successfully',"success",2000)
         setTimeout(()=>{
           router(`/auth/signin`);
         },2000)
       }
     });
-    // let loader = document.querySelector('.loader')
-    // if(loader){
-    //   loader.style.display = 'flex';
-    // }
-    // let res = await postData('/api/logout',{})
-    // let {message} = await res.json();
-    // if(res.status == 200){
-    //   AlertFunc(message,"success",2000)
-    //   setTimeout(()=>{
-    //     router(`/auth/signin`);
-    //   },2000)
-    //   if(loader){
-    //     loader.style.display = 'none';
-    //   }
-    // }
   }
   return (
     <div className="user-profile">

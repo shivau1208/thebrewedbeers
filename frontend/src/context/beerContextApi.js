@@ -4,46 +4,29 @@ import React from "react";
 const BeersContext = createContext();
 export const useBeerContextApi = () => useContext(BeersContext);
 
-const creatWorker = ()=>new Worker(new URL("../workers/worker.js",import.meta.url));
 export default function BeerContextFunc({ children }) {
   const [searchComp, setSearchComp] = useState(true);
   const [cartComp, setCartComp] = useState(true);
+  const [sidebarShow, setSideBarShow] = useState(false);
   const [data, setData] = useState([]);
   const [products, setProducts] = useState([]);
   const [showProfile, setShowProfile] = useState(false);
 
   // const [isDarkMode,setDarkMode] = useState(true)
+  const fetchData = async () => {
+    const res = await fetch("/user-data.json");
+    const response = await res.json();
+    // console.log(response);
+    // const response1 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
+    //     .then(res => res.data);
+    // const response2 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail')
+    //     .then(res => res.data);
+    // setData(prevData=>[...prevData,...response1.drinks,...response2.drinks])
+    setData((prevData) => [...prevData, ...response]);
+    setProducts((prevData) => [...prevData, ...response]);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-    //   const worker = creatWorker();
-    //   worker.addEventListener("message", (event) => {
-    //     const { status, data, error } = event.data;
-    //     console.log(data);
-    //     if(status=='success'){
-            
-    //         setData((prevData) => [...prevData, ...data]);
-    //         setProducts((prevData) => [...prevData, ...data]);
-    //     }else if(status=='error'){
-    //         console.error(error);
-            
-    //     }
-    //   });
-    //   worker.postMessage({url:'/user-data.json'})
-      const res = await fetch('/user-data.json')
-      const response = await res.json();
-      // console.log(response);
-      // const response1 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
-      //     .then(res => res.data);
-      // const response2 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail')
-      //     .then(res => res.data);
-      // setData(prevData=>[...prevData,...response1.drinks,...response2.drinks])
-      setData(prevData=>[...prevData,...response])
-      setProducts(prevData=>[...prevData,...response])
-    };
     fetchData();
-    // return ()=>{
-    //     creatWorker().terminate()
-    // }
   }, []);
 
   // const toggleTheme = ()=>{
@@ -89,6 +72,8 @@ export default function BeerContextFunc({ children }) {
         hanldeBeerSearch,
         showProfile,
         setShowProfile,
+        sidebarShow,
+        setSideBarShow,
       }}
     >
       {children}
