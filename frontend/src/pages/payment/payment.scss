@@ -49,9 +49,16 @@
 .paymentGate .paymentBtn img{
   margin: 0 0.5rem;
 }
-.bilingAddress{
+
+.paymentPage{
+  display: flex;
+  max-width: 1250px;
   margin: 1rem auto;
-  max-width: 700px;
+}
+
+.bilingAddress{
+  flex: 1 0;
+  margin: 0 10px;
 }
 
 .billing_text {
@@ -60,12 +67,8 @@
   margin: 0;
   font-size: 18px;
   color: #343434;
-}
-
-.yourCart_div {
-}
-
-.cart_img_content {
+  padding: 0.5rem;
+  background-color: #c7f9cc;
 }
 
 .food_img_price_des {
@@ -109,9 +112,6 @@
   margin-top: 2rem;
 }
 
-.cart_total {
-}
-
 .cart_total .price_total {
   display: flex;
   margin-bottom: 5px;
@@ -128,20 +128,20 @@
 
 .total_btn_cart {
   width: 100%;
-  background: #1d84b5 !important;
-  border-color: #1d84b5 !important;
+  background: #57cc99 !important;
+  border-color: #57cc99 !important;
   padding: 9px 19px !important;
   display: flex;
   justify-content: space-between;
-  color: #fff;
+  color: #000;
   font-weight: 500;
   border-style: unset;
   font-family: "Montserrat", sans-serif;
 }
 
 .total_btn_cart:hover {
-  background-color: #1d84b5e8 !important;
-  border-color: #1d84b5e8 !important;
+  background-color: #57cc99e8 !important;
+  border-color: #57cc99e8 !important;
 }
 
 .cart_total {
@@ -175,7 +175,7 @@
 }
 
 .input_form {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .footer-parallax-container {
@@ -244,4 +244,17 @@ button{
   background-color: #404663;
   color: #fff;
   font-size: 16px;
+}
+
+
+@media (768px < width <= 1400px){
+  .paymentPage{
+    flex-direction: column;
+  }
+}
+
+@media (width <= 768px){
+  .paymentPage{
+    flex-direction: column;
+  }
 }

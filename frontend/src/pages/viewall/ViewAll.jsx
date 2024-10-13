@@ -8,10 +8,11 @@ import { useParams } from "react-router-dom";
 import "./viewall.css";
 
 export default function ViewAll() {
-  const { products, setSearchComp, setCartComp, setProducts } = useBeerContextApi();
+  const { products, setSearchComp, setCartComp } = useBeerContextApi();
   const [visibleProducts, setVisibleProducts] = useState(20);
   const { category, ingredient } = useParams();
-
+  console.log({category,ingredient});
+  
   function Throttle(func, delay) {
     let lastFunc;
     let lastRan;
@@ -49,6 +50,9 @@ export default function ViewAll() {
     setCartComp(true);
     window.scrollTo(0, 0);
     window.addEventListener("scroll", Throttle(handleScroll, 2000));
+    let pro = products.filter((item) => item[category ? "strCategory" : "strIngredient1"].toLowerCase() === (category || ingredient).toLowerCase())
+    console.log(products.length);
+    
   }, []);
   return (
     <>

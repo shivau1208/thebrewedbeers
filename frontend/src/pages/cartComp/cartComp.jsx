@@ -57,21 +57,21 @@ const Header2 = styled.div`
 const CartBackBtnParent = styled.div`
   height: 50px;
   display: flex;
-  align-items: center;
-  justify-content: start;
+  align-items: end;
+  padding: 0.5rem 0;
 `;
-const CartBackBtn = styled.button`
-  border: none;
-  outline: none;
-  padding: 0.7rem 0.6rem;
-  margin-right: 1rem;
+const CartBackBtn = styled.span`
+  padding: 0 0.5rem;
   background-color: transparent;
-  height: 100%;
   cursor: pointer;
 `;
-const CartHeaderSpan = styled.span``;
+
+const CartHeaderSpan = styled.span`
+  font-size: 20px;
+  padding: 0.5rem 0;
+`;
 export default function CartComp() {
-  const { setSearchComp, setCartComp, data } = useBeerContextApi();
+  const { setSearchComp, setCartComp } = useBeerContextApi();
   const { cartItems, removeFromCart, reduceFromCart, increaseToCart, cartTotal } = useCartContextApi();
   const navigate = useNavigate();
   useEffect(() => {
@@ -82,14 +82,14 @@ export default function CartComp() {
   return (
     <>
       <CartBackBtnParent>
-        <CartBackBtn onClick={() => navigate(-1)}>
-          <img src="/back-btn.svg" alt="go back" srcSet="" />
+        <CartBackBtn>
+          <img src="/back-btn.svg" onClick={() => navigate(-1)} alt="go back" srcSet="" height="30" />
         </CartBackBtn>
-        <CartHeaderSpan>My Cart</CartHeaderSpan>
+        <CartHeaderSpan>Back</CartHeaderSpan>
       </CartBackBtnParent>
       <div className="cartPage">
         {cartItems.length ? (
-          <>
+          <div className="bgColor">
             <div className="modal">
               <div className="beerGrid">
                 {cartItems.map((beer, index) => (
@@ -130,7 +130,7 @@ export default function CartComp() {
                 <p>Price Details</p>
                 <hr />
                 <Header4>
-                  <span>{`Price (${cartItems.length} item)`}</span>
+                  <span>{`Price (${cartItems.length} item${cartItems.length > 1 ? "s" : ""})`}</span>
                   <span>{cartTotal().toFixed(2)}</span>
                 </Header4>
                 <Header4>
@@ -143,14 +143,18 @@ export default function CartComp() {
                 </Header4>
                 <hr />
                 <Header2>
-                  <span>Total Payable</span>
+                  <span>Total Amount</span>
                   <span>&#8377;{(cartTotal() - (cartTotal() * 5) / 100).toFixed(2)}</span>
                 </Header2>
-                {/* <div className="totalFooter">
-                </div> */}
               </div>
             </div>
-          </>
+            <div className="totalFooter">
+              <Header2>${(cartTotal() - (cartTotal() * 5) / 100).toFixed(2)}</Header2>
+              <Link to="/online-payment">
+                <button className="placeOrderBtn">PLACE ORDER</button>
+              </Link>
+            </div>
+          </div>
         ) : (
           <Emptycart />
         )}

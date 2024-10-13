@@ -56,7 +56,7 @@
 .beerContainer .beer .beerDetails {
   padding: 0.4rem 0.5rem;
   background-color: #eaeefc;
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 0 0 0.3rem 0.3rem;
 }
 .beerContainer .beer .beerDetails a{
   text-decoration: none;
@@ -89,15 +89,14 @@
 
 @media (768px < width <=1440px) {
   .beerContainer {
-    overflow-x: scroll;
-    margin: 1rem 2%;
+    margin: 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     transition: 0.5s;
   }
   .swipe-indicator {
-    display: flex;
+    display: none;
     animation: swipe 1200ms 3;
     width: 0px;
     position: absolute;
@@ -162,8 +161,16 @@
   .beerContainer #btn-next {
     right: 0.5rem;
   }
+  .beerContainer .beer .beerDetails {
+    padding: 0.4rem 0.5rem;
+    background-color: #eaeefc;
+    border-radius: 0 0 0.3rem 0.3rem;
+}
 }
 @media (576px < width <= 768px) {
+  .random1 .randomHeader{
+    margin: 0.5rem 1rem;
+  }
   .beerContainer {
     overflow-x: scroll;
     margin: 1rem 2%;
@@ -251,6 +258,9 @@
   }
 }
 @media (425px < width <= 576px) {
+  .random1 .randomHeader{
+    margin: 0.5rem;
+  }
   .beerContainer {
     margin: 10px;
     display: grid;
@@ -324,6 +334,9 @@
   }
 }
 @media (width <= 425px) {
+  .random1 .randomHeader{
+    margin: 0.5rem;
+  }
   .beerContainer {
     margin: 0.4rem;
     display: grid;
