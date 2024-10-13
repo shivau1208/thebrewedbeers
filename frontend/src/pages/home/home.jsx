@@ -13,7 +13,8 @@ export default function ListBeers() {
   const { data, setCartComp, products } = useBeerContextApi();
   useEffect(() => {
     setCartComp(true);
-  }, []);
+    
+  }, [products]);
   return (
     <>
       <Navbar />
@@ -166,15 +167,15 @@ export default function ListBeers() {
         <div className="random1">
           <div className="randomHeaderParent">
             <div className="randomHeader">
-              <p>Punch / Party Drink</p>
-              <Link to={"/beers/ingredient/Punch_PartyDrink"}>View all</Link>
+              <p>Rum</p>
+              <Link to={"/beers/ingredient/rum"}>View all</Link>
             </div>
             <hr />
           </div>
           {products !== null ? (
             <div className="beerContainer">
               {products
-                .filter((item) => item?.strIngredient1 == "Punch_PartyDrink")
+                .filter((item) => item?.strIngredient1 == "Rum")
                 .sort(() => Math.random() - 0.5)
                 .slice(0, 6)
                 .map((beer, index) => (

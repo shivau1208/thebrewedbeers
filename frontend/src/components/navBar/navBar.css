@@ -186,14 +186,24 @@
     padding: 0.5rem;
 }
 
-@media (768px < width <=1024px){
+@media (768px < width <=1440px){
+    .navBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 1.25rem;
+    }
     /* .navBarWidth{
         position:relative;
     } */
     .navBar .navbarTabs .menuList li {
         margin: 0 0.5rem;
         padding: 0.7rem;
-        width: 4rem;
+        width: 100px;
         cursor: pointer;
         border-radius: 0.25rem;
         position: relative;
@@ -203,7 +213,17 @@
         width: 0;
     }
 }
-@media (width<=768px){
+@media (576px < width <=768px){
+    .navBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 760px;
+        padding: 0;
+        width: 100%;
+        margin: 0 auto;
+        font-size: 1.25rem;
+    }
     .navBarWidth{
         position:relative;
     }
@@ -221,9 +241,28 @@
     }
 }
 
-@media (425px <= width < 576px){
-    .navBar{
-        padding: 0.2rem;
-        width: 100%;
+@media (425px <= width <= 576px){
+    .navBar{    
+        padding: 0.5rem 0.2rem;
+    }
+    .navBar .menuIcon {
+        margin-right: 0.2rem;
+        padding: 0;
+        display: block;
+    }
+    .navBarWidth{
+        position:relative;
+    }
+    .navBar .menuIcon{
+        margin-right: auto;
+        padding: 0.5rem;
+        display: block;
+    }
+    .navBar .navbarTabs{
+        display: none;
+    }
+    .sidebarTabs{
+        display: flex;
+        width: 0;
     }
 }

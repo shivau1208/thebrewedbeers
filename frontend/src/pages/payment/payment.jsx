@@ -19,8 +19,22 @@ const PaymentBackBtn = styled.button`
   cursor: pointer;
 `;
 
+const Header4 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 1rem;
+`;
+const Header2 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 1rem;
+  font-size: 24px;
+  font-weight: 500;
+  background-color: #f4f4f4;
+`;
+
 export default function Payment() {
-  const { clearCart,cartTotal } = useCartContextApi();
+  const { cartItems,clearCart,cartTotal } = useCartContextApi();
   const {setSearchComp,setCartComp, setSideBarShow} = useBeerContextApi();
   const [popUp,setPopUp] = useState(false)
   const [deliverAddress,setDeliverAddress] = useState({
@@ -32,46 +46,7 @@ export default function Payment() {
   const navigate = useNavigate();
 
   let amount = (cartTotal() - (cartTotal() * 5) / 100).toFixed(2);
-  let payload = {
-    merchantId: "PGTESTPAYUAT",
-    merchantTransactionId: "MT7850590068188104",
-    merchantUserId: "MUID123",
-    amount: `${amount * 100}`,
-    redirectUrl: `https://buymybeer.vercel.app/home`,
-    redirectMode: "REDIRECT",
-    callbackUrl: `https://buymybeer.vercel.app/home`,
-    mobileNumber: "9999999999",
-    paymentInstrument: {
-      type: "PAY_PAGE",
-    },
-  };
-  let json_string = JSON.stringify(payload);
-  let b64Data = btoa(json_string);
-  let saltKey = "099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
-  let saltIndex = 1;
-  let string = b64Data + "/pg/v1/pay" + saltKey;
-  let sha256_val = sha256(string);
-  let checkSum = sha256_val + "###" + saltIndex;
-  const options = {
-    method: "post",
-    url: "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay",
-    request: b64Data,
-    headers: {
-      accept: "application/json",
-      "Content-Type": "application/json",
-      "X-VERIFY": checkSum,
-    },
-    data: {
-      request: b64Data,
-    },
-  };
-  async function phonepeApi() {
-    let res = await axios
-      .request(options)
-      .then((response) => response.data)
-      .catch((error) => console.error(error));
-    window.location.replace(res.data.instrumentResponse.redirectInfo.url);
-  }
+  
   const PlaceOrder = ()=>{
     let keys = Object.keys(deliverAddress)
     if(keys.every((item)=>deliverAddress[item])){
@@ -101,63 +76,66 @@ export default function Payment() {
   return (
     <>
       <Navbar />
-      <div class="bilingAddress">
-        <p class="billing_text mb_23px">Delievery Info</p>
-        <div class="input_form">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="input_box_cart">
-                <input type="" name="fullname" value={deliverAddress.fullname} onChange={SetDlvrAdrs} placeholder="Full Name" />
+      <div className="paymentPage">
+        <div class="bilingAddress">
+          <p class="billing_text">Delievery Info</p>
+          <div class="input_form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" name="fullname" value={deliverAddress.fullname} onChange={SetDlvrAdrs} placeholder="Full Name" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" name="mnumber" value={deliverAddress.mnumber} onChange={SetDlvrAdrs} placeholder="Mobile Number" />
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="input_box_cart">
-                <input type="" name="mnumber" value={deliverAddress.mnumber} onChange={SetDlvrAdrs} placeholder="Mobile Number" />
+            <div class="row">
+              <div class="col-md-6">
+                <div class="input_box_cart">
+                  <input type="" name="email" value={deliverAddress.email} onChange={SetDlvrAdrs} placeholder="Email Address" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input_box_cart">
+                  <textarea rows="4" name="address" value={deliverAddress.address} onChange={SetDlvrAdrs} placeholder="Full Address"></textarea>
+                </div>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="input_box_cart">
-                <input type="" name="email" value={deliverAddress.email} onChange={SetDlvrAdrs} placeholder="Email Address" />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="input_box_cart">
-                <textarea rows="4" name="address" value={deliverAddress.address} onChange={SetDlvrAdrs} placeholder="Full Address"></textarea>
-              </div>
-            </div>
+          <button type="button" onClick={PlaceOrder} class="total_btn_cart text_center_button">
+            Place Order
+          </button>
+        </div>
+        <div className="cartTotal">
+          <div className="priceDetails">
+            <p>Price Details</p>
+            <hr />
+            <Header4>
+              <span>{`Price (${cartItems.length} item${cartItems.length > 1 ? 's' : ''})`}</span>
+              <span>{cartTotal().toFixed(2)}</span>
+            </Header4>
+            <Header4>
+              <span>Delivery Charges</span>
+              <span>FREE</span>
+            </Header4>
+            <hr />
+            <Header2>
+              <span>Total Amount</span>
+              <span>&#8377;{amount}</span>
+            </Header2>
           </div>
         </div>
-        <button type="button" onClick={PlaceOrder} class="total_btn_cart text_center_button">
-          Place Order
-        </button>
       </div>
       {popUp && <div className="orderPlacedpopUp">
           <img src="/checkmark.svg" alt="checkmark" srcset="" width={"100"} />
           <p>Your Order is Placed</p>
           <button onClick={PopupOkBtn}>Ok</button>
       </div>}
-      {/* <div>
-        <PaymentBackBtn onClick={() => navigate(-1)}>
-          <img src="/back-btn.svg" alt="go back" srcSet="" />
-        </PaymentBackBtn>
-        <div className="paymentGate">
-          <div className="address">
-            <textarea name="" id="" cols="30" rows="5" placeholder="Please fill delivery address"></textarea>
-          </div>
-          <div className="amount">
-            <span>Total amount to pay:</span>
-            <span>&#8377;{(Total() - (Total() * 5) / 100).toFixed(2)}</span>
-          </div>
-          <div className="paymentBtn" onClick={() => phonepeApi()}>
-            <img src="/phonepe-svgrepo-com.svg" alt="" srcSet="" width="30" />
-            <span>PAY HERE</span>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }

@@ -13,11 +13,11 @@ export async function delayForDemo(promise) {
   }).then(() => promise);
 }
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

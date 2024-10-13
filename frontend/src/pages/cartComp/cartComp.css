@@ -1,275 +1,276 @@
-.cartPage{
-    display:flex;
-    background:#F1F3F6;
-    height: calc(100svh - 50px);
-    padding-top: 30px;
+.cartPage {
+  background-color: #f1f3f6;
+  min-height: fit-content;
+  height: calc(100vh - 50px);
 }
-.modal{
-    width: 60vw;
-    max-height: fit-content;
-    height: 100%;
-    margin-left: 6%;
-    background: #fff;
-    border-radius: 0.3rem;
-    box-shadow: 0 1px 6px #ccc;
-    overflow-y: auto;
-    position: relative;
+.cartPage .bgColor {
+  display: flex;
+  padding-top: 30px;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+.modal {
+  width: 60vw;
+  max-height: fit-content;
+  height: 100%;
+  margin-left: 6%;
+  background: #fff;
+  border-radius: 0.3rem;
+  box-shadow: 0 1px 6px #ccc;
+  overflow-y: auto;
+  position: relative;
 }
 .modal .beerGrid {
-    padding: 0 0.5rem;
-    overflow-y: auto;
+  padding: 0.5rem;
+  overflow-y: auto;
+  min-height: 450px;
 }
-.modal::-webkit-scrollbar{
-    display: none;
+.modal::-webkit-scrollbar {
+  display: none;
 }
-.cartBeer{
+.cartBeer {
+  display: flex;
+  border-radius: 0.3rem;
+  background: #f2f4fd;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.cartBeer .cartBeerImage a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 100px;
+}
+.cartBeer .cartBeerImage a img {
+  width: 150px;
+  height: 150px;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+.cartBeer .cartBeerDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0.4rem 0.5rem;
+  background: #eaeefc;
+  border-radius: 0 0.3rem 0.3rem 0;
+  flex: 1 1;
+}
+.cartBeer .cartBeerDetails a {
+  text-decoration: none;
+  color: #000;
+}
+.cartBeer .cartBeerDetails a h3,
+.cartBeer .cartBeerDetails p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.2rem;
+  max-width: 100%;
+}
+.cartTotal {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.5rem;
+}
+.totalFooter {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+.priceDetails {
+  width: 400px;
+  border-radius: 0.3rem;
+  background: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 1px 6px #ccc;
+}
+.priceDetails p {
+  font-size: 20px;
+  padding: 0 1rem 0.5rem 1rem;
+  font-weight: 700;
+}
+.placeOrder {
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem 1rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px #757575;
+}
+.placeOrderBtn {
+  border: none;
+  padding: 16px 30px;
+  margin: 0 0.5rem;
+  background-color: #232323;
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 0.1rem;
+  width: 200px;
+}
+.emptyCart {
+  margin: 0px auto;
+  box-shadow: 0 0 6px #aaa;
+  border-radius: 1rem;
+  max-width: 450px;
+}
+.emptyCart h4 {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0.5rem;
+  text-align: center;
+}
+.emptyCart img {
+  width: 100%;
+  border-radius: inherit;
+}
+
+@media (768px < width < 1400px) {
+  .cartPage .bgColor {
     display: flex;
-    border-radius: 0.3rem;
+    height: 100%;
+  }
+  .modal {
+    position: relative;
+    min-height: 500px;
+    height: 60svh;
+    margin: 30px;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 6px #ccc;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+
+  .cartBeer {
+    display: flex;
+    border-radius: 1rem;
     background: #f2f4fd;
     margin-bottom: 1rem;
     position: relative;
-}
-.cartBeer .cartBeerImage a{
+  }
+  .cartBeer .cartBeerImage {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex:  0 0 100px;
-
-    /* filter: drop-shadow(2px 5px 8px #000); */
-}
-.cartBeer .cartBeerImage a img{
-    width: 150px;
+    flex: 0 0 100px;
     height: 150px;
-    border-top-left-radius: 0.3rem;
-    border-bottom-left-radius: 0.3rem;
-}
-.cartBeer .cartBeerDetails{
+  }
+  .cartBeer .cartBeerDetails {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
     padding: 0.4rem 0.5rem;
     background: #eaeefc;
-    border-radius: 0 0.3rem 0.3rem 0;
-    flex: 1 1;
-}
-.cartBeer .cartBeerDetails a{
-    text-decoration: none;
-    color: #000;
-}
-.cartBeer .cartBeerDetails a h3, .cartBeer .cartBeerDetails p{
-    white-space: nowrap;
+    border-radius: 0 1rem 1rem 0;
+    flex: 1;
     overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0.2rem;
-    max-width: 100%;
-}
-.cartTotal{
-    display:flex;
-    flex-direction: column;
+  }
+  .cartTotal {
     margin: 0 0.5rem;
+    position: relative;
+  }
+  .priceDetails {
+    right: 130px;
+    width: 350px;
+    border-radius: 0.5rem 0 0 0.5rem;
+    background: #fff;
+    padding: 0.5rem 0;
+    margin: 30px 0;
+    box-shadow: 0 0 5px #f9f9f9;
+  }
+  .placeOrder {
+    display: none;
+  }
+  .totalFooter {
+    display: none;
+  }
 }
-.totalFooter{
+
+@media (width <= 768px) {
+  .cartPage .bgColor {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-bottom: 0;
+    padding: 0;
+  }
+  .modal {
+    min-height: 400px;
+    height: fit-content;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 0.3rem;
+    box-shadow: 0 1px 6px #ccc;
+    overflow-y: auto;
+    margin-top: 10px;
+    max-width: 750px;
+    width: 100%;
+  }
+  .cartTotal {
+    margin: 10px auto;
+    max-width: 750px;
+    width: 100%;
+  }
+  .placeOrder {
+    display: none;
+  }
+  .placeOrderBtn {
+    border: none;
+    padding: 0.7rem;
+    margin: 0 0.7rem;
+    background-color: #232323;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.4rem;
+  }
+  .totalFooter {
+    position: sticky;
+    bottom: 0;
+    box-shadow: 0 0 5px #757575;
+    background-color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
-}
-.priceDetails{
-    /* position:fixed; */
-    width:400px;
-    border-radius:0.3rem;
-    background:#fff;
-    padding:1rem 0 ;
-    box-shadow:  0 1px 6px #ccc;
-}
-.priceDetails p{
-    font-size: 20px;
-    padding: 0 1rem 0.5rem 1rem;;
-    font-weight: 700;
-}
-.placeOrder{
+  }
+  .cartBeer {
     display: flex;
-    justify-content: flex-end;
-    position: sticky;
-    right: 0;
-    bottom: 0;
-    padding: 1.5rem 1rem;
-    background-color: #fff;
-    box-shadow: 0 0 5px #757575;
-}
-.placeOrderBtn{
-    border: none;
-    outline: none;
-    padding: 1rem 1.5rem;
-    margin: 0 0.5rem;
-    background-color: #232323;
-    color: #fff;
-    font-size: 1.25rem;
-    cursor: pointer;
-    border-radius: 0.2rem;
-    
-}
-.emptyCart{
+    border-radius: 0.3rem;
+    background: #f2f4fd;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .cartBeer .cartBeerImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 100px;
+    height: 150px;
+  }
+  .cartBeer .cartBeerDetails {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    position: relative;
-    margin: 80px auto;
-    padding: 1rem;
-    box-shadow: 0 0 6px #aaa;
-    border-radius: 1rem;
-    width: fit-content;
-    height: fit-content;
-}
-.emptyCart h4{
-    font-size: 18px;
-    font-weight: 500;
-    padding: 0.5rem;
-
-}
-.emptyCart img{
+    align-items: flex-start;
+    padding: 0.4rem 0.5rem;
+    background: #eaeefc;
+    border-radius: 0 0.3rem 0.3rem 0;
+    flex: 1;
+    overflow: hidden;
+  }
+  .priceDetails {
+    border-radius: 0;
     width: 100%;
-}
-
-@media (768px < width<=1400px){
-    .cartPage{
-        display:flex;
-        height: 100%;
-        
-    }
-    .modal{
-        position: relative;
-        min-height: 500px;
-        height: 60svh;
-        margin: 30px;
-        background: #fff;
-        border-radius: 0.5rem;
-        box-shadow: 0 1px 6px #ccc;
-        overflow-y: auto;
-        padding: 1rem;
-    }
-    
-    .cartBeer{
-        display: flex;
-        border-radius: 1rem;
-        background: #f2f4fd;
-        margin-bottom: 1rem;
-        position: relative;
-    }
-    .cartBeer .cartBeerImage{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex:0 0 100px;
-        height: 150px;
-        /* filter: drop-shadow(2px 5px 8px #000); */
-    }
-    .cartBeer .cartBeerDetails{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-start;
-        padding: 0.4rem 0.5rem;
-        background: #eaeefc;
-        border-radius: 0 1rem 1rem 0;
-        flex: 1;
-        overflow: hidden
-        ;
-    }
-    .cartTotal{
-        margin: 0 0.5rem;
-        position: relative;
-    }
-    .priceDetails{
-        /* position: fixed; */
-        right: 130px;
-        width:350px;
-        border-radius:0.5rem 0 0 0.5rem;
-        background:#fff;
-        padding:0.5rem 0;
-        margin: 30px 0;
-        box-shadow: 0 0 5px #f9f9f9;
-    }
-}
-@media (width<=768px){
-    .cartPage{
-        display:flex;
-        flex-direction: column;
-        height: auto;
-        margin-bottom: 0;
-    }
-    .modal{
-        width: 96%;
-        min-height: 400px;
-        height: fit-content;
-        margin: 0 2%;
-        background: #fff;
-        border-radius: 1rem;
-        box-shadow: 0 1px 6px #ccc;
-        overflow-y: auto;
-        padding: 1rem;
-        margin-top: 10px;
-    }
-    .cartTotal{
-        position: sticky;
-        bottom: 0;
-        margin: 0;
-        margin-top: 1rem;
-        box-shadow: 0 0 10px #000;;
-
-    }
-    .placeOrderBtn{
-        border: none;
-        outline: none;
-        padding: 0.7rem;
-        margin: 0 0.7rem;
-        background-color: #FB641B;
-        color: #fff;
-        font-size: 0.9rem;
-        cursor: pointer;
-        border-radius: 0.4rem;
-    }
-    .totalFooter{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem;
-    }
-    .cartBeer{
-        display: flex;
-        border-radius: 0.3rem;
-        background: #f2f4fd;
-        margin-bottom: 1rem;
-        position: relative;
-    }
-    .cartBeer .cartBeerImage{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex:0 0 100px;
-        height: 150px;
-
-        /* filter: drop-shadow(2px 5px 8px #000); */
-    }
-    .cartBeer .cartBeerDetails{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 0.4rem 0.5rem;
-        background: #eaeefc;
-        border-radius: 0 0.3rem 0.3rem 0;
-        flex: 1;
-        overflow: hidden;
-    }
-    .priceDetails{
-        border-radius: 0;
-        width: 100%;
-        background: #ffffff;
-        padding: 0;
-        margin: 0;
-        
-    }
+    background: #ffffff;
+    padding: 0;
+    margin: 0;
+  }
 }

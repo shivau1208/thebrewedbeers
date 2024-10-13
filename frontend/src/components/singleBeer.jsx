@@ -3,7 +3,7 @@ import "../pages/products/products.css";
 import styled from "styled-components";
 import { useCartContextApi } from "../context/cartContextApi";
 import { Link } from "react-router-dom";
-// import useImgReducer from "imgreducer";
+import useImgReducer from "imgreducer";
 
 const PlusCartButton = styled.div`
   position: absolute;
@@ -13,7 +13,7 @@ const PlusCartButton = styled.div`
 `;
 export default function SingleBeer({ beer }) {
   const { addToCart } = useCartContextApi();
-  // const {src} = useImgReducer(beer?.strDrinkThumb,'avif',0.5);
+  const {src} = useImgReducer(beer?.strDrinkThumb,'avif',0.5);
 
   return (
     <div className="beer">
