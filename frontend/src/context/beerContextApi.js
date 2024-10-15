@@ -16,12 +16,6 @@ export default function BeerContextFunc({ children }) {
   const fetchData = async () => {
     const res = await fetch("/beer_data/beerdata.json");
     const response = await res.json();
-    // console.log(response);
-    // const response1 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
-    //     .then(res => res.data);
-    // const response2 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail')
-    //     .then(res => res.data);
-    // setData(prevData=>[...prevData,...response1.drinks,...response2.drinks])
     setData((prevData) => [...prevData, ...response]);
     setProducts((prevData) => [...prevData, ...response]);
   };
