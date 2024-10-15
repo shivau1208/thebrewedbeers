@@ -24,7 +24,10 @@ export default function UserProfile() {
           router(`/auth/signin`);
         },2000)
       }
-    });
+    })
+    .catch(err=>{
+      console.log(err);
+    })
   }
   return (
     <div className="user-profile">

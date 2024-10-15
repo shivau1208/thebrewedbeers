@@ -35,8 +35,6 @@ export default function App() {
     if(!authenticated){
       VerifyAuthService()
       .then(res=>{
-        console.log(res);
-        
         if(res.status==200){
           dispatch(VerifyAuth('authenticate'));
         }
