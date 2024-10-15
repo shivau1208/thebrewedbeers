@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../pages/products/products.css";
 import styled from "styled-components";
 import { useCartContextApi } from "../context/cartContextApi";
@@ -13,8 +13,7 @@ const PlusCartButton = styled.div`
 `;
 export default function SingleBeer({ beer }) {
   const { addToCart } = useCartContextApi();
-  const {src} = useImgReducer(beer?.strDrinkThumb,'avif',0.5);
-
+  const {src} = useImgReducer(`/beer_images/images/${beer?.strDrinkThumb}`,'webp',0.5);
   return (
     <div className="beer">
       <div className="beerImage">

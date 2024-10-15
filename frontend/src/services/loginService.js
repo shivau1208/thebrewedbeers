@@ -1,7 +1,7 @@
 export const server = 'https://login-service-xwdp.onrender.com'
 
 export const VerifyAuthService = async()=>{
-  const res = fetch(`${server}/protected`,{
+  const res = fetch(`/auth/protected`,{
     headers:{
       'content-type':'application/json',
     },
@@ -11,7 +11,7 @@ export const VerifyAuthService = async()=>{
 }
 
 export const loginAuthService = async(data)=>{
-    const response = await fetch(`${server}/login`, {
+    const response = await fetch(`/auth/login`, {
       method:'POST',
       headers:{
         'content-type':'application/json',
@@ -22,7 +22,7 @@ export const loginAuthService = async(data)=>{
     return response;
 }
 export const signupAuthService = async(data)=>{
-    const response = await fetch(`${server}/signup`, {
+    const response = await fetch(`/auth/signup`, {
       method:'POST',
       headers:{
         'content-type':'application/json',
@@ -35,7 +35,7 @@ export const signupAuthService = async(data)=>{
 }
 
 export const logoutService = async()=>{
-  const res = await fetch(`${server}/logout`,{
+  const res = await fetch(`/auth/logout`,{
     method:'POST',
     credentials:'include'
   })

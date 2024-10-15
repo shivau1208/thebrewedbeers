@@ -13,30 +13,26 @@ export default function ListBeers() {
   const { data, setCartComp, products } = useBeerContextApi();
   useEffect(() => {
     setCartComp(true);
-    
   }, [products]);
   return (
     <>
       <Navbar />
+      {products !== null ? (
       <div className="main">
         <div className="random">
-          {products !== null ? (
-            <div className="beerContainer">
-              {products
-                .slice()
-                .sort(() => Math.random() - 0.5)
-                .filter((item) => item?.rating >= 4)
-                .slice(0, 6)
-                .map((beer, index) => (
-                  <Suspense key={index} fallback={<DotLoader />}>
-                    <SingleBeerComp beer={beer} />
-                  </Suspense>
-                ))}
-              <div className="swipe-indicator"></div>
-            </div>
-          ) : (
-            <Nodatafound />
-          )}
+          <div className="beerContainer">
+            {products
+              .slice()
+              .sort(() => Math.random() - 0.5)
+              .filter((item) => item?.rating >= 4)
+              .slice(0, 6)
+              .map((beer, index) => (
+                <Suspense key={index} fallback={<DotLoader />}>
+                  <SingleBeerComp beer={beer} />
+                </Suspense>
+              ))}
+            <div className="swipe-indicator"></div>
+          </div>
         </div>
         <div className="random1">
           <div className="randomHeaderParent">
@@ -46,22 +42,18 @@ export default function ListBeers() {
             </div>
             <hr />
           </div>
-          {products !== null ? (
-            <div className="beerContainer">
-              {products
-                .filter((item) => item?.strCategory == "Cocktail")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 6)
-                .map((beer, index) => (
-                  <Suspense key={index} fallback={<DotLoader />}>
-                    <SingleBeerComp beer={beer} />
-                  </Suspense>
-                ))}
-              <div className="swipe-indicator"></div>
-            </div>
-          ) : (
-            <Nodatafound />
-          )}
+          <div className="beerContainer">
+            {products
+              .filter((item) => item?.strCategory == "Cocktail")
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 6)
+              .map((beer, index) => (
+                <Suspense key={index} fallback={<DotLoader />}>
+                  <SingleBeerComp beer={beer} />
+                </Suspense>
+              ))}
+            <div className="swipe-indicator"></div>
+          </div>
         </div>
         <div className="random1">
           <div className="randomHeaderParent">
@@ -71,22 +63,18 @@ export default function ListBeers() {
             </div>
             <hr />
           </div>
-          {products !== null ? (
-            <div className="beerContainer">
-              {products
-                .filter((item) => item?.strCategory == "Shake")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 6)
-                .map((beer, index) => (
-                  <Suspense key={index} fallback={<DotLoader />}>
-                    <SingleBeerComp beer={beer} />
-                  </Suspense>
-                ))}
-              <div className="swipe-indicator"></div>
-            </div>
-          ) : (
-            <Nodatafound />
-          )}
+          <div className="beerContainer">
+            {products
+              .filter((item) => item?.strCategory == "Shake")
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 6)
+              .map((beer, index) => (
+                <Suspense key={index} fallback={<DotLoader />}>
+                  <SingleBeerComp beer={beer} />
+                </Suspense>
+              ))}
+            <div className="swipe-indicator"></div>
+          </div>
         </div>
         <div className="random1">
           <div className="randomHeaderParent">
@@ -96,22 +84,18 @@ export default function ListBeers() {
             </div>
             <hr />
           </div>
-          {products !== null ? (
-            <div className="beerContainer">
-              {products
-                .filter((item) => item?.strCategory == "Shot")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 6)
-                .map((beer, index) => (
-                  <Suspense key={index} fallback={<DotLoader />}>
-                    <SingleBeerComp beer={beer} />
-                  </Suspense>
-                ))}
-              <div className="swipe-indicator"></div>
-            </div>
-          ) : (
-            <Nodatafound />
-          )}
+          <div className="beerContainer">
+            {products
+              .filter((item) => item?.strCategory == "Shot")
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 6)
+              .map((beer, index) => (
+                <Suspense key={index} fallback={<DotLoader />}>
+                  <SingleBeerComp beer={beer} />
+                </Suspense>
+              ))}
+            <div className="swipe-indicator"></div>
+          </div>
         </div>
         <div className="random1">
           <div className="randomHeaderParent">
@@ -121,24 +105,19 @@ export default function ListBeers() {
             </div>
             <hr />
           </div>
-          {products !== null ? (
-            <div className="beerContainer">
-              {products
-                .filter((item) => item?.strIngredient1 == "Gin")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 6)
-                .map((beer, index) => (
-                  <Suspense key={index} fallback={<DotLoader />}>
-                    <SingleBeerComp beer={beer} />
-                  </Suspense>
-                ))}
-              <div className="swipe-indicator"></div>
-            </div>
-          ) : (
-            <Nodatafound />
-          )}
+          <div className="beerContainer">
+            {products
+              .filter((item) => item?.strIngredient1 == "Gin")
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 6)
+              .map((beer, index) => (
+                <Suspense key={index} fallback={<DotLoader />}>
+                  <SingleBeerComp beer={beer} />
+                </Suspense>
+              ))}
+            <div className="swipe-indicator"></div>
+          </div>
         </div>
-
         <div className="random1">
           <div className="randomHeaderParent">
             <div className="randomHeader">
@@ -147,22 +126,18 @@ export default function ListBeers() {
             </div>
             <hr />
           </div>
-          {products !== null ? (
-            <div className="beerContainer">
-              {products
-                .filter((item) => item?.strIngredient1 == "Vodka")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 6)
-                .map((beer, index) => (
-                  <Suspense key={index} fallback={<DotLoader />}>
-                    <SingleBeerComp beer={beer} />
-                  </Suspense>
-                ))}
-              <div className="swipe-indicator"></div>
-            </div>
-          ) : (
-            <Nodatafound />
-          )}
+          <div className="beerContainer">
+            {products
+              .filter((item) => item?.strIngredient1 == "Vodka")
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 6)
+              .map((beer, index) => (
+                <Suspense key={index} fallback={<DotLoader />}>
+                  <SingleBeerComp beer={beer} />
+                </Suspense>
+              ))}
+            <div className="swipe-indicator"></div>
+          </div>
         </div>
         <div className="random1">
           <div className="randomHeaderParent">
@@ -172,7 +147,6 @@ export default function ListBeers() {
             </div>
             <hr />
           </div>
-          {products !== null ? (
             <div className="beerContainer">
               {products
                 .filter((item) => item?.strIngredient1 == "Rum")
@@ -185,11 +159,11 @@ export default function ListBeers() {
                 ))}
               <div className="swipe-indicator"></div>
             </div>
+        </div>
+      </div>
           ) : (
             <Nodatafound />
           )}
-        </div>
-      </div>
       <Footer />
     </>
   );
