@@ -22,7 +22,7 @@ export default function Beer() {
 
   function AddToCartFunc() {
       setIsAddedToCart(true); 
-      addToCart(beer.idDrink); 
+      addToCart(beer); 
   }
   useEffect(()=>{
     setBeerDetails(beer);
