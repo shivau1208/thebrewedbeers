@@ -14,7 +14,7 @@ export default function BeerContextFunc({ children }) {
 
   // const [isDarkMode,setDarkMode] = useState(true)
   const fetchData = async () => {
-    const res = await fetch("/user-data.json");
+    const res = await fetch("/beer_data/beerdata.json");
     const response = await res.json();
     // console.log(response);
     // const response1 = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Ordinary_Drink')
