@@ -17,9 +17,9 @@ module.exports = function(app) {
   );
 
   app.use(
-    '/auth',
+    '/authenticate',
     createProxyMiddleware({
-      target: 'https://login-service-xwdp.onrender.com/',
+      target: 'https://login-service-xwdp.onrender.com',
       changeOrigin: true,
     })
   );
