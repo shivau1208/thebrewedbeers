@@ -12,13 +12,18 @@ export default function BeerContextFunc({ children }) {
   const [products, setProducts] = useState([]);
   const [showProfile, setShowProfile] = useState(false);
 
-  const  beer_data = 'https://jsonbeerdata.s3.ap-south-1.amazonaws.com/'
+  const  beer_data = 'https://jsonbeerdata.s3.ap-south-1.amazonaws.com'
   // const [isDarkMode,setDarkMode] = useState(true)
   const fetchData = async () => {
-    const res = await fetch(`${beer_data}/beerdata.json`);
-    const response = await res.json();
-    setData((prevData) => [...prevData, ...response]);
-    setProducts((prevData) => [...prevData, ...response]);
+    try{
+      const res = await fetch(`${beer_data}/beerdata.json`);
+      const response = await res.json();
+      setData((prevData) => [...prevData, ...response]);
+      setProducts((prevData) => [...prevData, ...response]);
+    }catch(err){
+      console.log('failed to fetch beer data',err);
+      
+    }
   };
   useEffect(() => {
     fetchData();

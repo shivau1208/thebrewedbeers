@@ -37,7 +37,9 @@ export default function Signup() {
               AlertFunc(dat.message, "danger", 2000);
             }
             loader.style.display = "none";
-          });
+          }).catch((err)=>{
+            console.log(err);
+          })
       } else {
         loader.style.display = "none";
         AlertFunc("Passwords do not match!!", "warning", 2000);
