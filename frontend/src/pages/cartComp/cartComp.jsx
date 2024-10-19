@@ -77,7 +77,6 @@ export default function CartComp() {
   useEffect(() => {
     setSearchComp(false);
     setCartComp(false);
-    setSideBarShow(true)
   }, []);
 
   return (

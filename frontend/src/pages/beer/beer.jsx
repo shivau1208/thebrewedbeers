@@ -27,7 +27,6 @@ export default function Beer() {
     setBeerDetails(beer);
     setSearchComp(true);
     setCartComp(true);
-    setSideBarShow(false)
   },[beer])
 
   if(!beerDetails){

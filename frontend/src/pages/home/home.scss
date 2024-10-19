@@ -15,6 +15,7 @@
   justify-content: space-between;
   align-items: center;
   height: 40px;
+  width: 1250px;
 }
 .random1 .randomHeader p {
   font-size: 22px;
@@ -131,6 +132,7 @@
       box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.4);
       animation: disappear 1200ms forwards;
     }
+    
   }
   @keyframes swipe {
     0% {
@@ -179,6 +181,7 @@
 @media (576px < width <= 768px) {
   .random1 .randomHeader {
     margin: 0.5rem 1rem;
+    width: 736px;
   }
   .beerContainer {
     overflow-x: scroll;
@@ -269,6 +272,7 @@
   }
   .random1 .randomHeader {
     margin: 0.5rem;
+    width: 404px;
   }
   .beerContainer {
     display: grid;

@@ -13,7 +13,6 @@ export default function Home() {
   useEffect(() => {
     setCartComp(true);
     setSearchComp(true);
-    setSideBarShow(true);
   }, [products]);
 
   const FilteredBeers = ()=> {return useMemo(() => {
