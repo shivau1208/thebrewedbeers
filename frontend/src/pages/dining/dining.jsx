@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './dining.css';
-import Navbar from '../../components/navBar/Navbar';
 import { useBeerContextApi } from '../../context/beerContextApi';
 
 export default function Dining() {
@@ -11,7 +10,6 @@ export default function Dining() {
   }, []);
   return (
     <>
-      <Navbar />
       <div className='diningContainer'>
         <h1>
           <span></span>

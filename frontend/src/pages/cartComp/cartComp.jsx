@@ -71,12 +71,13 @@ const CartHeaderSpan = styled.span`
   padding: 0.5rem 0;
 `;
 export default function CartComp() {
-  const { setSearchComp, setCartComp } = useBeerContextApi();
+  const { setSearchComp, setCartComp ,setSideBarShow} = useBeerContextApi();
   const { cartItems, removeFromCart, reduceFromCart, increaseToCart, cartTotal } = useCartContextApi();
   const navigate = useNavigate();
   useEffect(() => {
     setSearchComp(false);
     setCartComp(false);
+    setSideBarShow(true)
   }, []);
 
   return (

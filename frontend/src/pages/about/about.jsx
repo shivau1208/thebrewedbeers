@@ -1,7 +1,6 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './about.css'
-import { BeersContext, useBeerContextApi } from '../../context/beerContextApi'
-import Navbar from '../../components/navBar/Navbar'
+import { useBeerContextApi } from '../../context/beerContextApi'
 
 export default function About() {
   const {setSearchComp,setCartComp} = useBeerContextApi()
@@ -12,7 +11,6 @@ export default function About() {
 },[])
   return (
     <>
-      <Navbar />
       <div className='about'>
           <div className=' head'>
               <h4>OUR ROOTS:</h4>

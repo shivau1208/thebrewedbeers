@@ -29,6 +29,7 @@
     height: 260px;
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
+    font-size: 14px;
 }
 .beerProducts .beer .beerDetails{
     padding: 0.4rem 0.5rem;
@@ -92,6 +93,7 @@
     }
     .beerProducts .beer .beerImage img{
         width: 270px;
+        height: 270px;
         border-top-left-radius: 0.3rem;
         border-top-right-radius: 0.3rem;
     }
@@ -119,6 +121,7 @@
     }
     .beerProducts .beer .beerImage img{
         width: 240px;
+        height: 240px;
         border-top-left-radius: 0.3rem;
         border-top-right-radius: 0.3rem;
     }
@@ -153,6 +156,41 @@
     .beerProducts .beer .beerImage img{
         width: 205px;
         height: 205px;
+        border-top-left-radius: 0.3rem;
+        border-top-right-radius: 0.3rem;
+    }
+    .beerProducts .beer .beerDetails{
+        padding: 0.4rem 0.5rem;
+        background: #eaeefc;
+        border-radius: 0 0 0.3rem 0.3rem;
+        overflow: hidden;
+    }
+}
+
+@media screen and (width < 425px){
+    .productsFilter{
+        position: relative;
+        margin: 0 auto;
+        max-width: 410px;
+    }
+    .beerProducts{
+        display: grid;
+        grid-template-columns: repeat(2,200px);
+        gap: 5px;
+    }
+    .beerProducts .beer{
+        border-radius: 0.3rem;
+        background: #f2f4fd;
+    }
+    .beerProducts .beer .beerImage{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+    .beerProducts .beer .beerImage img{
+        width: 200px;
+        height: 200px;
         border-top-left-radius: 0.3rem;
         border-top-right-radius: 0.3rem;
     }

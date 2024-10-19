@@ -34,7 +34,7 @@ export default function SingleBeer({ beer }) {
         </p>
       </div>
       <PlusCartButton className="plusCartButton" onClick={() => addToCart(beer)}>
-        <img src="/plus-large.svg" alt="plus-button" />
+        <img src="/plus-large.svg" alt="plus-button" width="27" height="27" />
       </PlusCartButton>
     </div>
   );

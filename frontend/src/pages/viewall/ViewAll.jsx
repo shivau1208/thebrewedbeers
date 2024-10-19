@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useBeerContextApi } from "../../context/beerContextApi";
 import SingleBeer from "../../components/singleBeer";
 import Nodatafound from "../../components/Error/Nodatafound";
-import Navbar from "../../components/navBar/Navbar";
-import SortFilter from "../../components/sortfilter/SortFilter";
 import { useParams } from "react-router-dom";
 import "./viewall.css";
 
@@ -56,8 +54,6 @@ export default function ViewAll() {
   }, []);
   return (
     <>
-      <Navbar />
-      {/* <SortFilter /> */}
       <div className="filteredProductsFilter">
         {products !== null && products.length ? (
           <div>

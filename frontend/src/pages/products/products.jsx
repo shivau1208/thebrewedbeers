@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useBeerContextApi } from "../../context/beerContextApi";
 import SingleBeer from "../../components/singleBeer";
 import Nodatafound from "../../components/Error/Nodatafound";
-import Navbar from "../../components/navBar/Navbar";
 import SortFilter from "../../components/sortfilter/SortFilter";
 import DesktopFilter from "../../components/Filter/DesktopFilter";
 import "./products.css";
@@ -50,7 +49,6 @@ export default function Products() {
   }, []);
   return (
     <>
-      <Navbar />
       <SortFilter />
       <div className="productsFilter">
         <DesktopFilter />

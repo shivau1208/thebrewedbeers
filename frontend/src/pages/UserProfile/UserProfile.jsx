@@ -4,9 +4,13 @@ import './userprofile.scss';
 import { useBeerContextApi } from "../../context/beerContextApi";
 import { logoutService } from "../../services/loginService";
 import { AlertFunc } from "../../components/Alert/Alert";
+import { useSelector } from "react-redux";
 
 export default function UserProfile() {
   const { setShowProfile } = useBeerContextApi();
+  const user = useSelector(state => state?.userInfo);
+  const photoUrl = user?.photoUrl;
+  const displayName = user?.displayName;
 
   const router = useNavigate();
   async function handleSignout(){
@@ -34,12 +38,16 @@ export default function UserProfile() {
       <div className="padding">
         <div className="profile-pic">
           <div className="profile-img">
-            <img src="/icons8-user-50.png" alt="Profile" srcSet="" />
+            <img src={photoUrl ? photoUrl : "/icons8-user-50.png"} alt="Profile" srcSet="" />
           </div>
           <div className="profile-edit ">
             <img src="/pencil.svg"  alt="" srcSet="" />
           </div>
         </div>
+        <div className="profileDisplayName">
+          <p>{displayName ? displayName : ""}</p>
+        </div>
+        
         <div className="profileManager">
           <button className="">Manage your Profile</button>
         </div>

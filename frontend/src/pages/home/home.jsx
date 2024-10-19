@@ -1,169 +1,137 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useMemo } from "react";
 import { useBeerContextApi } from "../../context/beerContextApi";
 import Footer from "../../components/footer/footer";
 import DotLoader from "../../components/spinner/DotLoader";
 import Nodatafound from "../../components/Error/Nodatafound";
-import Navbar from "../../components/navBar/Navbar";
 import "./home.scss";
 import { Link } from "react-router-dom";
 
 // Lazy load the SingleBeer component
 const SingleBeerComp = React.lazy(() => import("../../components/singleBeer"));
-export default function ListBeers() {
-  const { data, setCartComp, products } = useBeerContextApi();
+export default function Home() {
+  const { setCartComp, products,setSearchComp,setSideBarShow } = useBeerContextApi();
   useEffect(() => {
     setCartComp(true);
+    setSearchComp(true);
+    setSideBarShow(true);
   }, [products]);
+
+  const FilteredBeers = ()=> {return useMemo(() => {
+    return products
+      .slice() // shallow copy
+      .sort(() => Math.random() - 0.5) // random sorting
+      .filter((item) => item?.rating >= 4) // filtering
+      .slice(0, 6) // slicing
+      .map((beer, index) => (
+        <Suspense key={index} fallback={<DotLoader />}>
+          <SingleBeerComp beer={beer} />
+        </Suspense>
+      ))
+  }, [products])};
+  const CategorisedBeers = ({ filterValue, type }) => {
+    return useMemo(()=>{
+      return products
+      .filter((item) => item[type] == filterValue)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 6)
+      .map((beer, index) => (
+        <Suspense key={index} fallback={<DotLoader />}>
+          <SingleBeerComp beer={beer} />
+        </Suspense>
+      ))});
+  };
   return (
     <>
-      <Navbar />
       {products !== null ? (
-      <div className="main">
-        <div className="random">
-          <div className="beerContainer">
-            {products
-              .slice()
-              .sort(() => Math.random() - 0.5)
-              .filter((item) => item?.rating >= 4)
-              .slice(0, 6)
-              .map((beer, index) => (
-                <Suspense key={index} fallback={<DotLoader />}>
-                  <SingleBeerComp beer={beer} />
-                </Suspense>
-              ))}
-            <div className="swipe-indicator"></div>
-          </div>
-        </div>
-        <div className="random1">
-          <div className="randomHeaderParent">
-            <div className="randomHeader">
-              <p>Cocktail</p>
-              <Link to={"/beers/category/cocktail"}>View all</Link>
-            </div>
-            <hr />
-          </div>
-          <div className="beerContainer">
-            {products
-              .filter((item) => item?.strCategory == "Cocktail")
-              .sort(() => Math.random() - 0.5)
-              .slice(0, 6)
-              .map((beer, index) => (
-                <Suspense key={index} fallback={<DotLoader />}>
-                  <SingleBeerComp beer={beer} />
-                </Suspense>
-              ))}
-            <div className="swipe-indicator"></div>
-          </div>
-        </div>
-        <div className="random1">
-          <div className="randomHeaderParent">
-            <div className="randomHeader">
-              <p>Shakes</p>
-              <Link to={"/beers/category/Shake"}>View all</Link>
-            </div>
-            <hr />
-          </div>
-          <div className="beerContainer">
-            {products
-              .filter((item) => item?.strCategory == "Shake")
-              .sort(() => Math.random() - 0.5)
-              .slice(0, 6)
-              .map((beer, index) => (
-                <Suspense key={index} fallback={<DotLoader />}>
-                  <SingleBeerComp beer={beer} />
-                </Suspense>
-              ))}
-            <div className="swipe-indicator"></div>
-          </div>
-        </div>
-        <div className="random1">
-          <div className="randomHeaderParent">
-            <div className="randomHeader">
-              <p>Shots</p>
-              <Link to={"/beers/category/Shot"}>View all</Link>
-            </div>
-            <hr />
-          </div>
-          <div className="beerContainer">
-            {products
-              .filter((item) => item?.strCategory == "Shot")
-              .sort(() => Math.random() - 0.5)
-              .slice(0, 6)
-              .map((beer, index) => (
-                <Suspense key={index} fallback={<DotLoader />}>
-                  <SingleBeerComp beer={beer} />
-                </Suspense>
-              ))}
-            <div className="swipe-indicator"></div>
-          </div>
-        </div>
-        <div className="random1">
-          <div className="randomHeaderParent">
-            <div className="randomHeader">
-              <p>Gin</p>
-              <Link to={"/beers/ingredient/gin"}>View all</Link>
-            </div>
-            <hr />
-          </div>
-          <div className="beerContainer">
-            {products
-              .filter((item) => item?.strIngredient1 == "Gin")
-              .sort(() => Math.random() - 0.5)
-              .slice(0, 6)
-              .map((beer, index) => (
-                <Suspense key={index} fallback={<DotLoader />}>
-                  <SingleBeerComp beer={beer} />
-                </Suspense>
-              ))}
-            <div className="swipe-indicator"></div>
-          </div>
-        </div>
-        <div className="random1">
-          <div className="randomHeaderParent">
-            <div className="randomHeader">
-              <p>Vodka</p>
-              <Link to={"/beers/ingredient/vodka"}>View all</Link>
-            </div>
-            <hr />
-          </div>
-          <div className="beerContainer">
-            {products
-              .filter((item) => item?.strIngredient1 == "Vodka")
-              .sort(() => Math.random() - 0.5)
-              .slice(0, 6)
-              .map((beer, index) => (
-                <Suspense key={index} fallback={<DotLoader />}>
-                  <SingleBeerComp beer={beer} />
-                </Suspense>
-              ))}
-            <div className="swipe-indicator"></div>
-          </div>
-        </div>
-        <div className="random1">
-          <div className="randomHeaderParent">
-            <div className="randomHeader">
-              <p>Rum</p>
-              <Link to={"/beers/ingredient/rum"}>View all</Link>
-            </div>
-            <hr />
-          </div>
+        <div className="main">
+          <div className="random">
             <div className="beerContainer">
-              {products
-                .filter((item) => item?.strIngredient1 == "Rum")
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 6)
-                .map((beer, index) => (
-                  <Suspense key={index} fallback={<DotLoader />}>
-                    <SingleBeerComp beer={beer} />
-                  </Suspense>
-                ))}
+              <FilteredBeers />
               <div className="swipe-indicator"></div>
             </div>
+          </div>
+          <div className="random1">
+            <div className="randomHeaderParent">
+              <div className="randomHeader">
+                <p>Cocktail</p>
+                <Link to={"/beers/category/cocktail"}>View all</Link>
+              </div>
+              <hr />
+            </div>
+            <div className="beerContainer">
+              <CategorisedBeers filterValue={"Cocktail"} type={"strCategory"} />
+              <div className="swipe-indicator"></div>
+            </div>
+          </div>
+          <div className="random1">
+            <div className="randomHeaderParent">
+              <div className="randomHeader">
+                <p>Shakes</p>
+                <Link to={"/beers/category/shake"}>View all</Link>
+              </div>
+              <hr />
+            </div>
+            <div className="beerContainer">
+              <CategorisedBeers filterValue={"Shake"} type={"strCategory"} />
+              <div className="swipe-indicator"></div>
+            </div>
+          </div>
+          <div className="random1">
+            <div className="randomHeaderParent">
+              <div className="randomHeader">
+                <p>Shots</p>
+                <Link to={"/beers/category/Shot"}>View all</Link>
+              </div>
+              <hr />
+            </div>
+            <div className="beerContainer">
+              <CategorisedBeers filterValue={"Shot"} type={"strCategory"} />
+              <div className="swipe-indicator"></div>
+            </div>
+          </div>
+          <div className="random1">
+            <div className="randomHeaderParent">
+              <div className="randomHeader">
+                <p>Gin</p>
+                <Link to={"/beers/ingredient/gin"}>View all</Link>
+              </div>
+              <hr />
+            </div>
+            <div className="beerContainer">
+              <CategorisedBeers filterValue={"Gin"} type={"strIngredient1"} />
+              <div className="swipe-indicator"></div>
+            </div>
+          </div>
+          <div className="random1">
+            <div className="randomHeaderParent">
+              <div className="randomHeader">
+                <p>Vodka</p>
+                <Link to={"/beers/ingredient/vodka"}>View all</Link>
+              </div>
+              <hr />
+            </div>
+            <div className="beerContainer">
+              <CategorisedBeers filterValue={"Vodka"} type={"strIngredient1"} />
+              <div className="swipe-indicator"></div>
+            </div>
+          </div>
+          <div className="random1">
+            <div className="randomHeaderParent">
+              <div className="randomHeader">
+                <p>Rum</p>
+                <Link to={"/beers/ingredient/rum"}>View all</Link>
+              </div>
+              <hr />
+            </div>
+            <div className="beerContainer">
+              <CategorisedBeers filterValue={"Rum"} type={"strIngredient1"} />
+              <div className="swipe-indicator"></div>
+            </div>
+          </div>
         </div>
-      </div>
-          ) : (
-            <Nodatafound />
-          )}
+      ) : (
+        <Nodatafound />
+      )}
       <Footer />
     </>
   );
