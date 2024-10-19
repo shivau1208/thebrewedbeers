@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./payment.scss";
-import { sha256 } from "js-sha256";
 import { useCartContextApi } from "../../context/cartContextApi";
-import Navbar from "../../components/navBar/Navbar";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import confetti from 'https://esm.run/canvas-confetti@1';
 import { useBeerContextApi } from "../../context/beerContextApi";
 import { AlertFunc } from "../../components/Alert/Alert";
-
-const PaymentBackBtn = styled.button`
-  border: 1px solid;
-  outline: none;
-  padding: 0.7rem 0.6rem;
-  margin-right: 1rem;
-  height: 100%;
-  cursor: pointer;
-`;
 
 const Header4 = styled.div`
   display: flex;
@@ -31,6 +19,23 @@ const Header2 = styled.div`
   font-size: 24px;
   font-weight: 500;
   background-color: #f4f4f4;
+`;
+
+const PaymentBackBtnParent = styled.div`
+  height: 50px;
+  display: flex;
+  align-items: end;
+  padding: 0.5rem 0;
+`;
+const PaymentBackBtn = styled.span`
+  padding: 0 0.5rem;
+  background-color: transparent;
+  cursor: pointer;
+`;
+
+const PaymentHeaderSpan = styled.span`
+  font-size: 20px;
+  padding: 0.5rem 0;
 `;
 
 export default function Payment() {
@@ -67,7 +72,6 @@ export default function Payment() {
   useEffect(()=>{
     setSearchComp(false);
     setCartComp(false)
-    setSideBarShow(true)
   },[])
   const SetDlvrAdrs = (event)=>{
     const {name,value} = event.target
@@ -75,39 +79,44 @@ export default function Payment() {
   }
   return (
     <>
-      <Navbar />
+      <PaymentBackBtnParent>
+        <PaymentBackBtn>
+          <img src="/back-btn.svg" onClick={() => navigate(-1)} alt="go back" srcSet="" height="30" />
+        </PaymentBackBtn>
+        <PaymentHeaderSpan>Back</PaymentHeaderSpan>
+      </PaymentBackBtnParent>
       <div className="paymentPage">
-        <div class="bilingAddress">
-          <p class="billing_text">Delievery Info</p>
-          <div class="input_form">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="input_box_cart">
+        <div className="bilingAddress">
+          <p className="billing_text">Delievery Info</p>
+          <div className="input_form">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="input_box_cart">
                   <input type="" name="fullname" value={deliverAddress.fullname} onChange={SetDlvrAdrs} placeholder="Full Name" />
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="input_box_cart">
+              <div className="col-md-6">
+                <div className="input_box_cart">
                   <input type="" name="mnumber" value={deliverAddress.mnumber} onChange={SetDlvrAdrs} placeholder="Mobile Number" />
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="input_box_cart">
+            <div className="row">
+              <div className="col-md-6">
+                <div className="input_box_cart">
                   <input type="" name="email" value={deliverAddress.email} onChange={SetDlvrAdrs} placeholder="Email Address" />
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="input_box_cart">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="input_box_cart">
                   <textarea rows="4" name="address" value={deliverAddress.address} onChange={SetDlvrAdrs} placeholder="Full Address"></textarea>
                 </div>
               </div>
             </div>
           </div>
-          <button type="button" onClick={PlaceOrder} class="total_btn_cart text_center_button">
+          <button type="button" onClick={PlaceOrder} className="total_btn_cart text_center_button">
             Place Order
           </button>
         </div>
@@ -132,7 +141,7 @@ export default function Payment() {
         </div>
       </div>
       {popUp && <div className="orderPlacedpopUp">
-          <img src="/checkmark.svg" alt="checkmark" srcset="" width={"100"} />
+          <img src="/checkmark.svg" alt="checkmark" srcSet="" width={"100"} />
           <p>Your Order is Placed</p>
           <button onClick={PopupOkBtn}>Ok</button>
       </div>}

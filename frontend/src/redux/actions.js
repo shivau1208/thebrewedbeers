@@ -7,3 +7,7 @@ export const VerifyAuth = (authtype) => (dispatch) => {
     dispatch({type:'DEAUTHENTICATED'})
   }
 }
+
+export const UpdateUser = (user) => (dispatch) => {
+  dispatch({ type: 'UPDATE_USER', payload: user });
+}

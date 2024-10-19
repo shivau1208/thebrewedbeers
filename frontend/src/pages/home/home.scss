@@ -1,24 +1,27 @@
-.main{
+.main {
   padding: 0.75rem 0;
 }
-.random,.random1 {
+.random,
+.random1 {
   margin: 0.5rem auto;
   max-width: 1250px;
 }
-.random1 .randomHeaderParent{
+.random1 .randomHeaderParent {
   padding: 0.5rem 0;
 }
-.random1 .randomHeader{
+.random1 .randomHeader {
   margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 40px;
 }
-.random1 .randomHeader p{
+.random1 .randomHeader p {
   font-size: 22px;
   font-weight: 500;
 }
 
-.random1 .randomHeader a{
+.random1 .randomHeader a {
   text-decoration: none;
   color: #000;
   border: 1px solid #2f6c91;
@@ -26,6 +29,8 @@
   outline: none;
   background-color: #fff;
   padding: 0.5rem 0.7rem;
+  width: 80px;
+  height: 40px;
 }
 
 .beerContainer {
@@ -40,6 +45,8 @@
 .beerContainer .beer {
   border-radius: 0.3rem;
   background-color: #f2f4fd;
+  width: 200px;
+  height: 312px;
 }
 .beerContainer .beer .beerImage {
   cursor: pointer;
@@ -58,7 +65,7 @@
   background-color: #eaeefc;
   border-radius: 0 0 0.3rem 0.3rem;
 }
-.beerContainer .beer .beerDetails a{
+.beerContainer .beer .beerDetails a {
   text-decoration: none;
   color: #242525;
 }
@@ -88,6 +95,12 @@
 }
 
 @media (768px < width <=1440px) {
+  .random,
+  .random1 {
+    width: 100%;
+    margin: 0.5rem auto;
+    max-width: 1250px;
+  }
   .beerContainer {
     margin: 0;
     display: flex;
@@ -138,10 +151,6 @@
   .beerContainer::-webkit-scrollbar {
     display: none;
   }
-  .beerContainer .beer {
-    width: 200px;
-    flex: 0 0 200px;
-  }
   .beerContainer .btn {
     display: block;
     position: fixed;
@@ -165,10 +174,10 @@
     padding: 0.4rem 0.5rem;
     background-color: #eaeefc;
     border-radius: 0 0 0.3rem 0.3rem;
-}
+  }
 }
 @media (576px < width <= 768px) {
-  .random1 .randomHeader{
+  .random1 .randomHeader {
     margin: 0.5rem 1rem;
   }
   .beerContainer {
@@ -224,11 +233,6 @@
       display: none;
     }
   }
-  .beerContainer .beer {
-    width: 200px;
-    height: fit-content;
-    flex: 0 0 200px;
-  }
   .beer .beerDetails h3,
   .beer .beerDetails p {
     white-space: nowrap;
@@ -257,14 +261,18 @@
     right: 0.5rem;
   }
 }
-@media (425px < width <= 576px) {
-  .random1 .randomHeader{
+@media (425px <= width <= 576px) {
+  .random,
+  .random1 {
+    margin: 0.5rem auto;
+    max-width: 420px;
+  }
+  .random1 .randomHeader {
     margin: 0.5rem;
   }
   .beerContainer {
-    margin: 10px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 205px);
     gap: 10px;
   }
   .beerContainer {
@@ -273,7 +281,8 @@
     }
   }
   .beerContainer .beer {
-    border-radius: 0.3rem;
+    height: 300px;
+    width: 205px;
   }
   .beerContainer .beer .beerImage {
     display: flex;
@@ -282,8 +291,8 @@
     cursor: pointer;
   }
   .beerContainer .beer .beerImage img {
-    height: 100%;
-    width: 100%;
+    height: 205px;
+    width: 205px;
     overflow: auto;
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
@@ -293,7 +302,7 @@
     background-color: #eaeefc;
     border-radius: 0 0 0.3rem 0.3rem;
   }
-  .beerContainer .beer .beerDetails a{
+  .beerContainer .beer .beerDetails a {
     text-decoration: none;
     color: #242525;
   }
@@ -333,14 +342,18 @@
     right: 0.5rem;
   }
 }
-@media (width <= 425px) {
-  .random1 .randomHeader{
+@media (width < 425px) {
+  .random,
+  .random1 {
+    margin: 0.5rem auto;
+    max-width: 410px;
+  }
+  .random1 .randomHeader {
     margin: 0.5rem;
   }
   .beerContainer {
-    margin: 0.4rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 200px);
     gap: 10px;
   }
   .beerContainer {
@@ -350,6 +363,8 @@
   }
   .beerContainer .beer {
     border-radius: 0.3rem;
+    height: 312px;
+    width: 200px;
   }
   .beerContainer .beer .beerImage {
     display: flex;
@@ -358,9 +373,6 @@
     cursor: pointer;
   }
   .beerContainer .beer .beerImage img {
-    // height: 100%;
-    // width: 100%;
-    // overflow: auto;
     width: 200px;
     height: 200px;
     border-top-left-radius: 0.3rem;
@@ -371,7 +383,7 @@
     background-color: #eaeefc;
     border-radius: 0 0 0.3rem 0.3rem;
   }
-  .beerContainer .beer .beerDetails a{
+  .beerContainer .beer .beerDetails a {
     text-decoration: none;
     color: #242525;
   }

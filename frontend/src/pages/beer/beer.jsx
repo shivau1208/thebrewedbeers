@@ -1,7 +1,6 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './beer.scss';
-import Navbar from '../../components/navBar/Navbar';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useBeerContextApi } from '../../context/beerContextApi';
 import styled from 'styled-components';
 import { useCartContextApi } from '../../context/cartContextApi';
@@ -12,7 +11,7 @@ const BeerParent = styled.div`
 `
 
 export default function Beer() {
-  const {data,setCartComp} = useBeerContextApi();
+  const {data,setCartComp,setSearchComp,setSideBarShow} = useBeerContextApi();
   const {cartItems,addToCart} = useCartContextApi();
   const [isAddedToCart,setIsAddedToCart] = useState(false)
   const [beerDetails,setBeerDetails] = useState(null)
@@ -22,26 +21,25 @@ export default function Beer() {
 
   function AddToCartFunc() {
       setIsAddedToCart(true); 
-      addToCart(beer.idDrink); 
+      addToCart(beer); 
   }
   useEffect(()=>{
     setBeerDetails(beer);
+    setSearchComp(true);
     setCartComp(true);
+    setSideBarShow(false)
   },[beer])
 
   if(!beerDetails){
     return(
       <>
-        <Navbar />
         <>Loading....</>
       </>
     )
   }
   return (
     <>
-      <Navbar />
       <BeerParent>
-        
         <div className="beer_Container">
           <div>
             <div className="beerView">
@@ -66,7 +64,7 @@ export default function Beer() {
           <div className="buyOrAdd">
             {!isAddedToCart && !cartItems.find(cartItem=>cartItem.item.idDrink===beer.idDrink) ? <button type="button" className='addToCart' onClick={AddToCartFunc}>Add To Cart</button> :
              <button type="button" className='addToCart' onClick={()=>navigate('/cartitems')}>Go To Cart</button>}
-            <button type="button" className='buyNow'onClick={()=>{navigate('/checkout/init')}}> Buy Now</button>
+            <button type="button" className='buyNow'onClick={()=>{navigate('/online-payment')}}> Buy Now</button>
           </div>
         </div>
         

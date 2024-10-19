@@ -11,3 +11,10 @@ export const authReducer = (state={authenticated:false},action)=>{
       return state;
   }
 }
+
+export const userReducer = (state={user:null},action)=>{
+  if (action.type === 'UPDATE_USER') {
+    return { user: action.payload };
+  }
+  return state;
+}

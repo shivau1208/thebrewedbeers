@@ -13,9 +13,9 @@ export default function Signup() {
     return () => setChecked(!checked);
   }
   function getFormData() {
-    return (e) => e.type === 'email' ? setData({ ...data, [e.target.name] : `${e.target.value}@cl.me` }) : setData({ ...data, [e.target.name]: e.target.value });
+    return (e) => e.target.type === 'email' ? setData({ ...data, email : `${e.target.value}@cl.me` }) : setData({ ...data, [e.target.name]: e.target.value });
   }
-  const register = (e) => {
+  const register = async(e) => {
     e.preventDefault();
     var confirmpassword = document.getElementById("cnfmpwd").value;
     let loader = document.querySelector(".flexbox");
@@ -25,23 +25,18 @@ export default function Signup() {
         if (loader) {
           loader.style.display = "flex";
         }
-        signupAuthService(data)
-          .then((res) => res.json())
-          .then((dat) => {
-            if (dat.status === "success") {
-              AlertFunc(dat.message, "success", 2000);
-              setTimeout(() => {
-                route(`/auth/signin`);
-              }, 2000);
-            } else {
-              AlertFunc(dat.message, "danger", 2000);
-            }
-            loader.style.display = "none";
-          }).catch((err)=>{
-            console.log(err);
-          })
-      } else {
+        const res = await signupAuthService(data);
+        const {message} = await res.json();
+        if (res.ok) {
+          AlertFunc((message || ""), "success", 2000);
+          setTimeout(() => {
+            route(`/auth/signin`);
+          }, 2000);
+        } else {
+          AlertFunc((message || ""), "danger", 2000);
+        }
         loader.style.display = "none";
+      } else {
         AlertFunc("Passwords do not match!!", "warning", 2000);
       }
     } else {
@@ -53,13 +48,13 @@ export default function Signup() {
     <>
       <div className="container" id="pills-register" role="tabpanel">
         <div className="signupForm">
-          <h4 className="">Sign Up</h4>
+          <h4>Sign Up</h4>
           <div>
             <div className="form-inputs">
-              <input type="text" autoComplete="off" name="fname" onKeyUp={getFormData()} className="" placeholder="First Name" />
+              <input type="text" autoComplete="off" name="fname" onKeyUp={getFormData()} placeholder="First Name" />
             </div>
             <div className="form-inputs">
-              <input type="text" autoComplete="off" name="lname" onKeyUp={getFormData()} className="" placeholder="Last Name" />
+              <input type="text" autoComplete="off" name="lname" onKeyUp={getFormData()} placeholder="Last Name" />
             </div>
             <div className="form-inputs email">
               <input type="email" autoComplete="off" name="email" onKeyUp={getFormData()} className="form-email " placeholder="Email" />
@@ -68,22 +63,22 @@ export default function Signup() {
 
             {/* <!-- Password input --> */}
             <div className="form-inputs">
-              <input type="password" autoComplete="off" name="password" onKeyUp={getFormData()} className="" placeholder="Password" />
+              <input type="password" autoComplete="off" name="password" onKeyUp={getFormData()} placeholder="Password" />
             </div>
 
             {/* <!-- Repeat Password input --> */}
             <div className="form-inputs">
-              <input type="password" autoComplete="off" className="" id="cnfmpwd" placeholder="Confirm Password" />
+              <input type="password" autoComplete="off" id="cnfmpwd" placeholder="Confirm Password" />
             </div>
 
             {/* <!-- Checkbox --> */}
             <div className="form-checkbox">
-              <input className="" type="checkbox" checked={checked} value="" aria-describedby="registerCheckHelpText" onChange={termsAndConditionsCheckbox()} />
-              <label className="" htmlFor="registerCheck"> I have read and agree to the terms </label>
+              <input type="checkbox" checked={checked} value="" aria-describedby="registerCheckHelpText" onChange={termsAndConditionsCheckbox()} />
+              <label htmlFor="registerCheck"> I have read and agree to the terms </label>
             </div>
 
             {/* <!-- Submit button --> */}
-            <button type="submit" onClick={register} disabled={!checked} className=""> Sign Up </button>
+            <button type="submit" onClick={register} disabled={!checked}> Sign Up </button>
             <hr />
             <div className="form-not-user">
               <p className="m-0">

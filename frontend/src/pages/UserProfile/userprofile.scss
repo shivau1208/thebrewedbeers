@@ -3,7 +3,7 @@
   right: 0;
   background-color: #fff;
   padding: 0.5rem 0;
-  top: 2.5rem;
+  top: 3rem;
   border-radius: 0.5rem;
 }
 .user-profile .padding{
@@ -32,9 +32,12 @@
   border-radius: 50%;
   border: 1px solid #ddd;
   padding: 0.2rem;
+  font-size: 14px;
 }
 .user-profile .profile-pic .profile-img img{
   width: 100%;
+  font-size: 14px;
+  border-radius: 50%;
 }
 
 .user-profile .profile-pic .profile-edit{
@@ -53,6 +56,15 @@
 }
 .user-profile .profile-pic .profile-edit img{
   width: 100%;
+  font-size: 14px;
+}
+.user-profile .profileDisplayName p{
+  color: #232323;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 18px;
+  font-weight: 400;
+  white-space: nowrap;
 }
 .user-profile .signoutBtn{
   display: flex;

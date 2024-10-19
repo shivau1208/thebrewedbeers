@@ -3,7 +3,6 @@ import axios from 'axios';
 import './payment.scss'
 import {sha256} from 'js-sha256'
 import { useCartContextApi } from '../../context/cartContextApi';
-import Navbar from '../../components/navBar/Navbar';
 
 export default function CheckoutInit() {
     const { cartItems} = useCartContextApi();
@@ -55,7 +54,6 @@ export default function CheckoutInit() {
     
     return (
         <>
-            <Navbar />
             <div className="paymentGate">
                 <div className='address'>
                     <textarea name="" id="" cols="30" rows="5" placeholder='Please fill delivery address'></textarea>
