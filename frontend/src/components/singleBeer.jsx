@@ -13,12 +13,15 @@ const PlusCartButton = styled.div`
 `;
 export default function SingleBeer({ beer }) {
   const { addToCart } = useCartContextApi();
-  // const {src} = useImgReducer(`${beer?.strDrinkThumb}`,'webp',0.5);
+  const {src,error} = useImgReducer(beer?.strDrinkThumb,'webp',0.5);
+  if(error){
+    return <p>failed to load image</p>
+  }
   return (
     <div className="beer">
       <div className="beerImage">
         <Link to={`/beer/${beer?.idDrink}`}>
-          <img src={beer?.strDrinkThumb} loading="lazy" className="" alt={beer.strDrink} />
+          <img src={src} loading="lazy" className="" alt={beer.strDrink} />
         </Link>
       </div>
       <div className="beerDetails">

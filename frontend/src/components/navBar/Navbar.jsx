@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./navBar.css";
 import styled from "styled-components";
 import { useBeerContextApi } from "../../context/beerContextApi";
@@ -29,139 +29,57 @@ const CartItems = styled.span`
   justify-content: center;
 `;
 
-export const AddClassToList = () => {
-  let sideBarList = document.querySelectorAll(".sidebarlist");
-  let navBarList = document.querySelectorAll(".navbarTabs p");
-  let pathname = location.pathname;
-  let tabName = pathname.split("/")[1].toLowerCase();
-  let tab = document.getElementById(tabName);
-  if (tab) {
-    tab.classList.add("active");
-  }
-  sideBarList.forEach((li, index) => {
-    li.addEventListener("click", function (e) {
-      e.stopPropagation();
-      sideBarList.forEach((ele) => {
-        ele.classList.remove("active");
-      });
-      li.classList.add("active");
-    });
-  });
-  navBarList.forEach((li, index) => {
-    li.addEventListener("click", function (e) {
-      e.stopPropagation();
-      navBarList.forEach((ele) => {
-        ele.classList.remove("active");
-      });
-      li.classList.add("active");
-    });
-  });
-};
-export const removeClass = () => {
-  let lis = document.querySelectorAll(".sidebarlist");
-  let sidebar = document.querySelector(".sidebarTabs");
-  lis.forEach((li) => {
-    li.className = "";
-    // if(sidebar){
-    //   sidebar.style.width = "0px";
-    //   document.querySelector(".overlay").style.display = "none";
-    // }
-  });
-};
 export default function Navbar() {
-  const { cartComp, searchComp, Debounce, hanldeBeerSearch, sidebarShow, setSideBarShow } = useBeerContextApi();
+  const { cartComp, searchComp, Debounce, hanldeBeerSearch } = useBeerContextApi();
   const [showProfile, setShowProfile] = useState(false);
   const { cartItems } = useCartContextApi();
-  const [clientWidth, setClientWidth] = useState(null);
-  const {user} = useSelector(state => state?.userInfo);
+  const { user } = useSelector((state) => state?.userInfo);
   const photoUrl = user?.photoUrl;
-
-  useLayoutEffect(() => {
-    setClientWidth(document.body.clientWidth);
-    let width = document.body.clientWidth;
-    if (width <= "768") {
-      setSideBarShow(true);
-    } else {
-      setSideBarShow(false);
-    }
-    window.addEventListener(
-      "resize",
-      function (event) {
-        setClientWidth(document.body.clientWidth);
-        let width = document.body.clientWidth;
-        if (width <= "768") {
-          setSideBarShow(true);
-        } else {
-          setSideBarShow(false);
-        }
-      },
-      true
-    );
-  }, []);
+  const [activeItem, setActiveItem] = useState("home"); // Default active item
 
   function Close(e) {
     e.preventDefault();
     let sidebar = document.querySelector(".sidebarTabs");
     if (sidebar) {
-      sidebar.style.width = "0px";
-      document.querySelector(".overlay").style.display = "none";
-      removeClass();
+      sidebar.classList.remove("open");
+      document.querySelector(".overlay").classList.remove("visible");
     }
   }
   function MenuIcon() {
     let sidebar = document.querySelector(".sidebarTabs");
     if (sidebar) {
-      sidebar.style.width = "200px";
-      document.querySelector(".overlay").style.display = "block";
-      let pathname = location.pathname;
-      let tabName = pathname.split("/")[1].toLowerCase();
-      let tab = document.getElementById(tabName);
-      if (tab) {
-        tab.classList.add("active");
-      }
+      sidebar.classList.add("open");
+      document.querySelector(".overlay").classList.add("visible");
     }
   }
-
   useEffect(() => {
-    AddClassToList();
-  }, [clientWidth]);
+    let pathname = location.pathname;
+    let tabName = pathname.split("/")[1].toLowerCase();
+    setActiveItem(tabName);
+  }, []);
 
   return (
     <>
-      {sidebarShow && (
-        <>
-          <div className="sidebarTabs">
-            <div className="close">
-              <img src="/close-square-svgrepo-com.svg" alt="close" srcSet="" width="30" onClick={Close} />
-            </div>
-            <div className="sideList">
-              <div>
-                <Link to="/home" aria-label="home">
-                  <p className="sidebarlist" id="home">
-                    Home
-                  </p>
-                </Link>
-                <Link to="/beers" aria-label="beers">
-                  <p className="sidebarlist" id="beers">
-                    Beers
-                  </p>
-                </Link>
-                <Link to="/dining" aria-label="dining">
-                  <p className="sidebarlist" id="dining">
-                    Dining
-                  </p>
-                </Link>
-                <Link to="/about" aria-label="about">
-                  <p className="sidebarlist" id="about">
-                    About
-                  </p>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="overlay" onClick={(e) => Close(e)}></div>
-        </>
-      )}
+      <div className="sidebarTabs">
+        <div className="close">
+          <img src="/close-square-svgrepo-com.svg" alt="close" srcSet="" width="35" height="35" onClick={Close} />
+        </div>
+        <div className="sideList">
+            <Link to="/home" aria-label="home" className={`sidebarlist ${activeItem == "home" ? "active" : ""}`} onClick={() => setActiveItem("home")}>
+              Home
+            </Link>
+            <Link to="/beers" aria-label="beers" className={`sidebarlist ${activeItem == "beers" ? "active" : ""}`} onClick={() => setActiveItem("beers")}>
+              Beers
+            </Link>
+            <Link to="/dining" aria-label="dining" className={`sidebarlist ${activeItem == "dining" ? "active" : ""}`} onClick={() => setActiveItem("dining")}>
+              Dining
+            </Link>
+            <Link to="/about" aria-label="about" className={`sidebarlist ${activeItem == "about" ? "active" : ""}`} onClick={() => setActiveItem("about")}>
+              About
+            </Link>
+        </div>
+      </div>
+      <div className="overlay" onClick={(e) => Close(e)}></div>
       <div className="navBarWidth">
         <div className="navBar">
           <div className="menuIcon" onClick={MenuIcon}>
@@ -187,25 +105,23 @@ export default function Navbar() {
               />
             </div>
           )}
-          {!sidebarShow && (
-            <div className="navbarTabs">
-              <div className="menuList">
-                <Link to="/home" aria-label="home">
-                  <p id="home">Home</p>
-                </Link>
-                <Link to="/beers" aria-label="beers">
-                  <p id="beers">Beers</p>
-                </Link>
-                <Link to="/dining" aria-label="dining">
-                  <p id="dining">Dining</p>
-                </Link>
-                <Link to="/about" aria-label="about">
-                  <p id="about">About</p>
-                </Link>
-                {/* {searchComp && <Link to="#"><li className='orderOnline'>Order Online</li></Link>} */}
-              </div>
+          <div className="navbarTabs">
+            <div className="menuList">
+              <Link to="/home" aria-label="home" onClick={() => setActiveItem("home")} className={`${activeItem == "home" ? "active" : ""}`}>
+                Home
+              </Link>
+              <Link to="/beers" aria-label="beers" onClick={() => setActiveItem("beers")} className={`${activeItem == "beers" ? "active" : ""}`}>
+                Beers
+              </Link>
+              <Link to="/dining" aria-label="dining" onClick={() => setActiveItem("dining")} className={`${activeItem == "dining" ? "active" : ""}`}>
+                Dining
+              </Link>
+              <Link to="/about" aria-label="about" onClick={() => setActiveItem("about")} className={`${activeItem == "about" ? "active" : ""}`}>
+                About
+              </Link>
+              {/* {searchComp && <Link to="#"><li className='orderOnline'>Order Online</li></Link>} */}
             </div>
-          )}
+          </div>
           {cartComp && (
             <Cart className="cart" onClick={() => removeClass()}>
               <Link to="/cartitems" aria-label="cartItems">
@@ -218,9 +134,8 @@ export default function Navbar() {
                 {theme ? <div className='theme'><img src="/sun-svgrepo-com.svg" alt="darkTheme" srcSet="" width='30' /></div> : <div className='theme'><img src="/moon-svgrepo-com.svg" alt="darkTheme" srcSet="" width='30' /></div>}
           </div> */}
           <div className="account">
-
             <div className="profilePic" onClick={() => setShowProfile(!showProfile)}>
-              <img src={photoUrl ? photoUrl :"/user-circle-svgrepo-com.svg"} alt="profile pic" />
+              <img src={photoUrl ? photoUrl : "/user-circle-svgrepo-com.svg"} alt="profile pic" />
             </div>
             {showProfile && <UserProfile />}
           </div>

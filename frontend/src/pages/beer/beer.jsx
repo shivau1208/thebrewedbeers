@@ -11,7 +11,7 @@ const BeerParent = styled.div`
 `
 
 export default function Beer() {
-  const {data,setCartComp,setSearchComp,setSideBarShow} = useBeerContextApi();
+  const {data,setCartComp,setSearchComp} = useBeerContextApi();
   const {cartItems,addToCart} = useCartContextApi();
   const [isAddedToCart,setIsAddedToCart] = useState(false)
   const [beerDetails,setBeerDetails] = useState(null)
@@ -27,7 +27,6 @@ export default function Beer() {
     setBeerDetails(beer);
     setSearchComp(true);
     setCartComp(true);
-    setSideBarShow(false)
   },[beer])
 
   if(!beerDetails){
