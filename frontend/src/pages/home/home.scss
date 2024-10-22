@@ -9,29 +9,68 @@
 .random1 .randomHeaderParent {
   padding: 0.5rem 0;
 }
-.random1 .randomHeader {
-  margin-bottom: 0.5rem;
+// .random1 .randomHeader {
+//   margin-bottom: 0.5rem;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 40px;
+//   width: 1250px;
+// }
+// .random1 .randomHeader p {
+//   font-size: 22px;
+//   font-weight: 500;
+// }
+
+// .random1 .randomHeader a {
+//   float: right;
+//   text-decoration: none;
+//   color: #000;
+//   border: 1px solid #2f6c91;
+//   border-radius: 0.3rem;
+//   background-color: #fff;
+//   padding: 0.5rem;
+//   width: 100px;
+//   height: 40px;
+//   white-space: nowrap;
+//   text-align: center;
+// }
+.randomHeader {
+  margin: 0.5rem auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 40px;
-  width: 1250px;
-}
-.random1 .randomHeader p {
-  font-size: 22px;
-  font-weight: 500;
+  min-height: 40px; /* Keeping this fixed ensures the header maintains height */
+  max-width: 1250px; /* Ensure this width is stable */
+  width: 100%;
+  box-sizing: border-box; /* Includes padding in the element’s width and height */
+  transition: width 0.5s ease-in-out;
 }
 
-.random1 .randomHeader a {
+.randomHeader p {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0; /* Ensure no unexpected margin that could affect layout */
+  line-height: 1.2; /* Control line height for better text consistency */
+  white-space: nowrap; /* Prevent text from wrapping and causing a shift */
+}
+
+.randomHeader a {
   text-decoration: none;
   color: #000;
   border: 1px solid #2f6c91;
   border-radius: 0.3rem;
-  outline: none;
   background-color: #fff;
-  padding: 0.5rem 0.7rem;
-  width: 80px;
-  height: 40px;
+  padding: 0.5rem;
+  width: 100px; /* Fixed width helps avoid shifts */
+  height: 40px; /* Explicit height ensures no button resizing */
+  display: flex; /* Center align text within the button */
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box; /* Ensure padding doesn't affect width/height */
+  white-space: nowrap; /* Prevent text wrapping */
+  text-align: center;
+  transition: all 0.3s ease-in-out; /* Smooth any visual changes */
 }
 
 .beerContainer {
@@ -182,6 +221,7 @@
   .random1 .randomHeader {
     margin: 0.5rem 1rem;
     width: 736px;
+    width: 736px;
   }
   .beerContainer {
     overflow-x: scroll;
@@ -273,6 +313,7 @@
   .random1 .randomHeader {
     margin: 0.5rem;
     width: 404px;
+    width: 404px;
   }
   .beerContainer {
     display: grid;
@@ -350,14 +391,15 @@
   .random,
   .random1 {
     margin: 0.5rem auto;
-    max-width: 410px;
+    max-width: 400px;
   }
   .random1 .randomHeader {
     margin: 0.5rem;
+    width: 384px;
   }
   .beerContainer {
     display: grid;
-    grid-template-columns: repeat(2, 200px);
+    grid-template-columns: repeat(2, 195px);
     gap: 10px;
   }
   .beerContainer {
@@ -368,7 +410,7 @@
   .beerContainer .beer {
     border-radius: 0.3rem;
     height: 312px;
-    width: 200px;
+    width: 195px;
   }
   .beerContainer .beer .beerImage {
     display: flex;
@@ -377,8 +419,8 @@
     cursor: pointer;
   }
   .beerContainer .beer .beerImage img {
-    width: 200px;
-    height: 200px;
+    width: 195px;
+    height: 195px;
     border-top-left-radius: 0.3rem;
     border-top-right-radius: 0.3rem;
   }

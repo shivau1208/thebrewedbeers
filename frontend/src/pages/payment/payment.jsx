@@ -40,7 +40,7 @@ const PaymentHeaderSpan = styled.span`
 
 export default function Payment() {
   const { cartItems,clearCart,cartTotal } = useCartContextApi();
-  const {setSearchComp,setCartComp, setSideBarShow} = useBeerContextApi();
+  const {setSearchComp,setCartComp} = useBeerContextApi();
   const [popUp,setPopUp] = useState(false)
   const [deliverAddress,setDeliverAddress] = useState({
     fullname:"",

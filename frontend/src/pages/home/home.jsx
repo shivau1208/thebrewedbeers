@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 // Lazy load the SingleBeer component
 const SingleBeerComp = React.lazy(() => import("../../components/singleBeer"));
 export default function Home() {
-  const { setCartComp, products,setSearchComp,setSideBarShow } = useBeerContextApi();
+  const { setCartComp, products,setSearchComp } = useBeerContextApi();
   useEffect(() => {
     setCartComp(true);
     setSearchComp(true);
@@ -41,7 +41,7 @@ export default function Home() {
   };
   return (
     <>
-      {products !== null ? (
+      {products?.length ? (
         <div className="main">
           <div className="random">
             <div className="beerContainer">
@@ -49,79 +49,61 @@ export default function Home() {
               <div className="swipe-indicator"></div>
             </div>
           </div>
+          <div className="randomHeader">
+            <p>Cocktail</p>
+            <Link to={"/beers/category/cocktail"}>View all</Link>
+          </div>
           <div className="random1">
-            <div className="randomHeaderParent">
-              <div className="randomHeader">
-                <p>Cocktail</p>
-                <Link to={"/beers/category/cocktail"}>View all</Link>
-              </div>
-              <hr />
-            </div>
             <div className="beerContainer">
               <CategorisedBeers filterValue={"Cocktail"} type={"strCategory"} />
               <div className="swipe-indicator"></div>
             </div>
           </div>
+          <div className="randomHeader">
+            <p>Shakes</p>
+            <Link to={"/beers/category/shake"}>View all</Link>
+          </div>
           <div className="random1">
-            <div className="randomHeaderParent">
-              <div className="randomHeader">
-                <p>Shakes</p>
-                <Link to={"/beers/category/shake"}>View all</Link>
-              </div>
-              <hr />
-            </div>
             <div className="beerContainer">
               <CategorisedBeers filterValue={"Shake"} type={"strCategory"} />
               <div className="swipe-indicator"></div>
             </div>
           </div>
+          <div className="randomHeader">
+            <p>Shots</p>
+            <Link to={"/beers/category/Shot"}>View all</Link>
+          </div>
           <div className="random1">
-            <div className="randomHeaderParent">
-              <div className="randomHeader">
-                <p>Shots</p>
-                <Link to={"/beers/category/Shot"}>View all</Link>
-              </div>
-              <hr />
-            </div>
             <div className="beerContainer">
               <CategorisedBeers filterValue={"Shot"} type={"strCategory"} />
               <div className="swipe-indicator"></div>
             </div>
           </div>
+          <div className="randomHeader">
+            <p>Gin</p>
+            <Link to={"/beers/ingredient/gin"}>View all</Link>
+          </div>
           <div className="random1">
-            <div className="randomHeaderParent">
-              <div className="randomHeader">
-                <p>Gin</p>
-                <Link to={"/beers/ingredient/gin"}>View all</Link>
-              </div>
-              <hr />
-            </div>
             <div className="beerContainer">
               <CategorisedBeers filterValue={"Gin"} type={"strIngredient1"} />
               <div className="swipe-indicator"></div>
             </div>
           </div>
+          <div className="randomHeader">
+            <p>Vodka</p>
+            <Link to={"/beers/ingredient/vodka"}>View all</Link>
+          </div>
           <div className="random1">
-            <div className="randomHeaderParent">
-              <div className="randomHeader">
-                <p>Vodka</p>
-                <Link to={"/beers/ingredient/vodka"}>View all</Link>
-              </div>
-              <hr />
-            </div>
             <div className="beerContainer">
               <CategorisedBeers filterValue={"Vodka"} type={"strIngredient1"} />
               <div className="swipe-indicator"></div>
             </div>
           </div>
+          <div className="randomHeader">
+            <p>Rum</p>
+            <Link to={"/beers/ingredient/rum"}>View all</Link>
+          </div>
           <div className="random1">
-            <div className="randomHeaderParent">
-              <div className="randomHeader">
-                <p>Rum</p>
-                <Link to={"/beers/ingredient/rum"}>View all</Link>
-              </div>
-              <hr />
-            </div>
             <div className="beerContainer">
               <CategorisedBeers filterValue={"Rum"} type={"strIngredient1"} />
               <div className="swipe-indicator"></div>
