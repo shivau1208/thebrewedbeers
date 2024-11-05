@@ -23,6 +23,7 @@
     display: flex;
     justify-content: center;
     padding: 0;
+    height: 260px;
 }
 .beerProducts .beer .beerImage img{
     width: 260px;
@@ -90,6 +91,7 @@
         align-items: center;
         padding: 0;
         flex: 0 0 100px;
+        height: 270px;
     }
     .beerProducts .beer .beerImage img{
         width: 270px;
@@ -118,6 +120,7 @@
     .beerProducts .beer .beerImage{
         display: flex;
         padding: 0;
+        height: 240px;
     }
     .beerProducts .beer .beerImage img{
         width: 240px;
@@ -151,7 +154,7 @@
         justify-content: center;
         align-items: center;
         padding: 0;
-        /* width: 100px; */
+        height: 205px;
     }
     .beerProducts .beer .beerImage img{
         width: 205px;
@@ -187,6 +190,7 @@
         justify-content: center;
         align-items: center;
         padding: 0;
+        height: 195px;
     }
     .beerProducts .beer .beerImage img{
         width: 195px;
