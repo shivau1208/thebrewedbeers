@@ -12,11 +12,15 @@ export default function BeerContextFunc({ children }) {
   const [products, setProducts] = useState([]);
   const [showProfile, setShowProfile] = useState(false);
 
-  const  beer_data = 'https://d1xvizqiz4i4q9.cloudfront.net'
+  const  beer_data = 'https://d3ibff8wnmjbff.cloudfront.net'
   // const [isDarkMode,setDarkMode] = useState(true)
   const fetchData = async () => {
     try{
-      const res = await fetch(`${beer_data}/beerdata.json`);
+      const res = await fetch(`${beer_data}/beerdata.json`,{
+        headers:{
+          "origin":"https://d3ibff8wnmjbff.cloudfront.net"
+        }
+      });
       const response = await res.json();
       setData((prevData) => [...prevData, ...response]);
       setProducts((prevData) => [...prevData, ...response]);

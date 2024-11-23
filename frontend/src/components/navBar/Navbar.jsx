@@ -134,7 +134,7 @@ export default function Navbar() {
                 {theme ? <div className='theme'><img src="/sun-svgrepo-com.svg" alt="darkTheme" srcSet="" width='30' /></div> : <div className='theme'><img src="/moon-svgrepo-com.svg" alt="darkTheme" srcSet="" width='30' /></div>}
           </div> */}
           <div className="account">
-            <div className="profileOverlay" onClick={() => setShowProfile(false)}></div>
+            {showProfile && <div className="profileOverlay" onClick={() => setShowProfile(false)}></div>}
             <div className="profilePic" onClick={() => setShowProfile(!showProfile)}>
               <img src={photoUrl ? photoUrl : "/user-circle-svgrepo-com.svg"} alt="profile pic" />
             </div>

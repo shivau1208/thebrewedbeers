@@ -50,21 +50,28 @@ export default function Products() {
   return (
     <>
       <SortFilter />
-      <div className="productsFilter">
-        <DesktopFilter />
-        {products !== null && products.length ? (
+      {products !== null && products.length ? (
+        <div className='productsFilter'>
+          <DesktopFilter />
           <div>
-            <div className="beerProducts">
+            <div className='beerProducts'>
               {products.slice(0, visibleProducts).map((beer, index) => (
-                <SingleBeer key={index} beer={beer} />
+                <SingleBeer
+                  key={index}
+                  beer={beer}
+                />
               ))}
             </div>
-            {visibleProducts < products.length && <div  style={{textAlign:"center",width:'100%',paddingBottom:'20px',fontSize:'1.25rem'}}><p>Loading...</p></div>}
+            {visibleProducts < products.length && (
+              <div style={{ textAlign: 'center', width: '100%', paddingBottom: '20px', fontSize: '1.25rem' }}>
+                <p>Loading...</p>
+              </div>
+            )}
           </div>
-        ) : (
-          <Nodatafound />
-        )}
-      </div>
+        </div>
+      ) : (
+        <Nodatafound />
+      )}
     </>
   );
 }
