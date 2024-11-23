@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 
 export default function UserProfile() {
   const { setShowProfile } = useBeerContextApi();
-  const user = useSelector(state => state?.userInfo);
+  const {user} = useSelector(state => state?.userInfo);
   const photoUrl = user?.photoUrl;
   const displayName = user?.displayName;
 

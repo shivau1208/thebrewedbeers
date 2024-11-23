@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useCartContextApi } from "../context/cartContextApi";
 import { Link } from "react-router-dom";
 import useImgReducer from "imgreducer";
+import { ImgCDN } from "../App";
 
 const PlusCartButton = styled.div`
   position: absolute;
@@ -13,7 +14,7 @@ const PlusCartButton = styled.div`
 `;
 export default function SingleBeer({ beer }) {
   const { addToCart } = useCartContextApi();
-  const {src,error} = useImgReducer(beer?.strDrinkThumb,'webp',0.5);
+  const {src,error} = useImgReducer(`${ImgCDN}/${beer?.strDrinkThumb}`,'webp',0.5);
   if(error){
     return <p>failed to load image</p>
   }

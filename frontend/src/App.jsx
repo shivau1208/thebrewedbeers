@@ -25,6 +25,7 @@ import Navbar from './components/navBar/Navbar';
 
 
 // export const server = 'http://localhost:5000'
+export const ImgCDN = 'https://d1ya9wbwk2a32l.cloudfront.net'
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 const HomeComp = lazy(()=>import('./pages/home/home'))
 

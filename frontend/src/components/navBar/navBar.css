@@ -208,6 +208,15 @@
 .theme{
     padding: 0.5rem;
 }
+.profileOverlay{
+    background-color: #23232300;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
 
 @media (768px < width <=1440px){
     .navBar {

@@ -12,7 +12,7 @@ export default function BeerContextFunc({ children }) {
   const [products, setProducts] = useState([]);
   const [showProfile, setShowProfile] = useState(false);
 
-  const  beer_data = 'https://jsonbeerdata.s3.ap-south-1.amazonaws.com'
+  const  beer_data = 'https://d1xvizqiz4i4q9.cloudfront.net'
   // const [isDarkMode,setDarkMode] = useState(true)
   const fetchData = async () => {
     try{

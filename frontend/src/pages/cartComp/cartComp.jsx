@@ -5,6 +5,7 @@ import "./cartComp.css";
 import { useBeerContextApi } from "../../context/beerContextApi";
 import Emptycart from "./emptyCart";
 import { useCartContextApi } from "../../context/cartContextApi";
+import { ImgCDN } from "../../App";
 
 const MinusCartButton = styled.div`
   position: absolute;
@@ -96,7 +97,7 @@ export default function CartComp() {
                   <div key={index} className="cartBeer">
                     <div className="cartBeerImage">
                       <Link to={`/beer/${beer.item?.idDrink}`}>
-                        <img src={beer.item.strDrinkThumb} className="responsive" alt={beer.item.strDrink} />
+                        <img src={`${ImgCDN}/${beer.item.strDrinkThumb}`} className="responsive" alt={beer.item.strDrink} />
                       </Link>
                     </div>
                     <div className="cartBeerDetails">

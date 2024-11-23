@@ -181,7 +181,7 @@ export default function Filter() {
       <Filter_route>
         <FilterBackBtnParent>
           <FilterBackBtn onClick={() => navigate(-1)}>
-            <img src="/back-btn.svg" alt="go back" srcSet="" />
+            <img src="/back-btn.svg" alt="go back" srcSet="" width={"21"} />
           </FilterBackBtn>
           <FilterHeaderSpan>Filters</FilterHeaderSpan>
         </FilterBackBtnParent>

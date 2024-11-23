@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useBeerContextApi } from '../../context/beerContextApi';
 import styled from 'styled-components';
 import { useCartContextApi } from '../../context/cartContextApi';
+import { ImgCDN } from '../../App';
 
 const BeerParent = styled.div`
   background-color:#f4f4f4;
@@ -42,7 +43,7 @@ export default function Beer() {
         <div className="beer_Container">
           <div>
             <div className="beerView">
-              <img src={beerDetails.strDrinkThumb} alt="img" srcSet="" />
+              <img src={`${ImgCDN}/${beerDetails.strDrinkThumb}`} alt="img" srcSet="" />
             </div>
           </div>
           <div>
