@@ -1,4 +1,4 @@
-export const server = 'https://login-service-xwdp.onrender.com'
+export const server = 'https://login-service.netlify.app/.netlify/functions/api'
 // export const server = 'http://localhost:5000'
 
 export const VerifyAuthService = async()=>{
