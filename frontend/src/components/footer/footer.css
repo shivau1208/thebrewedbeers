@@ -39,7 +39,7 @@
 
 }
 
-@media (425px <= width < 576px){
+@media (width < 576px){
     .footerContainer{
         height: auto;
     }

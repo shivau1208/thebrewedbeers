@@ -312,10 +312,7 @@
     width: 205px;
   }
   .beerContainer .beer .beerImage {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    cursor: pointer;
+    height: 205px;
   }
   .beerContainer .beer .beerImage img {
     height: 205px;
@@ -325,7 +322,6 @@
     border-top-right-radius: 0.3rem;
   }
   .beerContainer .beer .beerDetails {
-    padding: 0 0.5rem;
     background-color: #eaeefc;
     border-radius: 0 0 0.3rem 0.3rem;
   }
