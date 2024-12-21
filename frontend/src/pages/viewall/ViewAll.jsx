@@ -4,33 +4,13 @@ import SingleBeer from "../../components/singleBeer";
 import Nodatafound from "../../components/Error/Nodatafound";
 import { useParams } from "react-router-dom";
 import "./viewall.css";
+import { Throttle } from "../../utils/categorisedBeers";
 
 export default function ViewAll() {
   const { products, setSearchComp, setCartComp } = useBeerContextApi();
   const [visibleProducts, setVisibleProducts] = useState(20);
   const { category, ingredient } = useParams();
-  console.log({category,ingredient});
-  
-  function Throttle(func, delay) {
-    let lastFunc;
-    let lastRan;
-    return function () {
-      const context = this;
-      const args = arguments;
-      if (!lastRan) {
-        func.apply(context, args);
-        lastRan = Date.now();
-      } else {
-        clearTimeout(lastFunc);
-        lastFunc = setTimeout(function () {
-          if (Date.now() - lastRan >= delay) {
-            func.apply(context, args);
-            lastRan = Date.now();
-          }
-        }, delay - (Date.now() - lastRan));
-      }
-    };
-  }
+
 
   // Check if the user has scrolled near the bottom
   function handleScroll() {
@@ -49,8 +29,6 @@ export default function ViewAll() {
     window.scrollTo(0, 0);
     window.addEventListener("scroll", Throttle(handleScroll, 2000));
     let pro = products.filter((item) => item[category ? "strCategory" : "strIngredient1"].toLowerCase() === (category || ingredient).toLowerCase())
-    console.log(products.length);
-    
   }, []);
   return (
     <>

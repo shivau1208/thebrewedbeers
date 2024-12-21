@@ -1,0 +1,15 @@
+.productsFilter {
+  position: relative;
+  display: flex;
+  margin: 10px auto;
+  max-width: 1280px;
+  padding: 10px 0;
+}
+
+@media (380px < width < 425px) {
+  .productsFilter {
+      position: relative;
+      margin: 0 auto;
+      max-width: 400px;
+  }
+}

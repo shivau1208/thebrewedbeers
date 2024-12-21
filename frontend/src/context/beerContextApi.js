@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import React from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const BeersContext = createContext();
 export const useBeerContextApi = () => useContext(BeersContext);
@@ -11,6 +11,12 @@ export default function BeerContextFunc({ children }) {
   const [data, setData] = useState([]);
   const [products, setProducts] = useState([]);
   const [showProfile, setShowProfile] = useState(false);
+  const [activeItem, setActiveItem] = useState("home"); // Default active item
+  const [searchParams] = useSearchParams();
+  let searchInput = searchParams.get("q");
+  const pathname = location.pathname;
+  let tabName = pathname.split("/")[1].toLowerCase();
+
 
   const  beer_data = 'https://d3ibff8wnmjbff.cloudfront.net'
   // const [isDarkMode,setDarkMode] = useState(true)
@@ -18,7 +24,7 @@ export default function BeerContextFunc({ children }) {
     try{
       const res = await fetch(`${beer_data}/beerdata.json`,{
         headers:{
-          "origin":"https://d3ibff8wnmjbff.cloudfront.net"
+          "origin":beer_data   
         }
       });
       const response = await res.json();
@@ -31,9 +37,20 @@ export default function BeerContextFunc({ children }) {
   };
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [tabName]);
 
-  // const toggleTheme = ()=>{
+  
+
+  function hanldeBeerSearch() {
+    let value = searchInput.toLowerCase();
+    let response = data.filter((item) => {
+      let strDrink = item.strDrink.toLowerCase();
+      let ingredient = item.strIngredient1.toLowerCase();
+      return strDrink.indexOf(value) > -1 || ingredient.indexOf(value) > -1;
+    });
+    setProducts(response);
+  }
+    // const toggleTheme = ()=>{
   //     setDarkMode((prevState)=>!prevState)
   // }
 
@@ -41,25 +58,6 @@ export default function BeerContextFunc({ children }) {
   // useEffect(()=>{
   //     document.documentElement.setAttribute('data-theme',theme)
   // },[isDarkMode])
-  const Debounce = (func, delay) => {
-    let debounceTimer;
-    return function () {
-      const context = this;
-      const args = arguments;
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => func.apply(context, args), delay);
-    };
-  };
-  async function hanldeBeerSearch() {
-    let searchInput = document.querySelector("#searchInput");
-    let value = searchInput.value.toLowerCase();
-    let response = data.filter((item) => {
-      let strDrink = item.strDrink.toLowerCase();
-      let ingredient = item.strIngredient1.toLowerCase();
-      return strDrink.indexOf(value) > -1 || ingredient.indexOf(value) > -1;
-    });
-    setProducts([...response]);
-  }
 
   return (
     <BeersContext.Provider
@@ -72,12 +70,13 @@ export default function BeerContextFunc({ children }) {
         setCartComp,
         products,
         setProducts,
-        Debounce,
         hanldeBeerSearch,
         showProfile,
         setShowProfile,
         sidebarShow,
         setSideBarShow,
+        activeItem,
+        setActiveItem
       }}
     >
       {children}

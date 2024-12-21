@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './beer.scss';
-import { useNavigate, useParams } from 'react-router-dom';
+import '../home/home.scss'
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useBeerContextApi } from '../../context/beerContextApi';
 import styled from 'styled-components';
 import { useCartContextApi } from '../../context/cartContextApi';
 import { ImgCDN } from '../../App';
+import { CategorisedBeers } from '../../utils/categorisedBeers';
 
 const BeerParent = styled.div`
   background-color:#f4f4f4;
-  height:100dvh
+  height:100%;
 `
 
 export default function Beer() {
-  const {data,setCartComp,setSearchComp} = useBeerContextApi();
+  const {data,setCartComp,setSearchComp,setActiveItem} = useBeerContextApi();
   const {cartItems,addToCart} = useCartContextApi();
   const [isAddedToCart,setIsAddedToCart] = useState(false)
   const [beerDetails,setBeerDetails] = useState(null)
@@ -25,6 +27,7 @@ export default function Beer() {
       addToCart(beer); 
   }
   useEffect(()=>{
+    setActiveItem("")
     setBeerDetails(beer);
     setSearchComp(true);
     setCartComp(true);
@@ -41,10 +44,8 @@ export default function Beer() {
     <>
       <BeerParent>
         <div className="beer_Container">
-          <div>
-            <div className="beerView">
-              <img src={`${ImgCDN}/${beerDetails.strDrinkThumb}`} alt="img" srcSet="" />
-            </div>
+          <div className="beerView">
+            <img src={`${ImgCDN}/${beerDetails.strDrinkThumb}`} alt="img" srcSet="" />
           </div>
           <div>
             <div className='beer_Details'>
@@ -67,7 +68,36 @@ export default function Beer() {
             <button type="button" className='buyNow'onClick={()=>{navigate('/online-payment')}}> Buy Now</button>
           </div>
         </div>
-        
+        <div className="randomHeader">
+          <p>Cocktail</p>
+          <Link to={"/beers/category/cocktail"} onClick={() => setActiveItem("beers")}>View all</Link>
+        </div>
+        <div className="random1">
+          <div className="beerContainer">
+            <CategorisedBeers filterValue={"Cocktail"} type={"strCategory"} />
+            <div className="swipe-indicator"></div>
+          </div>
+        </div>
+        <div className="randomHeader">
+          <p>Gin</p>
+          <Link to={"/beers/ingredient/gin"} onClick={() => setActiveItem("beers")}>View all</Link>
+        </div>
+        <div className="random1">
+          <div className="beerContainer">
+            <CategorisedBeers filterValue={"Gin"} type={"strIngredient1"} />
+            <div className="swipe-indicator"></div>
+          </div>
+        </div>
+        <div className="randomHeader">
+          <p>Vodka</p>
+          <Link to={"/beers/ingredient/vodka"} onClick={() => setActiveItem("beers")}>View all</Link>
+        </div>
+        <div className="random1">
+          <div className="beerContainer">
+            <CategorisedBeers filterValue={"Vodka"} type={"strIngredient1"} />
+            <div className="swipe-indicator"></div>
+          </div>
+        </div>
       </BeerParent>
     </>
   )

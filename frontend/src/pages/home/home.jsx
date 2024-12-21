@@ -1,48 +1,27 @@
-import React, { Suspense, useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useBeerContextApi } from "../../context/beerContextApi";
 import Footer from "../../components/footer/footer";
-import DotLoader from "../../components/spinner/DotLoader";
 import Nodatafound from "../../components/Error/Nodatafound";
 import "./home.scss";
 import { Link } from "react-router-dom";
+import { CategorisedBeers, FilteredBeers } from "../../utils/categorisedBeers";
 
 // Lazy load the SingleBeer component
-const SingleBeerComp = React.lazy(() => import("../../components/singleBeer"));
 export default function Home() {
-  const { setCartComp, products,setSearchComp } = useBeerContextApi();
+  const { setCartComp, products,setSearchComp,setActiveItem } = useBeerContextApi();
   useEffect(() => {
     setCartComp(true);
     setSearchComp(true);
   }, [products]);
 
-  const FilteredBeers = ()=> {return useMemo(() => {
-    return products
-      .slice() // shallow copy
-      .sort(() => Math.random() - 0.5) // random sorting
-      .filter((item) => item?.rating >= 4) // filtering
-      .slice(0, 6) // slicing
-      .map((beer, index) => (
-        <Suspense key={index} fallback={<DotLoader />}>
-          <SingleBeerComp beer={beer} />
-        </Suspense>
-      ))
-  }, [products])};
-  const CategorisedBeers = ({ filterValue, type }) => {
-    return useMemo(()=>{
-      return products
-      .filter((item) => item[type] == filterValue)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 6)
-      .map((beer, index) => (
-        <Suspense key={index} fallback={<DotLoader />}>
-          <SingleBeerComp beer={beer} />
-        </Suspense>
-      ))});
-  };
+  
   return (
     <>
       {products?.length ? (
         <div className="main">
+          <div className="randomHeader">
+            <p>Most Rated</p>
+          </div>
           <div className="random">
             <div className="beerContainer">
               <FilteredBeers />
@@ -51,7 +30,7 @@ export default function Home() {
           </div>
           <div className="randomHeader">
             <p>Cocktail</p>
-            <Link to={"/beers/category/cocktail"}>View all</Link>
+            <Link to={"/beers/category/cocktail"} onClick={() => setActiveItem("beers")}>View all</Link>
           </div>
           <div className="random1">
             <div className="beerContainer">
@@ -61,7 +40,7 @@ export default function Home() {
           </div>
           <div className="randomHeader">
             <p>Shakes</p>
-            <Link to={"/beers/category/shake"}>View all</Link>
+            <Link to={"/beers/category/shake"} onClick={() => setActiveItem("beers")}>View all</Link>
           </div>
           <div className="random1">
             <div className="beerContainer">
@@ -71,7 +50,7 @@ export default function Home() {
           </div>
           <div className="randomHeader">
             <p>Shots</p>
-            <Link to={"/beers/category/Shot"}>View all</Link>
+            <Link to={"/beers/category/Shot"} onClick={() => setActiveItem("beers")}>View all</Link>
           </div>
           <div className="random1">
             <div className="beerContainer">
@@ -81,7 +60,7 @@ export default function Home() {
           </div>
           <div className="randomHeader">
             <p>Gin</p>
-            <Link to={"/beers/ingredient/gin"}>View all</Link>
+            <Link to={"/beers/ingredient/gin"} onClick={() => setActiveItem("beers")}>View all</Link>
           </div>
           <div className="random1">
             <div className="beerContainer">
@@ -91,7 +70,7 @@ export default function Home() {
           </div>
           <div className="randomHeader">
             <p>Vodka</p>
-            <Link to={"/beers/ingredient/vodka"}>View all</Link>
+            <Link to={"/beers/ingredient/vodka"} onClick={() => setActiveItem("beers")}>View all</Link>
           </div>
           <div className="random1">
             <div className="beerContainer">
@@ -101,7 +80,7 @@ export default function Home() {
           </div>
           <div className="randomHeader">
             <p>Rum</p>
-            <Link to={"/beers/ingredient/rum"}>View all</Link>
+            <Link to={"/beers/ingredient/rum"} onClick={() => setActiveItem("beers")}>View all</Link>
           </div>
           <div className="random1">
             <div className="beerContainer">
