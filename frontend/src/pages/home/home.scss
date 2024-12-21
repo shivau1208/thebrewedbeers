@@ -1,12 +1,12 @@
 .main {
   padding: 0.75rem 0;
-  padding-bottom: 60px;
+  padding-bottom: 80px;
 
 }
 .random,
 .random1 {
   margin: 0.5rem auto;
-  max-width: 1250px;
+  max-width: 1280px;
   width: 100%;
 }
 .random1 .randomHeaderParent {
@@ -18,7 +18,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 40px;
-  max-width: 1250px;
+  max-width: 1280px;
   width: 100%;
   box-sizing: border-box;
   transition: width 0.5s ease-in-out;
@@ -54,8 +54,9 @@
 .beerContainer {
   display: grid;
   grid-template-columns: repeat(6, 200px);
-  gap: 0 10px;
+  gap: 0 16px;
   position: relative;
+  height: 307px;
 }
 .swipe-indicator {
   display: none;
@@ -302,6 +303,7 @@
     display: grid;
     grid-template-columns: repeat(2, 205px);
     gap: 10px;
+    height: auto;
   }
   .beerContainer {
     &::-webkit-scrollbar {
@@ -365,7 +367,7 @@
     right: 0.5rem;
   }
 }
-@media (width < 425px) {
+@media (380px < width < 425px) {
   .random,
   .random1 {
     margin: 0.5rem auto;
@@ -379,6 +381,7 @@
     display: grid;
     grid-template-columns: repeat(2, 195px);
     gap: 10px;
+    height: auto;
   }
   .beerContainer {
     &::-webkit-scrollbar {
@@ -394,6 +397,7 @@
     justify-content: center;
     padding: 0;
     cursor: pointer;
+    height: 195px;
   }
   .beerContainer .beer .beerImage img {
     width: 195px;
@@ -446,5 +450,25 @@
   }
   .beerContainer #btn-next {
     right: 0.5rem;
+  }
+}
+@media (width <= 380px) {
+  .beerContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    height: auto;
+  }
+  .beerContainer .beer {
+    border-radius: 0.3rem;
+    width: 180px;
+  }
+  .beerContainer .beer .beerImage img {
+    width: 180px;
+    height: 200px;
+    border-radius: 0;
+  }
+  .beerContainer .beer .beerDetails {
+    border-radius: 0;
   }
 }

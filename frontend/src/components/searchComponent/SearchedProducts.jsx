@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { useBeerContextApi } from "../../context/beerContextApi";
-import SingleBeer from "../../components/singleBeer";
-import Nodatafound from "../../components/Error/Nodatafound";
-import SortFilter from "../../components/sortfilter/SortFilter";
-import DesktopFilter from "../../components/Filter/DesktopFilter";
-import "./products.css";
-import { Throttle } from "../../utils/categorisedBeers";
+import React, { useEffect, useState } from 'react';
+import './searchComponent.scss';
+import { useBeerContextApi } from '../../context/beerContextApi';
+import Nodatafound from '../Error/Nodatafound';
+import SingleBeer from '../singleBeer';
+import { Throttle } from '../../utils/categorisedBeers';
+import { useSearchParams } from 'react-router-dom';
 
-export default function Products() {
-  const { products, setSearchComp, setCartComp } = useBeerContextApi();
+export default function SearchedProducts() {
+  const {data, products, setSearchComp, setCartComp ,hanldeBeerSearch} = useBeerContextApi();
   const [visibleProducts, setVisibleProducts] = useState(20);
-
+  const [searchParams] = useSearchParams();
+  let searchInput = searchParams.get("q");
   // Check if the user has scrolled near the bottom
+
+
+  useEffect(() => {
+    document.querySelector("#searchInput").value = searchInput;
+    if(searchInput){
+      hanldeBeerSearch()
+    }
+  }, [searchInput,data]);
   function handleScroll() {
     const scrollableHeight = document.documentElement.scrollHeight;
     const scrollTop = window.scrollY;
@@ -27,12 +35,11 @@ export default function Products() {
     setCartComp(true);
     window.addEventListener("scroll", Throttle(handleScroll, 2000));
   }, []);
+
   return (
     <>
-      <SortFilter />
       {products !== null && products.length ? (
         <div className='productsFilter'>
-          <DesktopFilter />
           <div>
             <div className='beerProducts'>
               {products.slice(0, visibleProducts).map((beer, index) => (
@@ -53,5 +60,5 @@ export default function Products() {
         <Nodatafound />
       )}
     </>
-  );
+  )
 }

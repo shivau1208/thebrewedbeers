@@ -99,7 +99,7 @@ const ApplyBtn = styled.button`
 
 export default function Filter() {
   const navigate = useNavigate();
-  const { data, products, setProducts } = useBeerContextApi();
+  const { data, setProducts } = useBeerContextApi();
   const { filters, setFilters } = useFilterContextApi();
   const [options, setOPtions] = useState([...priceRange]);
   const [category, setCategory] = useState("price_range");

@@ -26,8 +26,10 @@ import Navbar from './components/navBar/Navbar';
 
 // export const server = 'http://localhost:5000'
 export const ImgCDN = 'https://d1ya9wbwk2a32l.cloudfront.net'
+const SearchProductComp = lazy(()=>import('./components/searchComponent/SearchedProducts'))
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 const HomeComp = lazy(()=>import('./pages/home/home'))
+
 
 export default function App() {
   const {authenticated} = useSelector(state=>state.auth)
@@ -70,6 +72,7 @@ export default function App() {
             {/* <Route path='/home' element={<Home />} /> */}
             <Route path='/home' element={<Suspense fallback={<Spinner />}><HomeComp /></Suspense>} />
             <Route path='/beers' element={<Suspense fallback={<Spinner />}><ProductsComp /></Suspense>} />
+            <Route path='/search' element={<Suspense fallback={<Spinner />}><SearchProductComp /></Suspense>} />
             <Route path='/dining' element={<DiningFunc />} />
             <Route path='/about' element={<About />} />
             <Route path='/online-payment' element={<Payment />} />
