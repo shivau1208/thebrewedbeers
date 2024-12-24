@@ -5,8 +5,6 @@ I have used ContextApi to handle Cart's state.
 And I have used Phonepe Payment Gateway for the payment
 </p>
 
-#### Check the project here
-
 ### <img src='https://github.com/shivau1208/buymybeer/assets/102743170/f6dcb048-ab50-4efc-a764-b9d0736f4a9a' width='20' /> <a href='https://github.com/shivau1208/buymybeer'>BuyMyBeer Project</a>
 
 ### Below is preview of Application
