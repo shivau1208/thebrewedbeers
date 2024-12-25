@@ -21,6 +21,6 @@ The result is a fast, secure, and user-friendly beer shopping site that caters t
 
 
 
-### Below is preview of Application
+### Previews of Application
 <img src='https://github.com/user-attachments/assets/9498f131-2bf2-4315-99f9-1eb329849b7f' width='600' />&nbsp;&nbsp;
 <img src='https://github.com/user-attachments/assets/575ff147-66da-4ae9-825f-d599f01ef074' height='300'  />
