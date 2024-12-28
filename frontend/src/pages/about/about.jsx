@@ -14,7 +14,7 @@ export default function About() {
       <div className='about'>
           <div className=' head'>
               <h4>OUR ROOTS:</h4>
-              <p>The start of bearthebeer can be traced back to three things — the discovery of a new bar, our curiosity and our entrepreneurial spirit.</p>
+              <p>The start of The Brewed Beers can be traced back to three things — the discovery of a new bar, our curiosity and our entrepreneurial spirit.</p>
           </div>
           <div className=' middle'>
             <p>What we’ve enjoyed the most along our journey is the sense of community within the craft brew scene.</p>
@@ -23,7 +23,7 @@ export default function About() {
           </div>
           <div className=' foot'>
               <h4>The Brewery:</h4>
-              <p>BeaTheBeer was formed on Janaury 1,2024</p>
+              <p>The Brewed Beers was formed on Janaury 1,2024</p>
           </div>
       </div>
     </>
