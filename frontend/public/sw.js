@@ -1,4 +1,4 @@
-const CACHE_NAME = 'buymybeer-v4';
+const CACHE_NAME = 'bearthebeer-v4';
 const urlsToCache = [
   '/',
   '/index.html',

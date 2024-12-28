@@ -1,4 +1,4 @@
-# BuyMyBeer
+# BearTheBeer
 
 This modern beer shopping platform is a high-performance web application built using **React** for dynamic and responsive user interfaces and **SCSS** for maintainable and scalable styling. The backend infrastructure is supported by **AWS S3** for efficient data storage and **CDNs** to deliver images and JSON data swiftly, ensuring optimized loading times.
 
@@ -17,7 +17,7 @@ This modern beer shopping platform is a high-performance web application built u
 
 The result is a fast, secure, and user-friendly beer shopping site that caters to enthusiasts with optimized browsing and checkout experiences. 
 
-### <img src='https://github.com/shivau1208/buymybeer/assets/102743170/f6dcb048-ab50-4efc-a764-b9d0736f4a9a' width='20' /> <a href='https://github.com/shivau1208/buymybeer'>BuyMyBeer Project</a>
+### <img src='https://github.com/shivau1208/bearthebeer/assets/102743170/f6dcb048-ab50-4efc-a764-b9d0736f4a9a' width='20' /> <a href='https://github.com/shivau1208/bearthebeer'>BearTheBeer Project</a>
 
 
 
