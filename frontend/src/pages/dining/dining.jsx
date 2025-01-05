@@ -9,13 +9,13 @@ export default function Dining() {
     setCartComp(false)
   }, []);
   return (
-    <>
+    <div className='dinContainerParent'>
       <div className='diningContainer'>
         <h1>
           <span></span>
         </h1>
         <div className='load'></div>
       </div>
-    </>
+    </div>
   );
 }

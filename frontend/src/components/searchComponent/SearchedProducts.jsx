@@ -9,17 +9,19 @@ import { useSearchParams } from 'react-router-dom';
 export default function SearchedProducts() {
   const {data, products, setSearchComp, setCartComp ,hanldeBeerSearch} = useBeerContextApi();
   const [visibleProducts, setVisibleProducts] = useState(20);
-  const [searchParams] = useSearchParams();
+  const [searchParams,setSearchParams] = useSearchParams();
   let searchInput = searchParams.get("q");
-  // Check if the user has scrolled near the bottom
-
+  
+  useEffect(()=>{
+    setSearchParams(params=>params.set("q",""))
+  },[])
 
   useEffect(() => {
-    document.querySelector("#searchInput").value = searchInput;
-    if(searchInput){
-      hanldeBeerSearch()
-    }
+    hanldeBeerSearch()
+    document.getElementById('searchInput').value = searchInput;
   }, [searchInput,data]);
+  
+  // Check if the user has scrolled near the bottom
   function handleScroll() {
     const scrollableHeight = document.documentElement.scrollHeight;
     const scrollTop = window.scrollY;

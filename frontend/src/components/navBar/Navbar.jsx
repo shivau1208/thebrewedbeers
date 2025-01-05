@@ -57,10 +57,8 @@ export default function Navbar() {
   }
   const searchKeyUp = Debounce(function (event) {
       let query = event.target.value.trim();
-      if(query){
         navigate(`/search?q=${query}`)
         hanldeBeerSearch();
-      }
     }, 500)
   useEffect(() => {
     setActiveItem(tabName);

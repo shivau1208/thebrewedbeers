@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-const BeersContext = createContext();
+const BeersContext = createContext(null);
 export const useBeerContextApi = () => useContext(BeersContext);
 
 export default function BeerContextFunc({ children }) {
@@ -42,13 +42,15 @@ export default function BeerContextFunc({ children }) {
   
 
   function hanldeBeerSearch() {
-    let value = searchInput.toLowerCase();
-    let response = data.filter((item) => {
-      let strDrink = item.strDrink.toLowerCase();
-      let ingredient = item.strIngredient1.toLowerCase();
-      return strDrink.indexOf(value) > -1 || ingredient.indexOf(value) > -1;
-    });
-    setProducts(response);
+    if(typeof searchInput === 'string'){
+      let value = searchInput.toLowerCase();
+      let response = data.filter((item) => {
+        let strDrink = item.strDrink.toLowerCase();
+        let ingredient = item.strIngredient1.toLowerCase();
+        return strDrink.indexOf(value) > -1 || ingredient.indexOf(value) > -1;
+      });
+      setProducts(response);
+    }
   }
     // const toggleTheme = ()=>{
   //     setDarkMode((prevState)=>!prevState)
