@@ -28,12 +28,6 @@ export default function Signin() {
       }
       dispatch(UpdateUser(userInfo));
       localStorage.setItem('userInfo',JSON.stringify(userInfo))
-      // if(user?.email){
-      //   AlertFunc((message || ""), "success", 2000);
-      //   dispatch(VerifyAuth('authenticate'));
-      //   navigate('/home');
-      //   document.cookie = `beerToken=${user?.refreshToken}; max-age=${60*60*24*365}; path=/; domain=${location.hostname}; SameSite=Lax`;
-      // }
     })
     .catch(err=>{
       console.log(err);
