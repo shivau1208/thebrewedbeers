@@ -1,5 +1,5 @@
 import { lazy, Suspense, useMemo } from "react";
-import DotLoader from "../components/spinner/DotLoader";
+import DotLoader from "../components/loaders/DotLoader";
 import { useBeerContextApi } from "../context/beerContextApi";
 
 

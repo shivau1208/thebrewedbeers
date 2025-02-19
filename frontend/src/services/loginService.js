@@ -1,5 +1,5 @@
-export const server = 'https://login-service.netlify.app/.netlify/functions/api'
-// export const server = 'http://localhost:5000'
+import { server } from "../App";
+
 
 export const VerifyAuthService = async()=>{
     const response = await fetch(`${server}/protected`,{

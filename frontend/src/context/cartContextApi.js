@@ -1,17 +1,21 @@
 import { createContext, useContext, useEffect } from "react";
-import useCartService from "cartservice";
+import { useSelector } from "react-redux";
+import useCartService from "../utils/cart_service";
 
 const cartContextApi = createContext();
 export const useCartContextApi = () => useContext(cartContextApi);
 
 export default function CartContextFunc({ children }) {
-  const { cartItems, addToCart, removeFromCart, reduceFromCart, increaseToCart, cartTotal, clearCart } = useCartService(() => {
-    // Initialize cart from localStorage, or with an empty array if nothing is stored
-    const storedCart = localStorage.getItem("cartItems");
-    return storedCart ? JSON.parse(storedCart) : [];
-  });
+  const {user} = useSelector(state=>state?.userInfo);
+  const localId = user['localId'];
+  
+  const cartData = JSON.parse(localStorage.getItem("cartItems")) || {};
+  const beersInCart = cartData[localId] || []
+
+  
+  const { cartItems, addToCart, removeFromCart, reduceFromCart, increaseToCart, cartTotal, clearCart } = useCartService(beersInCart);
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("cartItems", JSON.stringify({...cartData,[localId]:cartItems}));
   }, [cartItems]);
   return (
     <cartContextApi.Provider

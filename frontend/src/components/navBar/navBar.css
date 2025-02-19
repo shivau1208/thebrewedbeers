@@ -22,12 +22,19 @@
     cursor: pointer;
     position: relative;
 }
+
+.navBar .account .profilePic{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    width: 110px;
+}
+
 .navBar .account .profilePic img{
     height: 35px;
     width: 35px;
     border-radius: 30%;
-    font-size: 14px;
-
 }
 .navBar .menuIcon{
     display: none;
@@ -145,7 +152,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 99;
+    z-index: 100;
     display: none;
 }
 /* Overlay when visible */
@@ -240,6 +247,14 @@
     }
     .navBar .navbarTabs .menuList a::after{
         width: 0;
+    }
+}
+@media (width < 768px){
+    .navBar .account .profilePic{
+        width: fit-content;
+    }
+    .profileName{
+        display: none;
     }
 }
 @media (576px < width <=768px){

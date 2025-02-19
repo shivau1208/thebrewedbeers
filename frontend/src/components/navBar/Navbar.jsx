@@ -37,6 +37,7 @@ export default function Navbar() {
   const { user } = useSelector((state) => state?.userInfo);
   const navigate = useNavigate()
   const photoUrl = user?.photoUrl;
+  const firstName = user?.firstName;
   const pathname = location.pathname;
   let tabName = pathname.split("/")[1].toLowerCase();
 
@@ -56,10 +57,31 @@ export default function Navbar() {
     }
   }
   const searchKeyUp = Debounce(function (event) {
-      let query = event.target.value.trim();
-        navigate(`/search?q=${query}`)
-        hanldeBeerSearch();
-    }, 500)
+    let query = event.target.value.trim();
+      navigate(`/search?q=${query}`)
+      hanldeBeerSearch();
+  }, 500)
+
+
+  //send cart data to server
+  /* const uploadCartItems = ()=> {
+    const localId = user?.localId;
+    const cart_items = localStorage.getItem('cartItems');
+    if (cart_items) {
+      const data = JSON.parse(cart_items);
+      const currentUserData = data[localId];
+      const drinkIds = currentUserData.map(drink=>drink.item.idDrink)
+      postCartItems(localId,drinkIds)
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
+    }
+  }
+
+  const getCartItems = ()=>{
+
+  } */
+
   useEffect(() => {
     setActiveItem(tabName);
   }, [tabName]);
@@ -140,6 +162,7 @@ export default function Navbar() {
           <div className="account">
             {showProfile && <div className="profileOverlay" onClick={() => setShowProfile(false)}></div>}
             <div className="profilePic" onClick={() => setShowProfile(!showProfile)}>
+              <span className="profileName">{firstName}</span>
               <img src={photoUrl ? photoUrl : "/user-circle-svgrepo-com.svg"} alt="profile pic" />
             </div>
             {showProfile && <UserProfile />}

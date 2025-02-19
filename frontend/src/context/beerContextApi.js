@@ -24,11 +24,11 @@ export default function BeerContextFunc({ children }) {
     try{
       const res = await fetch(`${beer_data}/beerdata.json`,{
         headers:{
-          "origin":beer_data   
+          "origin":["http://localhost:3000","https://thebrewedbeers.vercel.app"]  
         }
       });
-      const response = await res.json();
-      setData((prevData) => [...prevData, ...response]);
+      const response = res.ok ? await res.json() : [];
+      setData([...new Set(response)]);
       setProducts((prevData) => [...prevData, ...response]);
     }catch(err){
       console.log('failed to fetch beer data',err);
@@ -49,7 +49,7 @@ export default function BeerContextFunc({ children }) {
         let ingredient = item.strIngredient1.toLowerCase();
         return strDrink.indexOf(value) > -1 || ingredient.indexOf(value) > -1;
       });
-      setProducts(response);
+      setProducts([...new Set(response)]);
     }
   }
     // const toggleTheme = ()=>{

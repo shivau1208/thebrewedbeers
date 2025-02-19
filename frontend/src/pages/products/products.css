@@ -215,10 +215,14 @@
     .beerProducts .beer {
       border-radius: 0.3rem;
       width: 180px;
+      height: 286px;
+    }
+    .beerProducts .beer .beerImage {
+        height: 180px;
     }
     .beerProducts .beer .beerImage img {
       width: 180px;
-      height: 200px;
+      height: auto;
       border-radius: 0;
     }
     .beerProducts .beer .beerDetails {

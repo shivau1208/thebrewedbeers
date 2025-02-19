@@ -13,7 +13,12 @@ export default function Home() {
     setCartComp(true);
     setSearchComp(true);
   }, [products]);
-
+  
+  useEffect(()=>{
+    if(document.getElementById('searchInput')){
+      document.getElementById('searchInput').value = "";
+    }
+  },[])
   
   return (
     <>

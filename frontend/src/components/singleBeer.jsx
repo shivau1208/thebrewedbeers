@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import "../pages/products/products.css";
 import styled from "styled-components";
 import { useCartContextApi } from "../context/cartContextApi";
 import { Link } from "react-router-dom";
 import { ImgCDN } from "../App";
+import Cardloader from "./loaders/cardloader";
 
 const PlusCartButton = styled.div`
   position: absolute;
@@ -11,15 +12,20 @@ const PlusCartButton = styled.div`
   right: 10px;
   cursor: pointer;
 `;
+
+const LazyImageComponent = lazy(() => import("./LazyImages"));
+
 export default function SingleBeer({ beer }) {
   const { addToCart } = useCartContextApi();
   return (
     <div className="beer">
-      <div className="beerImage">
-        <Link to={`/beer/${beer?.idDrink}`}>
-          <img src={`${ImgCDN}/${beer?.strDrinkThumb}`} loading="lazy" className="" alt={beer.strDrink} />
-        </Link>
-      </div>
+      <Suspense fallback={<Cardloader />}>
+        <div className="beerImage">
+          <Link to={`/beer/${beer?.idDrink}`}>
+            <LazyImageComponent beer={beer} />
+          </Link>
+        </div>
+      </Suspense>
       <div className="beerDetails">
         <Link to={`/beer/${beer?.idDrink}`}>
           <h3>{beer?.strDrink}</h3>
