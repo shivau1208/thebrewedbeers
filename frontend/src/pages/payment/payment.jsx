@@ -3,7 +3,7 @@ import "./payment.scss";
 import { useCartContextApi } from "../../context/cartContextApi";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import confetti from 'https://esm.run/canvas-confetti@1';
+import confetti from '../../utils/confetti';
 import { useBeerContextApi } from "../../context/beerContextApi";
 import { AlertFunc } from "../../components/Alert/Alert";
 

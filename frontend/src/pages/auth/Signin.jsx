@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AlertFunc } from "../../components/Alert/Alert";
 import "./auth.scss";
@@ -18,25 +18,29 @@ export default function Signin() {
   const signInWithGoogle = ()=>{
     signInWithPopup(auth,provider)
     .then(async({_tokenResponse:userInfo,providerId,user})=>{
-      const loginRes = await handlleSignin(userInfo?.email,user?.uid)
+      let loginRes = await handleSignin(userInfo?.email,user?.uid)
       if(loginRes.status == 401){
         const res = await oauthService({ email: userInfo?.email, fname:userInfo?.firstName , lname:userInfo?.lastName,password:user?.uid, providerId: providerId});
         // const {message} = await res.json();
         if(res.ok){
-          await handlleSignin(userInfo?.email,user?.uid);
+          await handleSignin(userInfo?.email,user?.uid);
         }
       }
-      dispatch(UpdateUser(userInfo));
-      localStorage.setItem('userInfo',JSON.stringify(userInfo))
+      
     })
     .catch(err=>{
       console.log(err);
     })
   }
-  async function handlleSignin(email,password) {
+  async function handleSignin(email,password) {
     try {
       const res = await loginAuthService({email,password});
-      const { message } = await res.json();
+      const json = await res.json();
+      const { message,user } = json;
+
+      dispatch(UpdateUser(user));
+      localStorage.setItem('userInfo',JSON.stringify(user));
+
       if (res.status == 200) {
         AlertFunc(message, "success", 2000);
         dispatch(VerifyAuth('authenticate'));
@@ -49,14 +53,12 @@ export default function Signin() {
               console.log('Service worker registration failed', err);
             });
         }
-        setTimeout(() => {
-          navigate('/home');
-        }, 2000);
+        navigate('/home');
       } else {
         AlertFunc(message, "danger", 2000);
         navigate(`/auth/signin`);
       }
-      return res
+      return json
     } catch (err) {
       console.log(err);
       AlertFunc('Failed to login', "danger", 2000);
@@ -69,8 +71,10 @@ export default function Signin() {
       if (loader) {
         loader.style.display = 'flex';
       }
-      await handlleSignin(data?.email,data?.password);
-      loader.style.display = 'none';
+      await handleSignin(data?.email,data?.password);
+      if(loader){
+        loader.style.display = 'none';
+      }
     } else {
       AlertFunc("Please fill credentials", "info", 2000);
     }
@@ -93,7 +97,7 @@ export default function Signin() {
                 Remember Me
               </label>
             </div>
-            <button onClick={submit} type="submit"><img src="/beer-mug.svg" alt="beer" srcSet="" /> Sign In </button>
+            <button onClick={submit} type="submit" name="Sign In"><img src="/beer-mug.svg" alt="beer" srcSet="" /> Sign In </button>
             <button onClick={signInWithGoogle} type="submit"><img src="/gsignin.svg" alt="G" srcSet="" /> Sign in with Google</button>
             <hr />
             <div className="form-not-user">

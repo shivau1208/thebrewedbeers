@@ -23,10 +23,11 @@ export default function UserProfile() {
     .then(res=>{
       if(res.status==200){
         loader.style.display = 'none';
+        localStorage.removeItem('userInfo');
         AlertFunc('Logged out successfully',"success",2000)
         setTimeout(()=>{
           router(`/auth/signin`);
-        },2000)
+        },0)
       }
     })
     .catch(err=>{

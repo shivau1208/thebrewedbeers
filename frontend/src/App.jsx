@@ -1,15 +1,15 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import BeerContextFunc from './context/beerContextApi';
-import CartComp from './pages/cartComp/cartComp';
+import CartComp from './pages/cart/cart';
 import Payment from './pages/payment/payment';
 import About from './pages/about/about';
 import DiningFunc from './pages/dining/dining';
-import Spinner from './components/spinner/spinner';
+import Spinner from './components/loaders/spinner';
 import Page404 from './components/Error/Page404';
 import CartContextFunc from './context/cartContextApi';
 import Filter from './components/Filter/Filter';
-import {SpeedInsights} from '@vercel/speed-insights/react'
+// import {SpeedInsights} from '@vercel/speed-insights/react'
 import FilterContextFunc from './context/filterContextApi';
 import Signin from './pages/auth/Signin';
 import Signup from './pages/auth/Signup';
@@ -19,13 +19,15 @@ import Alert from './components/Alert/Alert';
 import Beer from './pages/beer/beer';
 import { VerifyAuthService } from './services/loginService';
 import CheckoutInit from './pages/payment/checkoutinit';
-import DotLoader from './components/spinner/DotLoader';
+import DotLoader from './components/loaders/DotLoader';
 import ViewAll from './pages/viewall/ViewAll';
 import Navbar from './components/navBar/Navbar';
 
-
+export const server = 'https://login-service.netlify.app/.netlify/functions/api'
 // export const server = 'http://localhost:5000'
+
 export const ImgCDN = 'https://d1ya9wbwk2a32l.cloudfront.net'
+
 const SearchProductComp = lazy(()=>import('./components/searchComponent/SearchedProducts'))
 const ProductsComp = lazy(()=>import('./pages/products/products'))
 const HomeComp = lazy(()=>import('./pages/home/home'))
@@ -35,6 +37,7 @@ export default function App() {
   const {authenticated} = useSelector(state=>state.auth)
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     if(!authenticated){
       VerifyAuthService()
@@ -96,7 +99,7 @@ export default function App() {
         <Route path='/auth/signup' element={<Signup />} />
         <Route path='/*' element={authenticated ? <AuthenticatedRoutes /> : <Navigate to="/auth/signin" />} />
       </Routes>
-      <SpeedInsights />
+      {/* <SpeedInsights /> */}
       <Alert />
       <DotLoader />
     </>

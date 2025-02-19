@@ -9,12 +9,9 @@ import { useSearchParams } from 'react-router-dom';
 export default function SearchedProducts() {
   const {data, products, setSearchComp, setCartComp ,hanldeBeerSearch} = useBeerContextApi();
   const [visibleProducts, setVisibleProducts] = useState(20);
-  const [searchParams,setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   let searchInput = searchParams.get("q");
   
-  useEffect(()=>{
-    setSearchParams(params=>params.set("q",""))
-  },[])
 
   useEffect(() => {
     hanldeBeerSearch()
@@ -41,7 +38,7 @@ export default function SearchedProducts() {
   return (
     <>
       {products !== null && products.length ? (
-        <div className='productsFilter'>
+        <div className='searchFilter'>
           <div>
             <div className='beerProducts'>
               {products.slice(0, visibleProducts).map((beer, index) => (

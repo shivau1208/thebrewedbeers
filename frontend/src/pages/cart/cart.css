@@ -1,24 +1,26 @@
 .cartPage {
   background-color: #f1f3f6;
-  min-height: fit-content;
-  height: calc(100vh - 50px);
+  height: 100%;
+  max-height: calc(100% - 110px);
 }
 .cartPage .bgColor {
   display: flex;
-  padding-top: 30px;
+  padding-top: 20px;
   max-width: 1250px;
   margin: 0 auto;
+  height: 100%;
 }
 .modal {
-  width: 60vw;
-  max-height: fit-content;
-  height: 100%;
+  /* width: 60vw; */
+  max-height: 100%;
+  height: fit-content;
   margin-left: 6%;
   background: #fff;
   border-radius: 0.3rem;
   box-shadow: 0 1px 6px #ccc;
   overflow-y: auto;
   position: relative;
+  flex: 1 0;
 }
 .modal .beerGrid {
   padding: 0.5rem;
@@ -98,7 +100,7 @@
   position: sticky;
   right: 0;
   bottom: 0;
-  padding: 1.5rem 1rem;
+  padding: 1rem;
   background-color: #fff;
   box-shadow: 0 0 5px #757575;
 }

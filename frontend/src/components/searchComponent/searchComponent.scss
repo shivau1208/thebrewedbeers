@@ -1,15 +1,22 @@
-.productsFilter {
+.searchFilter {
   position: relative;
   display: flex;
   margin: 10px auto;
-  max-width: 1280px;
+  max-width: 1380px;
   padding: 10px 0;
 }
 
 @media (380px < width < 425px) {
-  .productsFilter {
+  .searchFilter {
       position: relative;
       margin: 0 auto;
       max-width: 400px;
+  }
+}
+@media (width <= 380px) {
+  .searchFilter {
+      position: relative;
+      margin: 0 auto;
+      max-width: 370px;
   }
 }

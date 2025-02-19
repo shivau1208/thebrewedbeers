@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import "./cartComp.css";
+import "./cart.css";
 import { useBeerContextApi } from "../../context/beerContextApi";
 import Emptycart from "./emptyCart";
 import { useCartContextApi } from "../../context/cartContextApi";
@@ -145,7 +145,7 @@ export default function CartComp() {
                 <hr />
                 <Header2>
                   <span>Total Amount</span>
-                  <span>&#8377;{(cartTotal() - (cartTotal() * 5) / 100).toFixed(2)}</span>
+                  <span>${(cartTotal() - (cartTotal() * 5) / 100).toFixed(2)}</span>
                 </Header2>
               </div>
             </div>
