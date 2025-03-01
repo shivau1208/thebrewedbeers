@@ -33,7 +33,11 @@ export default function Signin() {
     })
   }
   async function handleSignin(email,password) {
+    let loader = document.querySelector(".flexbox");
     try {
+      if (loader) {
+        loader.style.display = 'flex';
+      }
       const res = await loginAuthService({email,password});
       const json = await res.json();
       const { message,user } = json;
@@ -44,6 +48,10 @@ export default function Signin() {
       if (res.status == 200) {
         AlertFunc(message, "success", 2000);
         dispatch(VerifyAuth('authenticate'));
+        if(loader){
+          loader.style.display = 'none';
+        }
+        navigate('/home');
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('/sw.js')
             .then(registration => {
@@ -53,28 +61,26 @@ export default function Signin() {
               console.log('Service worker registration failed', err);
             });
         }
-        navigate('/home');
+        return res
       } else {
+        if(loader){
+          loader.style.display = 'none';
+        }
         AlertFunc(message, "danger", 2000);
         navigate(`/auth/signin`);
       }
-      return json
     } catch (err) {
+      if(loader){
+        loader.style.display = 'none';
+      }
       console.log(err);
       AlertFunc('Failed to login', "danger", 2000);
     }
   }
   const submit = async (event) => {
-    event.preventDefault();
-    let loader = document.querySelector(".flexbox");
+    // event.preventDefault();
     if (data.email && data.password) {
-      if (loader) {
-        loader.style.display = 'flex';
-      }
       await handleSignin(data?.email,data?.password);
-      if(loader){
-        loader.style.display = 'none';
-      }
     } else {
       AlertFunc("Please fill credentials", "info", 2000);
     }

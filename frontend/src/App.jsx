@@ -9,7 +9,7 @@ import Spinner from './components/loaders/spinner';
 import Page404 from './components/Error/Page404';
 import CartContextFunc from './context/cartContextApi';
 import Filter from './components/Filter/Filter';
-// import {SpeedInsights} from '@vercel/speed-insights/react'
+import {SpeedInsights} from '@vercel/speed-insights/react'
 import FilterContextFunc from './context/filterContextApi';
 import Signin from './pages/auth/Signin';
 import Signup from './pages/auth/Signup';
@@ -99,7 +99,7 @@ export default function App() {
         <Route path='/auth/signup' element={<Signup />} />
         <Route path='/*' element={authenticated ? <AuthenticatedRoutes /> : <Navigate to="/auth/signin" />} />
       </Routes>
-      {/* <SpeedInsights /> */}
+      <SpeedInsights />
       <Alert />
       <DotLoader />
     </>
