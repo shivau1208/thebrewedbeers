@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import './searchComponent.scss';
 import { useBeerContextApi } from '@/context/beerContextApi';
-import Nodatafound from '@/Error/Nodatafound';
-import SingleBeer from '@/singleBeer';
+import SingleBeer from '../singleBeer';
 import { Throttle } from '@/utils/categorisedBeers';
 import { useSearchParams } from 'react-router-dom';
+import Nodatafound from '../error/Nodatafound';
 
 export default function SearchedProducts() {
   const {data, products, setSearchComp, setCartComp ,hanldeBeerSearch} = useBeerContextApi();
