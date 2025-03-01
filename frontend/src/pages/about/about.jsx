@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './about.css'
-import { useBeerContextApi } from '../../context/beerContextApi'
+import { useBeerContextApi } from '@/context/beerContextApi'
 
 export default function About() {
   const {setSearchComp,setCartComp} = useBeerContextApi()

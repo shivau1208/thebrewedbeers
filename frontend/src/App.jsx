@@ -1,36 +1,36 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import BeerContextFunc from './context/beerContextApi';
-import CartComp from './pages/cart/cart';
-import Payment from './pages/payment/payment';
-import About from './pages/about/about';
-import DiningFunc from './pages/dining/dining';
-import Spinner from './components/loaders/spinner';
-import Page404 from './components/Error/Page404';
-import CartContextFunc from './context/cartContextApi';
-import Filter from './components/Filter/Filter';
+import CartComp from '@/pages/cart/cart';
+import Payment from '@/pages/payment/payment';
+import About from '@/pages/about/about';
+import DiningFunc from '@/pages/dining/dining';
+import Spinner from '@/components/loaders/spinner';
+import Page404 from '@/components/Error/Page404';
+import CartContextFunc from '@/context/cartContextApi';
+import Filter from '@/components/Filter/Filter';
 import {SpeedInsights} from '@vercel/speed-insights/react'
-import FilterContextFunc from './context/filterContextApi';
-import Signin from './pages/auth/Signin';
-import Signup from './pages/auth/Signup';
+import FilterContextFunc from '@/context/filterContextApi';
+import Signin from '@/pages/auth/Signin';
+import Signup from '@/pages/auth/Signup';
 import { useDispatch, useSelector } from 'react-redux';
-import { UpdateUser, VerifyAuth } from './redux/actions';
-import Alert from './components/Alert/Alert';
-import Beer from './pages/beer/beer';
-import { VerifyAuthService } from './services/loginService';
-import CheckoutInit from './pages/payment/checkoutinit';
-import DotLoader from './components/loaders/DotLoader';
-import ViewAll from './pages/viewall/ViewAll';
-import Navbar from './components/navBar/Navbar';
+import { UpdateUser, VerifyAuth } from '@/redux/actions';
+import Alert from '@/components/Alert/Alert';
+import Beer from '@/pages/beer/beer';
+import { VerifyAuthService } from '@/services/loginService';
+import CheckoutInit from '@/pages/payment/checkoutinit';
+import DotLoader from '@/components/loaders/DotLoader';
+import ViewAll from '@/pages/viewall/ViewAll';
+import Navbar from '@/components/navBar/Navbar';
+import BeerContextFunc from '@/context/beerContextApi';
 
 export const server = 'https://login-service.netlify.app/.netlify/functions/api'
 // export const server = 'http://localhost:5000'
 
 export const ImgCDN = 'https://d1ya9wbwk2a32l.cloudfront.net'
 
-const SearchProductComp = lazy(()=>import('./components/searchComponent/SearchedProducts'))
-const ProductsComp = lazy(()=>import('./pages/products/products'))
-const HomeComp = lazy(()=>import('./pages/home/home'))
+const SearchProductComp = lazy(()=>import('@/components/searchComponent/SearchedProducts'))
+const ProductsComp = lazy(()=>import('@/pages/products/products'))
+const HomeComp = lazy(()=>import('@/pages/home/home'))
 
 
 export default function App() {

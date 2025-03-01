@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./cart.css";
-import { useBeerContextApi } from "../../context/beerContextApi";
+import { useBeerContextApi } from "@/context/beerContextApi";
 import Emptycart from "./emptyCart";
-import { useCartContextApi } from "../../context/cartContextApi";
-import { ImgCDN } from "../../App";
+import { useCartContextApi } from "@/context/cartContextApi";
+import { ImgCDN } from "@/App";
 
 const MinusCartButton = styled.div`
   position: absolute;

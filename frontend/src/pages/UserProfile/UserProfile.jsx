@@ -1,9 +1,8 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import './userprofile.scss';
-import { useBeerContextApi } from "../../context/beerContextApi";
-import { logoutService } from "../../services/loginService";
-import { AlertFunc } from "../../components/Alert/Alert";
+import { useBeerContextApi } from "@/context/beerContextApi";
+import { logoutService } from "@/services/loginService";
+import { AlertFunc } from "@/components/Alert/Alert";
 import { useSelector } from "react-redux";
 
 export default function UserProfile() {
