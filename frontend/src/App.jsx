@@ -28,9 +28,9 @@ export const server = 'https://login-service.netlify.app/.netlify/functions/api'
 
 export const ImgCDN = 'https://d1ya9wbwk2a32l.cloudfront.net'
 
-const SearchProductComp = lazy(()=>import('@/components/searchComponent/SearchedProducts'))
-const ProductsComp = lazy(()=>import('@/pages/products/products'))
-const HomeComp = lazy(()=>import('@/pages/home/home'))
+const SearchProductComp = lazy(()=>import('./components/searchComponent/SearchedProducts'))
+const ProductsComp = lazy(()=>import('./pages/products/products'))
+const HomeComp = lazy(()=>import('./pages/home/home'))
 
 
 export default function App() {
