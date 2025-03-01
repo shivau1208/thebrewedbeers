@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest --clearCache && jest",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "keywords": [
     "eCommerce",
