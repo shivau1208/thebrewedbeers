@@ -1,9 +1,8 @@
 import React, { lazy, Suspense, useEffect } from "react";
-import "../pages/products/products.css";
+import "@/pages/products/products.css";
 import styled from "styled-components";
-import { useCartContextApi } from "../context/cartContextApi";
+import { useCartContextApi } from "@/context/cartContextApi";
 import { Link } from "react-router-dom";
-import { ImgCDN } from "../App";
 import Cardloader from "./loaders/cardloader";
 
 const PlusCartButton = styled.div`

@@ -1,5 +1,4 @@
-import React from 'react'
-import { ImgCDN } from "../App";
+import { ImgCDN } from "@/App";
 
 export default function LazyImages({beer}) {
   return (

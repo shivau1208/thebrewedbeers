@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useBeerContextApi } from "../../context/beerContextApi";
-import SingleBeer from "../../components/singleBeer";
-import Nodatafound from "../../components/Error/Nodatafound";
+import { useBeerContextApi } from "@/context/beerContextApi";
+import SingleBeer from "@/components/singleBeer";
+import Nodatafound from "@/components/Error/Nodatafound";
 import { useParams } from "react-router-dom";
 import "./viewall.css";
-import { Throttle } from "../../utils/categorisedBeers";
+import { Throttle } from "@/utils/categorisedBeers";
 
 export default function ViewAll() {
   const { products, setSearchComp, setCartComp } = useBeerContextApi();

@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./navBar.css";
 import styled from "styled-components";
-import { useBeerContextApi } from "../../context/beerContextApi";
+import { useBeerContextApi } from "@/context/beerContextApi";
 import { Link, useNavigate } from "react-router-dom";
-import { useCartContextApi } from "../../context/cartContextApi";
-import UserProfile from "../../pages/UserProfile/UserProfile";
+import { useCartContextApi } from "@/context/cartContextApi";
+import UserProfile from "@/pages/UserProfile/UserProfile";
 import { useSelector } from "react-redux";
-import { Debounce } from "../../utils/categorisedBeers";
+import { Debounce } from "@/utils/categorisedBeers";
 
 const Cart = styled.div`
   position: relative;

@@ -1,5 +1,5 @@
 # <a href='https://github.com/shivau1208/thebrewedbeers'><img src='https://github.com/shivau1208/thebrewedbeers/assets/102743170/f6dcb048-ab50-4efc-a764-b9d0736f4a9a' width='30' /> </a>The Brewed Beers Project 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/shivau1208/thebrewedbeers)
 
 
 ## Project Overview

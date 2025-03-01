@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './beer.scss';
 import '../home/home.scss'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useBeerContextApi } from '../../context/beerContextApi';
+import { useBeerContextApi } from '@/context/beerContextApi';
 import styled from 'styled-components';
-import { useCartContextApi } from '../../context/cartContextApi';
-import { ImgCDN } from '../../App';
-import { CategorisedBeers } from '../../utils/categorisedBeers';
+import { useCartContextApi } from '@/context/cartContextApi';
+import { ImgCDN } from '@/App';
+import { CategorisedBeers } from '@/utils/categorisedBeers';
 
 const BeerParent = styled.div`
   background-color:#f4f4f4;

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect } from "react";
 import { useSelector } from "react-redux";
-import useCartService from "../utils/cart_service";
+import useCartService from "@/utils/cart_service";
 
 const cartContextApi = createContext();
 export const useCartContextApi = () => useContext(cartContextApi);

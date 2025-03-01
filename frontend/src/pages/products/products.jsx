@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useBeerContextApi } from "../../context/beerContextApi";
-import SingleBeer from "../../components/singleBeer";
-import Nodatafound from "../../components/Error/Nodatafound";
-import SortFilter from "../../components/sortfilter/SortFilter";
-import DesktopFilter from "../../components/Filter/DesktopFilter";
+import { useBeerContextApi } from "@/context/beerContextApi";
+import SingleBeer from "@/components/singleBeer";
+import Nodatafound from "@/components/Error/Nodatafound";
+import SortFilter from "@/components/sortfilter/SortFilter";
+import DesktopFilter from "@/components/Filter/DesktopFilter";
 import "./products.css";
-import { Throttle } from "../../utils/categorisedBeers";
+import { Throttle } from "@/utils/categorisedBeers";
 
 export default function Products() {
   const { products, setSearchComp, setCartComp } = useBeerContextApi();

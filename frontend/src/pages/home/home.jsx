@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { useBeerContextApi } from "../../context/beerContextApi";
-import Footer from "../../components/footer/footer";
-import Nodatafound from "../../components/Error/Nodatafound";
+import { useBeerContextApi } from "@/context/beerContextApi";
+import Footer from "@/components/footer/footer";
+import Nodatafound from "@/components/Error/Nodatafound";
 import "./home.scss";
 import { Link } from "react-router-dom";
-import { CategorisedBeers, FilteredBeers } from "../../utils/categorisedBeers";
+import { CategorisedBeers, FilteredBeers } from "@/utils/categorisedBeers";
 
 // Lazy load the SingleBeer component
 export default function Home() {

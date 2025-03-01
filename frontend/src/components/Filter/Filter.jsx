@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./filter.scss";
-import { useBeerContextApi } from "../../context/beerContextApi";
-import { Link, useNavigate } from "react-router-dom";
+import { useBeerContextApi } from "@/context/beerContextApi";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { alcoholContent, categoriesContent, glasesContent, ingredientsContent, priceRange, ratingContent } from "../../constants/filterConstants";
-import { useFilterContextApi } from "../../context/filterContextApi";
+import { alcoholContent, categoriesContent, glasesContent, ingredientsContent, priceRange, ratingContent } from "@/constants/filterConstants";
+import { useFilterContextApi } from "@/context/filterContextApi";
 
 const Filter_route = styled.div`
   height: 100%;
@@ -103,7 +103,7 @@ export default function Filter() {
   const { filters, setFilters } = useFilterContextApi();
   const [options, setOPtions] = useState([...priceRange]);
   const [category, setCategory] = useState("price_range");
-  const [checked, setChecked] = useState(false);
+  // const [checked, setChecked] = useState(false);
 
   function SetActiveFilterTab() {
     let list = document.querySelectorAll(".filterlist");

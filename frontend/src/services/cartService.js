@@ -1,4 +1,4 @@
-import { server } from "../App"
+import { server } from "@/App"
 
 export const getCartItems = async (userID)=>{
   try{

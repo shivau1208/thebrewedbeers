@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { AlertFunc } from "../../components/Alert/Alert";
+import { AlertFunc } from "@/components/Alert/Alert";
 import "./auth.scss";
 import { Link, useNavigate } from "react-router-dom";
-import { signupAuthService } from "../../services/loginService";
+import { signupAuthService } from "@/services/loginService";
 
 export default function Signup() {
   const route = useNavigate();

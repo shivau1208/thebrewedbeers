@@ -1,5 +1,4 @@
-import React from 'react'
-import './footer.css'
+import '@/footer.css'
 
 export default function Footer() {
     var url = encodeURIComponent(window.location.href);

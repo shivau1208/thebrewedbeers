@@ -1,4 +1,3 @@
-import React from "react";
 import './sortfilter.scss'
 import { Link } from "react-router-dom";
 

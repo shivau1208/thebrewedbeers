@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AlertFunc } from "../../components/Alert/Alert";
+import { AlertFunc } from "@/components/Alert/Alert";
 import "./auth.scss";
 import { useDispatch } from "react-redux";
-import { UpdateUser, VerifyAuth } from "../../redux/actions";
-import { loginAuthService, oauthService } from "../../services/loginService";
+import { UpdateUser, VerifyAuth } from "@/redux/actions";
+import { loginAuthService, oauthService } from "@/services/loginService";
 import { signInWithPopup} from 'firebase/auth'
 import { auth, provider } from "./firebaseConf";
 
@@ -17,9 +17,13 @@ export default function Signin() {
  
   const signInWithGoogle = ()=>{
     signInWithPopup(auth,provider)
-    .then(async({_tokenResponse:userInfo,providerId,user})=>{
-      let loginRes = await handleSignin(userInfo?.email,user?.uid)
-      if(loginRes.status == 401){
+    .then(async ({_tokenResponse:userInfo,providerId,user})=>{
+      let {res:loginRes} = await handleSignin(userInfo?.email,user?.uid);
+      if(!loginRes){
+        console.log('No response from server :(');
+        
+      }
+      if(loginRes?.status == 401){
         const res = await oauthService({ email: userInfo?.email, fname:userInfo?.firstName , lname:userInfo?.lastName,password:user?.uid, providerId: providerId});
         // const {message} = await res.json();
         if(res.ok){
@@ -61,7 +65,6 @@ export default function Signin() {
               console.log('Service worker registration failed', err);
             });
         }
-        return res
       } else {
         if(loader){
           loader.style.display = 'none';
@@ -69,6 +72,7 @@ export default function Signin() {
         AlertFunc(message, "danger", 2000);
         navigate(`/auth/signin`);
       }
+      return {res}
     } catch (err) {
       if(loader){
         loader.style.display = 'none';
@@ -77,7 +81,7 @@ export default function Signin() {
       AlertFunc('Failed to login', "danger", 2000);
     }
   }
-  const submit = async (event) => {
+  const submitHandler = async (event) => {
     // event.preventDefault();
     if (data.email && data.password) {
       await handleSignin(data?.email,data?.password);
@@ -103,7 +107,7 @@ export default function Signin() {
                 Remember Me
               </label>
             </div>
-            <button onClick={submit} type="submit" name="Sign In"><img src="/beer-mug.svg" alt="beer" srcSet="" /> Sign In </button>
+            <button onClick={submitHandler} type="submit" name="Sign In"><img src="/beer-mug.svg" alt="beer" srcSet="" /> Sign In </button>
             <button onClick={signInWithGoogle} type="submit"><img src="/gsignin.svg" alt="G" srcSet="" /> Sign in with Google</button>
             <hr />
             <div className="form-not-user">

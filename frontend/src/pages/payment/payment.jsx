@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./payment.scss";
-import { useCartContextApi } from "../../context/cartContextApi";
+import { useCartContextApi } from "@/context/cartContextApi";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import confetti from '../../utils/confetti';
-import { useBeerContextApi } from "../../context/beerContextApi";
-import { AlertFunc } from "../../components/Alert/Alert";
+import confetti from '@/utils/confetti';
+import { useBeerContextApi } from "@/context/beerContextApi";
+import { AlertFunc } from "@/components/Alert/Alert";
 
 const Header4 = styled.div`
   display: flex;

@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import './payment.scss'
 import {sha256} from 'js-sha256'
-import { useCartContextApi } from '../../context/cartContextApi';
+import { useCartContextApi } from '@/context/cartContextApi';
 
 export default function CheckoutInit() {
     const { cartItems} = useCartContextApi();

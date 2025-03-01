@@ -1,9 +1,9 @@
 import { lazy, Suspense, useMemo } from "react";
-import DotLoader from "../components/loaders/DotLoader";
-import { useBeerContextApi } from "../context/beerContextApi";
+import DotLoader from "@/components/loaders/DotLoader";
+import { useBeerContextApi } from "@/context/beerContextApi";
 
 
-const SingleBeerComp = lazy(() => import("../components/singleBeer"));
+const SingleBeerComp = lazy(() => import("@/components/singleBeer"));
 
 
 export const CategorisedBeers = ({ filterValue, type }) => {

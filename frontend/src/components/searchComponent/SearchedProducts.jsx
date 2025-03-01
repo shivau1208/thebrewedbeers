@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './searchComponent.scss';
-import { useBeerContextApi } from '../../context/beerContextApi';
-import Nodatafound from '../Error/Nodatafound';
-import SingleBeer from '../singleBeer';
-import { Throttle } from '../../utils/categorisedBeers';
+import { useBeerContextApi } from '@/context/beerContextApi';
+import Nodatafound from '@/Error/Nodatafound';
+import SingleBeer from '@/singleBeer';
+import { Throttle } from '@/utils/categorisedBeers';
 import { useSearchParams } from 'react-router-dom';
 
 export default function SearchedProducts() {
