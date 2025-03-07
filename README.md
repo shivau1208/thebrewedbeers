@@ -45,7 +45,7 @@ The Brewed Beers is a modern beer shopping platform designed to offer a seamless
    ```
 5. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 ## Contributing
 We welcome contributions! Please follow these steps:
