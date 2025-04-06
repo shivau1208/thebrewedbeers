@@ -22,6 +22,56 @@ The Brewed Beers is a modern beer shopping platform designed to offer a seamless
 <img src='https://github.com/user-attachments/assets/9498f131-2bf2-4315-99f9-1eb329849b7f' width='600' />&nbsp;&nbsp;
 <img src='https://github.com/user-attachments/assets/575ff147-66da-4ae9-825f-d599f01ef074' height='300'  />
 
+```mermaid
+flowchart TB
+    %% Frontend Subgraph
+    subgraph "Frontend"
+        Frontend_Main("React Application"):::frontend
+        API_Services("API & Backend Service Calls"):::frontend
+        UI_Components("UI Components"):::frontend
+        Pages("Pages (Views)"):::frontend
+        Redux("Redux State Management"):::frontend
+        Context("Context Providers"):::frontend
+        SW_Public("Service Worker (Public)"):::frontend
+        SW_Src("Service Worker (Src)"):::frontend
+    end
+
+    %% Backend, Database and CDN
+    Backend("Express/Node.js Server (Auth_API)"):::backend
+    Database("MongoDB Database"):::database
+    CDN("CDN (Static Asset Caching)"):::cdn
+
+    %% Internal Frontend Relationships
+    Frontend_Main -->|"contains"| UI_Components
+    Frontend_Main -->|"contains"| Pages
+    Frontend_Main -->|"contains"| Redux
+    Frontend_Main -->|"contains"| Context
+    Frontend_Main -->|"integrates"| SW_Public
+    Frontend_Main -->|"integrates"| SW_Src
+    Frontend_Main -->|"calls_API"| API_Services
+
+    %% External Relationships
+    API_Services -->|"API_calls"| Backend
+    Backend -->|"CRUD_ops"| Database
+    CDN -->|"Static_assets"| Frontend_Main
+
+    %% Click Events
+    click Frontend_Main "https://github.com/shivau1208/thebrewedbeers/tree/main/frontend/src"
+    click UI_Components "https://github.com/shivau1208/thebrewedbeers/tree/main/frontend/src/components"
+    click Pages "https://github.com/shivau1208/thebrewedbeers/tree/main/frontend/src/pages"
+    click Redux "https://github.com/shivau1208/thebrewedbeers/tree/main/frontend/src/redux"
+    click Context "https://github.com/shivau1208/thebrewedbeers/tree/main/frontend/src/context"
+    click API_Services "https://github.com/shivau1208/thebrewedbeers/tree/main/frontend/src/services"
+    click SW_Public "https://github.com/shivau1208/thebrewedbeers/blob/main/frontend/public/sw.js"
+    click SW_Src "https://github.com/shivau1208/thebrewedbeers/tree/main/frontend/src/workers"
+
+    %% Styles
+    classDef frontend fill:#444,stroke:#333,stroke-width:2px,color:#f4f4f4;
+    classDef backend fill:#444,stroke:#333,stroke-width:2px,color:#f4f4f4;
+    classDef database fill:#444,stroke:#333,stroke-width:2px,color:#f4f4f4;
+    classDef cdn fill:#444,stroke:#333,stroke-width:2px,color:#f4f4f4;
+```
+
 ## Technologies Used
 - **Frontend**: React, SCSS
 - **Backend**: Express, Node.js
