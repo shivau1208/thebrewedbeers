@@ -2,3 +2,4 @@ node_modules
 Backend
 build
 .vscode
+main.min.js

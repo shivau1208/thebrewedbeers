@@ -32,17 +32,16 @@ export const signupAuthService = async(data)=>{
     return response;
 }
 
-export const oauthService = async(data)=>{
-    const response = await fetch(`${server}/oauth`, {
-      method:'POST',
-      headers:{
-        'content-type':'application/json',
-        
-      },
-      credentials:'include',
-      body:JSON.stringify(data)
-    });
-    return response;
+export const oauthService = async(token) => {
+  const response = await fetch(`${server}/oauth`, {
+    method: 'POST',
+    headers: {
+    'content-type': 'application/json',
+    'Authorization': `Bearer ${token}`,
+    },
+    credentials: 'include',
+  });
+  return response;
 }
 
 export const logoutService = async()=>{

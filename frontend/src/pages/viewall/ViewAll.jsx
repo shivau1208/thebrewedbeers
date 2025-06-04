@@ -28,7 +28,7 @@ export default function ViewAll() {
     setCartComp(true);
     window.scrollTo(0, 0);
     window.addEventListener("scroll", Throttle(handleScroll, 2000));
-    let pro = products.filter((item) => item[category ? "strCategory" : "strIngredient1"].toLowerCase() === (category || ingredient).toLowerCase())
+    // let pro = products.filter((item) => item[category ? "strCategory" : "strIngredient1"].toLowerCase() === (category || ingredient).toLowerCase())
   }, []);
   return (
     <>

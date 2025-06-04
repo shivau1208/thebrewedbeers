@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './beer.scss';
 import '../home/home.scss'
+import { auth } from '../auth/firebaseConf';
+import CommentsService from 'https://dccpwq72o6kla.cloudfront.net/main.min.js';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useBeerContextApi } from '@/context/beerContextApi';
 import styled from 'styled-components';
@@ -10,7 +12,13 @@ import { CategorisedBeers } from '@/utils/categorisedBeers';
 
 const BeerParent = styled.div`
   background-color:#f4f4f4;
-  height:100%;
+  height:fit-content;
+  padding-bottom: 10px;
+  position:relative;
+`
+const BeerdetailWrapper = styled.div`
+  max-height: 100%;
+  overflow-y: auto;
 `
 
 export default function Beer() {
@@ -21,18 +29,45 @@ export default function Beer() {
   const {id} = useParams();
   const navigate = useNavigate();
   const beer = data.find(item=>item?.idDrink==id);
+  const commentsIframeRef = useRef();
+  const commentsButton = useRef();
 
   function AddToCartFunc() {
-      setIsAddedToCart(true); 
-      addToCart(beer); 
+    setIsAddedToCart(true); 
+    addToCart(beer); 
   }
+  
   useEffect(()=>{
     setActiveItem("")
+    setIsAddedToCart(false);
     setBeerDetails(beer);
     setSearchComp(true);
     setCartComp(true);
   },[beer])
 
+  useEffect(() => {
+    // Only initialize commentsService when the ref is attached
+    if (commentsIframeRef.current) {
+      const  commentsService = new CommentsService({
+        commentsButton:commentsButton.current,
+        commentsIframeWrapper:commentsIframeRef.current,
+        IFRAME_ORIGIN:"http://localhost:5173/",
+        services:{
+          signIn: ()=>{},
+          handleAuthOnLoad:async function() {
+            auth.onAuthStateChanged(async (user) => {
+              if (user) {
+                localStorage.setItem("user", JSON.stringify({ email: user?.email, profile: user?.photoURL, userId: user.uid, lastRefresh:user.reloadUserInfo.lastRefreshAt})); // Set the token in local storage
+              }
+            });
+          },
+          postId:() => beer?.idDrink || 1,
+        }
+      })
+      // commentsService.init().createCommentsIframe();
+    }
+  }, [beerDetails]);
+  
   if(!beerDetails){
     return(
       <>
@@ -44,29 +79,33 @@ export default function Beer() {
     <>
       <BeerParent>
         <div className="beer_Container">
-          <div className="beerView">
-            <img src={`${ImgCDN}/${beerDetails.strDrinkThumb}`} alt="img" srcSet="" />
-          </div>
           <div>
+            <div className="beerView">
+              <img src={`${ImgCDN}/${beerDetails.strDrinkThumb}`} alt="img" srcSet="" />
+            </div>
+            <div className="buyOrAdd desktop">
+              {!isAddedToCart && !cartItems.find(cartItem=>cartItem.item.idDrink===beer.idDrink) ? <button type="button" className='addToCart' onClick={AddToCartFunc}>Add To Cart</button> :
+              <button type="button" className='addToCart' onClick={()=>navigate('/cartitems')}>Go To Cart</button>}
+              <button type="button" className='buyNow'onClick={()=>{navigate('/online-payment')}}> Buy Now</button>
+            </div>
+          </div>
+          <BeerdetailWrapper>
             <div className='beer_Details'>
                 <p className='beerName'>{beerDetails?.strDrink}</p>
                 <p>{beerDetails?.strAlcoholic}</p>
                 <p className='price'><strong>&#8377;{`${(beerDetails?.price-beerDetails?.rating*10).toFixed(2)}`}</strong> <strike>{beerDetails?.price}</strike> {`${beerDetails?.rating*10}% off`}  </p>
                 <div className='ratings'><div> {`${beerDetails?.rating} ★ `}</div> <small>{`${beerDetails?.idDrink} Ratings`}</small></div>
-                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> Get 10% off upto ₹50 on first Flipkart UPI transaction on order of ₹250 and above T&C</p>
-                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> 5% Cashback on Flipkart Axis Bank Card T&C</p>
-                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> 10% off up to ₹1,250 on ICICI Bank Credit Card Transactions, on orders of ₹5,000 and above T&C</p>
+                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> Get 10% off upto ₹50 on first UPI transaction on order of ₹250 and above T&C</p>
+                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> 5% Cashback on ABC Bank Card T&C</p>
+                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> 10% off up to ₹1,250 on ABC Bank Credit Card Transactions, on orders of ₹5,000 and above T&C</p>
             </div>
             <div className="beerSpec">
               <h4>Instructions:</h4>
               <p>{beerDetails?.strInstructions}</p>
             </div>
-          </div>
-          <div className="buyOrAdd">
-            {!isAddedToCart && !cartItems.find(cartItem=>cartItem.item.idDrink===beer.idDrink) ? <button type="button" className='addToCart' onClick={AddToCartFunc}>Add To Cart</button> :
-             <button type="button" className='addToCart' onClick={()=>navigate('/cartitems')}>Go To Cart</button>}
-            <button type="button" className='buyNow'onClick={()=>{navigate('/online-payment')}}> Buy Now</button>
-          </div>
+            <div className="iframeContent" ref={commentsIframeRef}></div>
+          </BeerdetailWrapper>
+          
         </div>
         <div className="randomHeader">
           <p>Cocktail</p>
@@ -97,6 +136,11 @@ export default function Beer() {
             <CategorisedBeers filterValue={"Vodka"} type={"strIngredient1"} />
             <div className="swipe-indicator"></div>
           </div>
+        </div>
+        <div className="buyOrAdd mobile">
+          {!isAddedToCart && !cartItems.find(cartItem=>cartItem.item.idDrink===beer.idDrink) ? <button type="button" className='addToCart' onClick={AddToCartFunc}>Add To Cart</button> :
+            <button type="button" className='addToCart' onClick={()=>navigate('/cartitems')}>Go To Cart</button>}
+          <button type="button" className='buyNow'onClick={()=>{navigate('/online-payment')}}> Buy Now</button>
         </div>
       </BeerParent>
     </>
