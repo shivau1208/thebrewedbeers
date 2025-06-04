@@ -14,14 +14,14 @@ import Signin from '@/pages/auth/Signin';
 import Signup from '@/pages/auth/Signup';
 import Alert from '@/components/Alert/Alert';
 import Beer from '@/pages/beer/beer';
-import CheckoutInit from '@/pages/payment/checkoutinit';
 import DotLoader from '@/components/loaders/DotLoader';
 import ViewAll from '@/pages/viewall/ViewAll';
 import Navbar from '@/components/navBar/Navbar';
 import BeerContextFunc from '@/context/beerContextApi';
 
-// export const server = 'https://login-service.netlify.app/.netlify/functions/api'
-export const server = 'http://localhost:5000/.netlify/functions/api'
+export const server = 'https://login-service.netlify.app/.netlify/functions/api'
+// export const server = import.meta.env.VITE_SERVER_URL;
+// export const server = 'http://localhost:5000/.netlify/functions/api'
 
 export const ImgCDN = 'https://d1ya9wbwk2a32l.cloudfront.net'
 
@@ -57,7 +57,6 @@ export default function App() {
                       <Route path='/beers/category/:category' element={<ViewAll />} />
                       <Route path='/beers/ingredient/:ingredient' element={<ViewAll />} />
                       <Route path='/online-payment' element={<Payment />} />
-                      <Route path='/checkout/init' element={<CheckoutInit />} />
                       <Route path='/' element={<Navigate to={"/home"} />} />
                       <Route path='/*' element={<Page404 />} />
                     </Routes>

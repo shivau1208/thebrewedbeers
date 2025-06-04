@@ -57,8 +57,6 @@ export default function Payment() {
 
 	useEffect(() => {
 		if (!authenticated) {
-			console.log(authenticated);
-			
 			VerifyAuthService()
 				.then((res) => {
 					if (res.status == 200) {
