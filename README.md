@@ -72,7 +72,6 @@ flowchart TB
     classDef cdn fill:#444,stroke:#333,stroke-width:2px,color:#f4f4f4;
 ```
 
-
 ## Technologies Used
 - **Frontend**: React, SCSS
 - **Backend**: Express, Node.js
