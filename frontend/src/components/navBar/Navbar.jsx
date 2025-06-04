@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import "./navBar.css";
 import styled from "styled-components";
 import { useBeerContextApi } from "@/context/beerContextApi";
 import { Link, useNavigate } from "react-router-dom";
 import { useCartContextApi } from "@/context/cartContextApi";
 import UserProfile from "@/pages/UserProfile/UserProfile";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Debounce } from "@/utils/categorisedBeers";
+import { UpdateUser, VerifyAuth } from "../../redux/actions";
+import { VerifyAuthService } from "../../services/loginService";
 
 const Cart = styled.div`
   position: relative;
@@ -37,7 +39,7 @@ export default function Navbar() {
   const { user } = useSelector((state) => state?.userInfo);
   const navigate = useNavigate()
   const photoUrl = user?.photoUrl;
-  const firstName = user?.firstName;
+  const firstName = user?.displayname?.split(" ")[0];
   const pathname = location.pathname;
   let tabName = pathname.split("/")[1].toLowerCase();
 
@@ -81,6 +83,27 @@ export default function Navbar() {
   const getCartItems = ()=>{
 
   } */
+	const { authenticated } = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
+
+	useLayoutEffect(() => {
+		if (!authenticated) {
+			VerifyAuthService()
+				.then((res) => {
+					if (res.status == 200) {
+						dispatch(VerifyAuth("authenticate"));
+					}
+				})
+				.catch((err) => {
+					console.error("Failed to verify", err);
+				})
+		}
+		const userInfo = localStorage.getItem("user");
+		if (userInfo) {
+			const user = JSON.parse(userInfo);
+			dispatch(UpdateUser(user));
+		}
+	}, [dispatch]);
 
   useEffect(() => {
     setActiveItem(tabName);
@@ -159,14 +182,16 @@ export default function Navbar() {
           {/* <div onClick={()=>toggleTheme()}>
                 {theme ? <div className='theme'><img src="/sun-svgrepo-com.svg" alt="darkTheme" srcSet="" width='30' /></div> : <div className='theme'><img src="/moon-svgrepo-com.svg" alt="darkTheme" srcSet="" width='30' /></div>}
           </div> */}
-          <div className="account">
-            {showProfile && <div className="profileOverlay" onClick={() => setShowProfile(false)}></div>}
-            <div className="profilePic" onClick={() => setShowProfile(!showProfile)}>
-              <span className="profileName">{firstName}</span>
-              <img src={photoUrl ? photoUrl : "/user-circle-svgrepo-com.svg"} alt="profile pic" />
+          {authenticated && 
+            <div className="account">
+              {showProfile && <div className="profileOverlay" onClick={() => setShowProfile(false)}></div>}
+              <div className="profilePic" onClick={() => setShowProfile(!showProfile)}>
+                <span className="profileName">{`Hi ${firstName}`}</span>
+                <img src={photoUrl ? photoUrl : "/user-circle-svgrepo-com.svg"} alt="profile pic" />
+              </div>
+              {showProfile && <UserProfile />}
             </div>
-            {showProfile && <UserProfile />}
-          </div>
+          }
         </div>
       </div>
     </>

@@ -2,13 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3rem 1rem;
   position: relative;
+  height: 100%;
 }
 .container .signupForm,.container .signinForm{
   width: 100%;
-  max-width: 450px;
-  box-shadow: 0 0 11px #ac9fe7;
+  max-width: 280px;
   border-radius: 1rem;
   padding: 2rem;
 }

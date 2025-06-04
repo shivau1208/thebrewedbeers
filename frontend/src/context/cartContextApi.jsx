@@ -7,15 +7,15 @@ export const useCartContextApi = () => useContext(cartContextApi);
 
 export default function CartContextFunc({ children }) {
   const {user} = useSelector(state=>state?.userInfo);
-  const localId = user['localId'];
+  const userId = user && user['userId'];
   
   const cartData = JSON.parse(localStorage.getItem("cartItems")) || {};
-  const beersInCart = cartData[localId] || []
+  const beersInCart = cartData[userId] || []
 
   
   const { cartItems, addToCart, removeFromCart, reduceFromCart, increaseToCart, cartTotal, clearCart } = useCartService(beersInCart);
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify({...cartData,[localId]:cartItems}));
+    localStorage.setItem("cartItems", JSON.stringify({...cartData,[userId]:cartItems}));
   }, [cartItems]);
   return (
     <cartContextApi.Provider
