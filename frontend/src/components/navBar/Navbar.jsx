@@ -186,7 +186,7 @@ export default function Navbar() {
             <div className="account">
               {showProfile && <div className="profileOverlay" onClick={() => setShowProfile(false)}></div>}
               <div className="profilePic" onClick={() => setShowProfile(!showProfile)}>
-                <span className="profileName">{`Hi ${firstName}`}</span>
+                {firstName && <span className="profileName">{`Hi ${firstName}`}</span>}
                 <img src={photoUrl ? photoUrl : "/user-circle-svgrepo-com.svg"} alt="profile pic" />
               </div>
               {showProfile && <UserProfile />}

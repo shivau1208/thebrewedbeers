@@ -1,5 +1,5 @@
-import { Suspense, lazy } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Suspense, lazy, useEffect } from 'react';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import CartComp from '@/pages/cart/cart';
 import Payment from '@/pages/payment/payment';
 import About from '@/pages/about/about';
@@ -31,6 +31,10 @@ const HomeComp = lazy(()=>import('./pages/home/home'))
 
 
 export default function App() {
+  const navigate = useNavigate();
+  useEffect(()=>{
+    navigate("/home")
+  },[])
   
   return (
     <>
