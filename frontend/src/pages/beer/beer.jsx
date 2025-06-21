@@ -51,7 +51,8 @@ export default function Beer() {
       const  commentsService = new CommentsService({
         commentsButton:commentsButton.current,
         commentsIframeWrapper:commentsIframeRef.current,
-        IFRAME_ORIGIN:"http://localhost:5173/",
+        COOKIE_NAME:"cid",
+        IFRAME_ORIGIN:"https://comments-section-frontend-qtdfocztwa-el.a.run.app",
         services:{
           signIn: ()=>{},
           handleAuthOnLoad:async function() {
@@ -64,7 +65,10 @@ export default function Beer() {
           postId:() => beer?.idDrink || 1,
         }
       })
-      // commentsService.init().createCommentsIframe();
+
+      if(!(/Mobi|Android/i.test(navigator.userAgent))){
+        commentsService.init().createCommentsIframe();
+      }
     }
   }, [beerDetails]);
   
