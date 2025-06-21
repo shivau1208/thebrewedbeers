@@ -107,9 +107,9 @@ export default function Filter() {
 
   function SetActiveFilterTab() {
     let list = document.querySelectorAll(".filterlist");
-    list.forEach((item, index) => {
+    list.forEach((item) => {
       item.addEventListener("click", function (event) {
-        list.forEach((listitem, index) => {
+        list.forEach((listitem) => {
           listitem.classList.remove("activefilter");
         });
         event.currentTarget.classList.add("activefilter");
@@ -135,7 +135,7 @@ export default function Filter() {
   const ClearFilterhandler = () => {
     let newValues = {};
     for (let key in filters) {
-      if (filters.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(filters, key)) {
         newValues[key] = [];
       }
     }
@@ -157,7 +157,7 @@ export default function Filter() {
     } catch (err) {
       console.log(err);
     }
-    const filteredProducts = data.filter((product, index) => {
+    const filteredProducts = data.filter((product) => {
       let price = product?.price - product?.rating * 10;
       let rating = product?.rating;
       return (
@@ -255,7 +255,7 @@ export default function Filter() {
             </ul>
           </CategoryOptions>
           <OptionNames>
-            {options.map(({ id, name, value }, index) => (
+            {options.map(({ id, name, value }) => (
               <Options key={id} onClick={() => FilterOptionOnChangehandler(category, value)}>
                 <img src={filters[category].includes(value) ? "/checkbox-checked.svg" : "/checkbox.svg"} alt="" srcSet="" />
                 <OptionsList>{name}</OptionsList>
