@@ -46,6 +46,7 @@ export default function App() {
                   <>
                     <Navbar />
                     <Routes>
+                      <Route path='/' element={<Navigate to={"/home"} />} />
                       <Route path='/home' element={<Suspense fallback={<Spinner />}><HomeComp /></Suspense>} />
                       <Route path='/beers' element={<Suspense fallback={<Spinner />}><ProductsComp /></Suspense>} />
                       <Route path='/search' element={<Suspense fallback={<Spinner />}><SearchProductComp /></Suspense>} />
@@ -57,7 +58,6 @@ export default function App() {
                       <Route path='/beers/category/:category' element={<ViewAll />} />
                       <Route path='/beers/ingredient/:ingredient' element={<ViewAll />} />
                       <Route path='/online-payment' element={<Payment />} />
-                      <Route path='/' element={<Navigate to={"/home"} />} />
                       <Route path='/*' element={<Page404 />} />
                     </Routes>
                   </>

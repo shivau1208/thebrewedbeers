@@ -52,6 +52,7 @@ export default function Beer() {
         commentsButton:commentsButton.current,
         commentsIframeWrapper:commentsIframeRef.current,
         COOKIE_NAME:"cid",
+        // IFRAME_ORIGIN:"http://localhost:5173",
         IFRAME_ORIGIN:"https://comments-section-frontend-qtdfocztwa-el.a.run.app",
         services:{
           signIn: ()=>{},
@@ -62,7 +63,7 @@ export default function Beer() {
               }
             });
           },
-          postId:() => beer?.idDrink || 1,
+          postId:() => beer?.idDrink,
         }
       })
 
@@ -107,6 +108,7 @@ export default function Beer() {
               <h4>Instructions:</h4>
               <p>{beerDetails?.strInstructions}</p>
             </div>
+            <h3>Reviews</h3>
             <div className="iframeContent" ref={commentsIframeRef}></div>
           </BeerdetailWrapper>
           
