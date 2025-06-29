@@ -18,9 +18,23 @@ export default function Signin() {
 		}
 		signInWithPopup(auth, provider)
 			.then(async ({ user }) => {
-				localStorage.setItem("user", JSON.stringify({ email: user.email, displayname: user.displayName, profile: user.photoURL, userId: user.uid, lastRefresh: user.reloadUserInfo.lastRefreshAt })); // Set the token in local storage
-
+				
 				const res = await oauthService(user.accessToken);
+				// You can only access cookie headers here if they are not HttpOnly
+				const authtoken = res.headers.get('X-Auth-Token');
+
+				// Optional: parse and store in localStorage if accessible
+				if (authtoken) {
+					localStorage.setItem('cid', authtoken); // Save cookie value
+				}
+				
+				localStorage.setItem("user", JSON.stringify({ 
+					email: user.email, 
+					displayname: user.displayName, 
+					profile: user.photoURL, 
+					userId: user.uid, 
+					lastRefresh: user.reloadUserInfo.lastRefreshAt 
+				})); // Set the token in local storage
 				const { message } = await res.json();
 
 				if (res.status == 200) {
@@ -29,8 +43,8 @@ export default function Signin() {
 					if (loader) {
 						loader.style.display = "none";
 					}
-					navigate("/online-payment");
-					if ("serviceWorker" in navigator) {
+					navigate(-1);
+					/* if ("serviceWorker" in navigator) {
 						navigator.serviceWorker
 							.register("/sw.js")
 							.then((registration) => {
@@ -39,7 +53,7 @@ export default function Signin() {
 							.catch((err) => {
 								console.log("Service worker registration failed", err);
 							});
-					}
+					} */
 				} else {
 					if (loader) {
 						loader.style.display = "none";
@@ -55,8 +69,8 @@ export default function Signin() {
 	return (
 		<div className="container">
 			<div className="signinForm">
-				<img src="/beer-mug.svg" alt="" srcset="" className="mb-2" width={"75"} />
-				<button href="#" onClick={signInWithGoogle} type="submit" class="login-with-google-btn">
+				<img src="/beer-mug.svg" alt="" srcSet="" className="mb-2" width={"75"} />
+				<button href="#" onClick={signInWithGoogle} type="submit" className="login-with-google-btn">
 					Continue with Google
 				</button>
 			</div>
