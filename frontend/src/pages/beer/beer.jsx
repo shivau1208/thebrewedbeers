@@ -1,14 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 import './beer.scss';
 import '../home/home.scss'
-import { auth } from '../auth/firebaseConf';
+import { auth, provider } from '../auth/firebaseConf';
 import CommentsService from 'https://dccpwq72o6kla.cloudfront.net/main.min.js';
+// import CommentsService from '@/utils/main.min.js';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useBeerContextApi } from '@/context/beerContextApi';
 import styled from 'styled-components';
 import { useCartContextApi } from '@/context/cartContextApi';
 import { ImgCDN } from '@/App';
 import { CategorisedBeers } from '@/utils/categorisedBeers';
+import { signInWithPopup } from 'firebase/auth';
+import { oauthService } from '@/services/loginService';
+import { AlertFunc } from '@/components/Alert/Alert';
+import { VerifyAuth } from '@/redux/actions';
+import { useDispatch } from 'react-redux';
 
 const BeerParent = styled.div`
   background-color:#f4f4f4;
@@ -31,6 +37,7 @@ export default function Beer() {
   const beer = data.find(item=>item?.idDrink==id);
   const commentsIframeRef = useRef();
   const commentsButton = useRef();
+  const dispatch = useDispatch()
 
   function AddToCartFunc() {
     setIsAddedToCart(true); 
@@ -55,7 +62,63 @@ export default function Beer() {
         // IFRAME_ORIGIN:"http://localhost:5173",
         IFRAME_ORIGIN:"https://comments-section-frontend-qtdfocztwa-el.a.run.app",
         services:{
-          signIn: ()=>{},
+          signIn: ()=>{
+            let loader = document.querySelector(".flexbox");
+            if (loader) {
+              loader.style.display = "flex";
+            }
+            signInWithPopup(auth, provider)
+            .then(async ({ user }) => {
+              const res = await oauthService(user.accessToken);
+              // You can only access cookie headers here if they are not HttpOnly
+              const authtoken = res.headers.get("X-Auth-Token");
+      
+              // Optional: parse and store in localStorage if accessible
+              if (authtoken) {
+                localStorage.setItem("cid", authtoken); // Save cookie value
+              }
+      
+              localStorage.setItem(
+                "user",
+                JSON.stringify({
+                  email: user.email,
+                  displayname: user.displayName,
+                  profile: user.photoURL,
+                  userId: user.uid,
+                  lastRefresh: user.reloadUserInfo.lastRefreshAt,
+                })
+              ); // Set the token in local storage
+              const { message } = await res.json();
+      
+              if (res.status == 200) {
+                AlertFunc(message, "success", 2000);
+                dispatch(VerifyAuth("authenticate"));
+                if (loader) {
+                  loader.style.display = "none";
+                }
+                navigate(-1);
+                /* if ("serviceWorker" in navigator) {
+                  navigator.serviceWorker
+                    .register("/sw.js")
+                    .then((registration) => {
+                      console.log("Service work registered with scope:", registration.scope);
+                    })
+                    .catch((err) => {
+                      console.log("Service worker registration failed", err);
+                    });
+                } */
+              } else {
+                if (loader) {
+                  loader.style.display = "none";
+                }
+                AlertFunc(message, "danger", 2000);
+                navigate(`/auth/signin`);
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+          },
           handleAuthOnLoad:async function() {
             auth.onAuthStateChanged(async (user) => {
               if (user) {
