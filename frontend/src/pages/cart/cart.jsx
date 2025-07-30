@@ -151,9 +151,7 @@ export default function CartComp() {
 								))}
 							</div>
 							<div className="placeOrder">
-								<Link to="/online-payment">
-									<button className="placeOrderBtn">Checkout</button>
-								</Link>
+								<button className="placeOrderBtn" onClick={onClickPlaceOrder}>Checkout</button>
 							</div>
 						</div>
 						<div className="cartTotal">

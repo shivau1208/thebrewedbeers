@@ -22,7 +22,8 @@ export default function UserProfile() {
     .then(res=>{
       if(res.status==200){
         loader.style.display = 'none';
-        localStorage.removeItem('userInfo');
+        localStorage.removeItem('user');
+        localStorage.removeItem('cid');
         AlertFunc('Logged out successfully',"success",2000)
         setTimeout(()=>{
           router(`/auth/signin`);

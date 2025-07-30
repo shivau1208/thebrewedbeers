@@ -7,11 +7,10 @@ export const useCartContextApi = () => useContext(cartContextApi);
 
 export default function CartContextFunc({ children }) {
   const {user} = useSelector(state=>state?.userInfo);
-  const userId = user && user['userId'];
+  const userId = user && user['userId'] || "john";
   
   const cartData = JSON.parse(localStorage.getItem("cartItems")) || {};
-  const beersInCart = cartData[userId] || []
-
+  const beersInCart = cartData[userId];
   
   const { cartItems, addToCart, removeFromCart, reduceFromCart, increaseToCart, cartTotal, clearCart } = useCartService(beersInCart);
   useEffect(() => {

@@ -85,11 +85,15 @@
   width: 600px;
   margin: 2rem 0;
 }
+.iframeContent{
+  border: 1px solid #f4f4f4;
+
+}
 .iframeContent iframe {
   width: 100%;
   min-height: 500px;
   height: 100%;
-  border: 1px solid #ccc;
+  border: none;
 }
 @media (425px < width < 576px) {
   .beer_Container {

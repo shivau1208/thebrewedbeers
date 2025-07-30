@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import './beer.scss';
 import '../home/home.scss'
 import { auth, provider } from '../auth/firebaseConf';
-import CommentsService from 'https://dccpwq72o6kla.cloudfront.net/main.min.js';
-// import CommentsService from '@/utils/main.min.js';
+// import CommentsService from 'https://dccpwq72o6kla.cloudfront.net/main.min.js';
+import CommentsService from '@/utils/main.min.js';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useBeerContextApi } from '@/context/beerContextApi';
 import styled from 'styled-components';
@@ -96,7 +96,6 @@ export default function Beer() {
                 if (loader) {
                   loader.style.display = "none";
                 }
-                navigate(-1);
                 /* if ("serviceWorker" in navigator) {
                   navigator.serviceWorker
                     .register("/sw.js")
@@ -117,6 +116,9 @@ export default function Beer() {
             })
             .catch((err) => {
               console.log(err);
+              if (loader) {
+                loader.style.display = "none";
+              }
             });
           },
           handleAuthOnLoad:async function() {
