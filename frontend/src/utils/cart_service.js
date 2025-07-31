@@ -16,10 +16,10 @@ export default function useCartService(itemsToCart) {
     }
   };
   const removeFromCart = async (id) => {
-    let filteredItems = cartItems.filter((cartItem, index) => cartItem.item.idDrink !== id);
+    let filteredItems = cartItems.filter((cartItem) => cartItem.item.idDrink !== id);
     setCartItems(filteredItems);
   };
-  const updateCartQuantity = async (id, operation, amount = 1) => {
+  /* const updateCartQuantity = async (id, operation, amount = 1) => {
     setCartItems((prevCartItems) =>
       prevCartItems.map((cartItem) => {
         if (cartItem.item.idDrink === id) {
@@ -32,7 +32,7 @@ export default function useCartService(itemsToCart) {
         return cartItem;
       })
     );
-  };
+  }; */
   
   const increaseToCart = async (id) => {
     setCartItems((prevCartItems) => prevCartItems.map((cartItem) => (cartItem.item.idDrink === id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem)));

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import './userprofile.scss';
-import { useBeerContextApi } from "@/context/beerContextApi";
+import { useBeerContextApi } from "@/context/apis";
 import { logoutService } from "@/services/loginService";
 import { AlertFunc } from "@/components/Alert/Alert";
 import { useSelector } from "react-redux";
@@ -22,7 +22,8 @@ export default function UserProfile() {
     .then(res=>{
       if(res.status==200){
         loader.style.display = 'none';
-        localStorage.removeItem('userInfo');
+        localStorage.removeItem('user');
+        localStorage.removeItem('cid');
         AlertFunc('Logged out successfully',"success",2000)
         setTimeout(()=>{
           router(`/auth/signin`);

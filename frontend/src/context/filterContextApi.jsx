@@ -1,7 +1,5 @@
-import { createContext, useContext, useState } from "react";
-
-const FilterContextApi = createContext();
-export const useFilterContextApi = () => useContext(FilterContextApi);
+import { useState } from "react";
+import { FilterContext } from "./apis";
 
 export default function FilterContextFunc({ children }) {
   const [filters, setFilters] = useState(() => {
@@ -18,5 +16,5 @@ export default function FilterContextFunc({ children }) {
         };
   });
 
-  return <FilterContextApi.Provider value={{ filters, setFilters }}>{children}</FilterContextApi.Provider>;
+  return <FilterContext.Provider value={{ filters, setFilters }}>{children}</FilterContext.Provider>;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './dining.css';
-import { useBeerContextApi } from '@/context/beerContextApi';
+import { useBeerContextApi } from '@/context/apis';
 
 export default function Dining() {
   const {setSearchComp,setCartComp} = useBeerContextApi();

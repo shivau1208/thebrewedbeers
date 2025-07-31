@@ -1,6 +1,6 @@
 import { lazy, Suspense, useMemo } from "react";
 import DotLoader from "@/components/loaders/DotLoader";
-import { useBeerContextApi } from "@/context/beerContextApi";
+import { useBeerContextApi } from "@/context/apis";
 
 
 const SingleBeerComp = lazy(() => import("@/components/singleBeer"));

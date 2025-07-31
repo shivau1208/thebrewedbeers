@@ -1,9 +1,9 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import "./navBar.css";
 import styled from "styled-components";
-import { useBeerContextApi } from "@/context/beerContextApi";
+import { useBeerContextApi } from "@/context/apis";
 import { Link, useNavigate } from "react-router-dom";
-import { useCartContextApi } from "@/context/cartContextApi";
+import { useCartContextApi } from "@/context/apis";
 import UserProfile from "@/pages/UserProfile/UserProfile";
 import { useDispatch, useSelector } from "react-redux";
 import { Debounce } from "@/utils/categorisedBeers";

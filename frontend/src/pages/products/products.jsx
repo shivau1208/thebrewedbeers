@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useBeerContextApi } from "@/context/beerContextApi";
+import { useBeerContextApi } from "@/context/apis";
 import SingleBeer from "@/components/singleBeer";
 import Nodatafound from "@/components/Error/Nodatafound";
 import SortFilter from "@/components/sortfilter/SortFilter";

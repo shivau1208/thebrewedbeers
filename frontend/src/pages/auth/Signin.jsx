@@ -27,7 +27,13 @@ export default function Signin() {
 				if (authtoken) {
 					localStorage.setItem('cid', authtoken); // Save cookie value
 				}
-				
+				const cartData = JSON.parse(localStorage.getItem("cartItems")) || {};
+				const userId = user.uid || "john";
+				if ((userId != "john") && cartData["john"]) {
+					cartData[userId] = cartData["john"];
+					delete cartData["john"];
+					localStorage.setItem("cartItems", JSON.stringify(cartData));
+				}
 				localStorage.setItem("user", JSON.stringify({ 
 					email: user.email, 
 					displayname: user.displayName, 
@@ -63,6 +69,9 @@ export default function Signin() {
 				}
 			})
 			.catch((err) => {
+				if (loader) {
+					loader.style.display = "none";
+				}
 				console.log(err);
 			});
 	};

@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import "./cart.css";
-import { useBeerContextApi } from "@/context/beerContextApi";
+import { useBeerContextApi } from "@/context/apis";
 import Emptycart from "./emptyCart";
-import { useCartContextApi } from "@/context/cartContextApi";
+import { useCartContextApi } from "@/context/apis";
 import { ImgCDN } from "@/App";
 import { useDispatch, useSelector } from "react-redux";
 import { VerifyAuthService } from "@/services/loginService";
@@ -151,9 +151,7 @@ export default function CartComp() {
 								))}
 							</div>
 							<div className="placeOrder">
-								<Link to="/online-payment">
-									<button className="placeOrderBtn">Checkout</button>
-								</Link>
+								<button className="placeOrderBtn" onClick={onClickPlaceOrder}>Checkout</button>
 							</div>
 						</div>
 						<div className="cartTotal">
