@@ -2,6 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import './beer.scss';
 import '../home/home.scss'
 import { auth, provider } from '../auth/firebaseConf';
+// Preconnect to the CDN for performance
+const link = document.createElement('link');
+link.rel = 'preconnect';
+link.href = 'https://dccpwq72o6kla.cloudfront.net';
+document.head.appendChild(link);
+
 import CommentsService from 'https://dccpwq72o6kla.cloudfront.net/main.min.js';
 // import CommentsService from '@/utils/main.min.js';
 import { Link, useNavigate, useParams } from 'react-router-dom';

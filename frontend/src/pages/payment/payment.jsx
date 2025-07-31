@@ -85,8 +85,8 @@ export default function Payment() {
 		let keys = Object.keys(deliverAddress);
 		if (keys.every((item) => deliverAddress[item])) {
 			clearCart();
-			/* setPopUp(true);
-			confetti({
+			setPopUp(true);
+			/* confetti({
 				particleCount: 150,
 				spread: 60,
 			}); */
