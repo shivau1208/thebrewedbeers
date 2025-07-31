@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { BeersContext } from "./apis";
 
-const BeersContext = createContext(null);
-export const useBeerContextApi = () => useContext(BeersContext);
 
 export default function BeerContextFunc({ children }) {
   const [searchComp, setSearchComp] = useState(true);

@@ -5,9 +5,9 @@ import { auth, provider } from '../auth/firebaseConf';
 // import CommentsService from 'https://dccpwq72o6kla.cloudfront.net/main.min.js';
 import CommentsService from '@/utils/main.min.js';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useBeerContextApi } from '@/context/beerContextApi';
+import { useBeerContextApi } from '@/context/apis';
 import styled from 'styled-components';
-import { useCartContextApi } from '@/context/cartContextApi';
+import { useCartContextApi } from '@/context/apis';
 import { ImgCDN } from '@/App';
 import { CategorisedBeers } from '@/utils/categorisedBeers';
 import { signInWithPopup } from 'firebase/auth';
@@ -140,9 +140,7 @@ export default function Beer() {
   
   if(!beerDetails){
     return(
-      <>
-        <>Loading....</>
-      </>
+      <>Loading....</>
     )
   }
   return (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './searchComponent.scss';
-import { useBeerContextApi } from '@/context/beerContextApi';
+import { useBeerContextApi } from '@/context/apis';
 import SingleBeer from '../singleBeer';
 import { Throttle } from '@/utils/categorisedBeers';
 import { useSearchParams } from 'react-router-dom';

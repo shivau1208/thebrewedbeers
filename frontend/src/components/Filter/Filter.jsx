@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./filter.scss";
-import { useBeerContextApi } from "@/context/beerContextApi";
+import { useBeerContextApi } from "@/context/apis";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { alcoholContent, categoriesContent, glasesContent, ingredientsContent, priceRange, ratingContent } from "@/constants/filterConstants";
-import { useFilterContextApi } from "@/context/filterContextApi";
+import { useFilterContextApi } from "@/context/apis";
 
 const Filter_route = styled.div`
   height: 100%;

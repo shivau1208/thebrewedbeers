@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./payment.scss";
 import { sha256 } from "js-sha256";
-import { useCartContextApi } from "@/context/cartContextApi";
+import { useCartContextApi } from "@/context/apis";
 import { useDispatch, useSelector } from "react-redux";
 import { UpdateUser, VerifyAuth } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";

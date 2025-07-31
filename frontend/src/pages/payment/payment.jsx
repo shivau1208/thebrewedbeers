@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./payment.scss";
-import { useCartContextApi } from "@/context/cartContextApi";
+import { useCartContextApi } from "@/context/apis";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import confetti from "@/utils/confetti";
-import { useBeerContextApi } from "@/context/beerContextApi";
+// import confetti from "@/utils/confetti";
+import { useBeerContextApi } from "@/context/apis";
 import { AlertFunc } from "@/components/Alert/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import { VerifyAuthService } from "../../services/loginService";
@@ -85,11 +85,11 @@ export default function Payment() {
 		let keys = Object.keys(deliverAddress);
 		if (keys.every((item) => deliverAddress[item])) {
 			clearCart();
-			setPopUp(true);
+			/* setPopUp(true);
 			confetti({
 				particleCount: 150,
 				spread: 60,
-			});
+			}); */
 		} else {
 			AlertFunc("Please fill all fields", "info", 2000);
 		}

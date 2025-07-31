@@ -12,7 +12,9 @@ export const authReducer = (state={authenticated:false},action)=>{
   }
 }
 
-export const userReducer = (state={user:null},action)=>{
+const userInitialState = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+
+export const userReducer = (state={user:userInitialState},action)=>{
   if (action.type === 'UPDATE_USER') {
     return { user: action.payload };
   }

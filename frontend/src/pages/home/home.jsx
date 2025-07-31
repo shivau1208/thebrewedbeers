@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useBeerContextApi } from "@/context/beerContextApi";
+import { useBeerContextApi } from "@/context/apis";
 import Footer from "@/components/footer/footer";
 import Nodatafound from "@/components/Error/Nodatafound";
 import "./home.scss";

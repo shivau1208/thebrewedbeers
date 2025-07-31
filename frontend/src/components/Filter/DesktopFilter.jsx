@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { alcoholContent, categoriesContent, glasesContent, ingredientsContent, priceRange, ratingContent } from "@/constants/filterConstants";
-import { useBeerContextApi } from "@/context/beerContextApi";
-import { useFilterContextApi } from "@/context/filterContextApi";
+import { useBeerContextApi } from "@/context/apis";
+import { useFilterContextApi } from "@/context/apis";
 
 export default function DesktopFilter() {
   const { data, setProducts } = useBeerContextApi();
