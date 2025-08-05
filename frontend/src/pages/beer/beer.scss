@@ -2,19 +2,18 @@
   max-width:  1280px;;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 450px 780px;
+  grid-template-columns: 470px 780px;
   column-gap: 17px;
   background-color: #fff;
   padding: 16px;
   height: fit-content;
 }
 .beer_Container .beerView {
-  height: 490px;
-  padding: 1rem;
+  padding: 0.5rem;
   border: 0.05rem solid #f1f1f1;
 }
 .beer_Container .beerView img {
-  width: 410px;
+  width: 450px;
   height: 450px;
 }
 .buyOrAdd.desktop{
@@ -80,6 +79,14 @@
 }
 .beer_Container .beer_Details .offers {
   font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+}
+.beer_Container .beer_Details .offers img, 
+.beer_Container .beer_Details .offers strong,
+.beer_Container .beer_Details .offers span{
+  white-space: nowrap;
+  margin-right: 5px;
 }
 .beer_Container .beerSpec {
   width: 600px;
@@ -87,7 +94,6 @@
 }
 .iframeContent{
   border: 1px solid #f4f4f4;
-
 }
 .iframeContent iframe {
   width: 100%;
@@ -95,6 +101,42 @@
   height: 100%;
   border: none;
 }
+@media (576px <= width <= 768px) {
+  .beer_Container {
+    max-width: 750px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 360px 370px;
+    column-gap: 10px;
+    background-color: #fff;
+    padding: 5px;
+    height: fit-content;
+  }
+  .beer_Container .beerView {
+    padding: 0 5px;
+    border: 1px solid #f1f1f1;
+    width: 350px;
+    height: 350px;
+  }
+  .beer_Container .beerView img {
+    width: 100%;
+    height: auto;
+  }
+  .beer_Container .beer_Details {
+    width: 360px;
+  }
+  .beer_Container .beer_Details .offers span{
+    max-width: 260px;
+    display: inline-block;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  .beer_Container .beerSpec {
+    width: 360px;
+    margin: 1.5rem 0;
+  }
+}
+
 @media (425px < width < 576px) {
   .beer_Container {
     max-width: 500px;
@@ -148,9 +190,15 @@
     margin: 0;
   }
   .beer_Container .beerView {
-    height: 410px;
+    height: auto;
     padding: 0;
-    border: 0.05rem solid #f1f1f1;
+    border: 1px solid #f1f1f1;
+    width: auto;
+    display: flex;
+    align-items: center;
+    max-width: 415px;
+    margin: 0 auto 20px auto;
+    justify-content: center;
   }
   .beer_Container .beerView img{
     width: 410px;
@@ -185,11 +233,13 @@
     margin: 0;
   }
   .beer_Container .beerView {
-    height: 360px;
+    height: auto;
     padding: 0;
+    max-width: 360px;
+    margin-bottom: 20px;
   }
   .beer_Container .beerView img{
-    width: 350px;
+    width: auto;
     height: auto;
     font-size: 14px;
   }
