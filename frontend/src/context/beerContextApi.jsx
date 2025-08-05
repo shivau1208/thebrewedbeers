@@ -18,6 +18,7 @@ export default function BeerContextFunc({ children }) {
 
 
   const  beer_data = 'https://d3ibff8wnmjbff.cloudfront.net'
+  // const  beer_data = 'https://dd51nofu22qg6.cloudfront.net' // Updated URL to dev
   // const [isDarkMode,setDarkMode] = useState(true)
   const fetchData = async () => {
     try{

@@ -41,8 +41,8 @@ export default function Beer() {
   const {id} = useParams();
   const navigate = useNavigate();
   const beer = data.find(item=>item?.idDrink==id);
-  const commentsIframeRef = useRef();
-  const commentsButton = useRef();
+  const commentsIframeRef = useRef(null);
+  const commentsButton = useRef(null);
   const dispatch = useDispatch()
 
   function AddToCartFunc() {
@@ -61,6 +61,8 @@ export default function Beer() {
   useEffect(() => {
     // Only initialize commentsService when the ref is attached
     if (commentsIframeRef.current) {
+      console.log("Initializing CommentsService");
+      
       const  commentsService = new CommentsService({
         commentsButton:commentsButton.current,
         commentsIframeWrapper:commentsIframeRef.current,
@@ -84,9 +86,7 @@ export default function Beer() {
                 localStorage.setItem("cid", authtoken); // Save cookie value
               }
       
-              localStorage.setItem(
-                "user",
-                JSON.stringify({
+              localStorage.setItem( "user", JSON.stringify({
                   email: user.email,
                   displayname: user.displayName,
                   profile: user.photoURL,
@@ -102,16 +102,6 @@ export default function Beer() {
                 if (loader) {
                   loader.style.display = "none";
                 }
-                /* if ("serviceWorker" in navigator) {
-                  navigator.serviceWorker
-                    .register("/sw.js")
-                    .then((registration) => {
-                      console.log("Service work registered with scope:", registration.scope);
-                    })
-                    .catch((err) => {
-                      console.log("Service worker registration failed", err);
-                    });
-                } */
               } else {
                 if (loader) {
                   loader.style.display = "none";
@@ -127,18 +117,12 @@ export default function Beer() {
               }
             });
           },
-          handleAuthOnLoad:async function() {
-            auth.onAuthStateChanged(async (user) => {
-              if (user) {
-                localStorage.setItem("user", JSON.stringify({ email: user?.email, profile: user?.photoURL, userId: user.uid, lastRefresh:user.reloadUserInfo.lastRefreshAt})); // Set the token in local storage
-              }
-            });
-          },
+          handleAuthOnLoad: () => {},
           postId:() => beer?.idDrink,
         }
       })
 
-      if(!(/Mobi|Android/i.test(navigator.userAgent))){
+      if(/Win|Mac|Linux/i.test(navigator.userAgent) && !/Mobi|Android/i.test(navigator.userAgent)){
         commentsService.init().createCommentsIframe();
       }
     }
@@ -169,16 +153,18 @@ export default function Beer() {
                 <p>{beerDetails?.strAlcoholic}</p>
                 <p className='price'><strong>&#8377;{`${(beerDetails?.price-beerDetails?.rating*10).toFixed(2)}`}</strong> <strike>{beerDetails?.price}</strike> {`${beerDetails?.rating*10}% off`}  </p>
                 <div className='ratings'><div> {`${beerDetails?.rating} ★ `}</div> <small>{`${beerDetails?.idDrink} Ratings`}</small></div>
-                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> Get 10% off upto ₹50 on first UPI transaction on order of ₹250 and above T&C</p>
-                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> 5% Cashback on ABC Bank Card T&C</p>
-                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong> 10% off up to ₹1,250 on ABC Bank Credit Card Transactions, on orders of ₹5,000 and above T&C</p>
+                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong><span>Get 10% off upto ₹50 on first UPI transaction on order of ₹250 and above T&C</span></p>
+                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong><span>5% Cashback on ABC Bank Card T&C</span></p>
+                <p className='offers'><img src="/tag-price.svg" alt="" srcSet="" /> <strong>Bank Offer</strong><span>10% off up to ₹1,250 on ABC Bank Credit Card Transactions, on orders of ₹5,000 and above T&C</span></p>
             </div>
             <div className="beerSpec">
               <h4>Instructions:</h4>
               <p>{beerDetails?.strInstructions}</p>
             </div>
-            <h3>Reviews</h3>
-            <div className="iframeContent" ref={commentsIframeRef}></div>
+            {/Win|Mac|Linux/i.test(navigator.userAgent) && !/Mobi|Android/i.test(navigator.userAgent) && <div>
+              <h3>Reviews</h3>
+              <div className="iframeContent" ref={commentsIframeRef}></div>
+            </div>}
           </BeerdetailWrapper>
           
         </div>
